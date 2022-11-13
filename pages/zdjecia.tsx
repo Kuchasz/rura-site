@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
 type Item = {
     thumb: string;
     big: string;
