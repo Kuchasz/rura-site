@@ -19,33 +19,7 @@ type Directory = {
 
 const rura = (url: string) => `https://galleries.azureedge.net/rura/${url}`;
 
-function Zdjecia() {
-    const [directories, setDirectories] = useState<Directory[]>([]);
-    useEffect(() => {
-        fetch(rura(`index.json?v=${Math.random()}`))
-            .then((x) => x.json())
-            .then((dirs: Directory[]) =>
-                Promise.all(
-                    dirs.map((d) =>
-                        fetch(rura(`${d.dir}/photos.json`))
-                            .then((x) => x.json())
-                            .then((x: string[]) =>
-                                Promise.resolve({
-                                    ...d,
-                                    date: d.date.replace(/-/g, "."),
-                                    items: x.map((i) => ({
-                                        thumb: rura(`${d.dir}/thumb/${i}`),
-                                        big: rura(`${d.dir}/big/${i}`),
-                                        full: rura(`${d.dir}/full/${i}`),
-                                    })),
-                                })
-                            )
-                    )
-                )
-            )
-            .then(setDirectories);
-    }, []);
-
+function Zdjecia({ directories }: { directories: Directory[] }) {
     return (
         <>
             <Head>
@@ -72,6 +46,34 @@ function Zdjecia() {
             </div>
         </>
     );
+}
+
+export async function getServerSideProps() {
+    const directories = await fetch(rura(`index.json?v=${Math.random()}`))
+        .then((x) => x.json())
+        .then((dirs: Directory[]) =>
+            Promise.all(
+                dirs.map((d) =>
+                    fetch(rura(`${d.dir}/photos.json`))
+                        .then((x) => x.json())
+                        .then((x: string[]) =>
+                            Promise.resolve({
+                                ...d,
+                                date: d.date.replace(/-/g, "."),
+                                items: x.map((i) => ({
+                                    thumb: rura(`${d.dir}/thumb/${i}`),
+                                    big: rura(`${d.dir}/big/${i}`),
+                                    full: rura(`${d.dir}/full/${i}`),
+                                })),
+                            })
+                        )
+                )
+            )
+        );
+
+    return {
+        props: { directories },
+    };
 }
 
 export default Zdjecia;
