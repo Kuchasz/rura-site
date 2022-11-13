@@ -1,0 +1,34 @@
+{
+    "name": "rura-site",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "next build && tsc --project tsconfig.json",
+        "export": "next build && next export",
+        "generate-css-types": "tailwindcss-classnames -i tailwind.config.js -o tailwind-types.ts",
+        "start:dev": "next dev"
+    },
+    "dependencies": {
+        "@mdi/js": "^6.9.96",
+        "@mdi/react": "^1.6.0",
+        "@types/classnames": "^2.3.1",
+        "@types/jest": "^28.1.4",
+        "@types/node": "^18.11.9",
+        "@types/react": "^18.0.25",
+        "@types/react-dom": "^18.0.8",
+        "@types/simple-react-lightbox": "3.6.1",
+        "autoprefixer": "^10.4.7",
+        "classnames": "^2.3.1",
+        "next": "^13.0.3",
+        "postcss": "^8.4.14",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sass": "^1.56.1",
+        "simple-react-lightbox": "3.6.9-0",
+        "tailwindcss": "^3.1.4",
+        "tailwindcss-classnames": "^3.0.5",
+        "typescript": "^4.8.4"
+    },
+    "resolutions": {
+        "@types/eslint": "8.4.3"
+    }
+}

@@ -1,0 +1,10 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#__next {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
