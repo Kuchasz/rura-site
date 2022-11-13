@@ -46,7 +46,7 @@ function Zdjecia({ directories }: { directories: Directory[] }) {
     );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const directories = await fetch(rura(`index.json?v=${Math.random()}`))
         .then((x) => x.json())
         .then((dirs: Directory[]) =>
