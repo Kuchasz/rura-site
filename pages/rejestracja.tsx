@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React from "react";
 
-const Zapisy = () => {
+const Rejestracja = () => {
     return (
         <>
             <Head>
-                <title>Zapisy</title>
+                <title>Rejestracja</title>
             </Head>
             <div className="flex h-full p-16 flex-1 items-center justify-center">
                 <a
@@ -20,4 +20,4 @@ const Zapisy = () => {
     );
 };
 
-export default Zapisy;
+export default Rejestracja;
