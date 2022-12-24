@@ -6,7 +6,7 @@
         "export": "next build && next export",
         "start": "next start",
         "generate-css-types": "tailwindcss-classnames -i tailwind.config.js -o tailwind-types.ts",
-        "start:dev": "next dev"
+        "start:dev": "next dev -p 3002"
     },
     "dependencies": {
         "@mdi/js": "^6.9.96",

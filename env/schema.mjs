@@ -7,6 +7,9 @@ import { z } from "zod";
  */
 export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
+  REGISTRATION_API_KEY: z.string().regex(/[a-zA-Z0-9]+/),
+  REGISTRATION_API_URL: z.string().url(),
+  REGISTRATION_API_NAME: z.string()
 });
 
 /**
