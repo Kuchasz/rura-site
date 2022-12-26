@@ -1,9 +1,8 @@
-export const Loader = ({ light }: { light?: boolean }) => (
+export const Loader = ({ light, small }: { light?: boolean; small?: boolean }) => (
     <svg
-        width="40"
-        height="140"
+        width={small ? "20" : "40"}
+        height={small ? "20" : "40"}
         viewBox="0 0 135 140"
-        className="m-4"
         xmlns="http://www.w3.org/2000/svg"
         fill={light ? "#FFF" : "#000"}
     >

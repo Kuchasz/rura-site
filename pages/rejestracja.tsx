@@ -1,11 +1,13 @@
+import { Loader } from "components/loader";
 import { countryCodes } from "contry-codes";
 import Head from "next/head";
 import React, { useState } from "react";
 
 const Rejestracja = () => {
-    const [registrationStatus, setRegistrationStatus] = useState<"pending" | "successful">("pending");
+    const [registrationStatus, setRegistrationStatus] = useState<"pending" | "progress" | "successful">("pending");
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        setRegistrationStatus("pending");
         const formElements = e.currentTarget.elements as unknown as {
             name: HTMLInputElement;
             lastName: HTMLInputElement;
@@ -40,18 +42,6 @@ const Rejestracja = () => {
         }).then(() => setRegistrationStatus("successful"));
     };
 
-    const hello = async () => {
-        const res = await fetch("/api/hello", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ name: "John" }),
-        }).then(r => r.json());
-
-        console.log(res);
-    };
-
     return (
         <>
             <Head>
@@ -59,13 +49,12 @@ const Rejestracja = () => {
             </Head>
             <div className="flex h-full p-16 flex-1 items-center justify-center">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-                    <button onClick={hello}>Hello</button>
                     <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                                 Rejestracja na zawody
                             </h1>
-                            {registrationStatus === "pending" ? (
+                            {registrationStatus !== "successful" ? (
                                 <form
                                     className="space-y-4 md:space-y-6"
                                     onSubmit={(e) => {
@@ -84,6 +73,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="imię zawodnika"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -97,6 +87,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="nazwisko zawodnika"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -110,6 +101,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="data urodzenia"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -122,6 +114,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="płeć"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         >
                                             <option value="male">Mężczyzna</option>
                                             <option value="female">Kobieta</option>
@@ -136,6 +129,7 @@ const Rejestracja = () => {
                                             id="team"
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="nazwa drużyny"
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -148,6 +142,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="miasto"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -161,6 +156,7 @@ const Rejestracja = () => {
                                             placeholder="kraj"
                                             defaultValue="PL"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         >
                                             {countryCodes.map((cc) => (
                                                 <option key={cc.code} value={cc.code}>
@@ -180,6 +176,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="adres email"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -193,6 +190,7 @@ const Rejestracja = () => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="numer telefonu"
                                             required
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
                                     <div>
@@ -205,6 +203,7 @@ const Rejestracja = () => {
                                             id="icePhoneNumber"
                                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
                                             placeholder="ratunkowy numer telefonu"
+                                            disabled={registrationStatus !== "pending"}
                                         />
                                     </div>
 
@@ -255,9 +254,16 @@ const Rejestracja = () => {
                                 </div> */}
                                     <button
                                         type="submit"
-                                        className="w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                        className="flex justify-center w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     >
-                                        Zarejestruj się
+                                        {registrationStatus === "progress" ? (
+                                            <>
+                                                <span className="mr-2">Trwa rejestracja</span>
+                                                <Loader small light />
+                                            </>
+                                        ) : (
+                                            <span className="mr-2">Zarejestruj się</span>
+                                        )}
                                     </button>
                                     {/* <p className="text-sm font-light text-gray-500">
                                     Already have an account?{" "}
