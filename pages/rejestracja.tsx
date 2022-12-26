@@ -37,7 +37,19 @@ const Rejestracja = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
-        }).then(() => setRegistrationStatus('successful'));
+        }).then(() => setRegistrationStatus("successful"));
+    };
+
+    const hello = async () => {
+        const res = await fetch("/api/hello", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: "John" }),
+        }).then(r => r.json());
+
+        console.log(res);
     };
 
     return (
@@ -47,6 +59,7 @@ const Rejestracja = () => {
             </Head>
             <div className="flex h-full p-16 flex-1 items-center justify-center">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+                    <button onClick={hello}>Hello</button>
                     <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
