@@ -33,7 +33,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             phoneNumber,
             icePhoneNumber
         })
-    }).then(r => r.json());
+    });
+
+    if(result.status === 403){
+        const r = await result.text();
+        console.log(r);
+    }
 
     res.json(result);
 }
