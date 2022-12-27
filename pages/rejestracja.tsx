@@ -7,7 +7,7 @@ const Rejestracja = () => {
     const [registrationStatus, setRegistrationStatus] = useState<"pending" | "progress" | "successful">("pending");
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        setRegistrationStatus("pending");
+        setRegistrationStatus("progress");
         const formElements = e.currentTarget.elements as unknown as {
             name: HTMLInputElement;
             lastName: HTMLInputElement;
