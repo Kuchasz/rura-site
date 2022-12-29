@@ -9,6 +9,7 @@
         "start:dev": "next dev -p 3002"
     },
     "dependencies": {
+        "@headlessui/react": "^1.7.7",
         "@mdi/js": "^6.9.96",
         "@mdi/react": "^1.6.0",
         "@types/classnames": "^2.3.1",
@@ -19,6 +20,7 @@
         "@types/simple-react-lightbox": "3.6.1",
         "autoprefixer": "^10.4.7",
         "classnames": "^2.3.1",
+        "fuzzysort": "^2.0.4",
         "next": "^13.0.3",
         "postcss": "^8.4.14",
         "react": "^18.2.0",

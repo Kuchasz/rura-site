@@ -1,10 +1,23 @@
+import Combo from "components/combo";
 import { Loader } from "components/loader";
 import { countryCodes } from "contry-codes";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Rejestracja = () => {
     const [registrationStatus, setRegistrationStatus] = useState<"pending" | "progress" | "successful">("pending");
+    const [teams, setTeams] = useState<{ team: string }[]>([]);
+
+    useEffect(() => {
+        fetch("/api/teams", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((r) => r.json())
+            .then((r) => setTeams(r));
+    }, []);
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setRegistrationStatus("progress");
@@ -120,7 +133,7 @@ const Rejestracja = () => {
                                             <option value="female">Kobieta</option>
                                         </select>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <label htmlFor="team" className="block mb-2 text-sm font-medium text-gray-900">
                                             Drużyna
                                         </label>
@@ -131,6 +144,19 @@ const Rejestracja = () => {
                                             placeholder="nazwa drużyny"
                                             disabled={registrationStatus !== "pending"}
                                         />
+                                    </div> */}
+                                    <div>
+                                        <label htmlFor="team" className="block mb-2 text-sm font-medium text-gray-900">
+                                            Drużyna
+                                        </label>
+                                        <Combo name="team" id="team" items={teams} displayProperty="team"></Combo>
+                                        {/* <input
+                                            name="team2"
+                                            id="team2"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
+                                            placeholder="nazwa drużyny"
+                                            disabled={registrationStatus !== "pending"}
+                                        /> */}
                                     </div>
                                     <div>
                                         <label htmlFor="city" className="block mb-2 text-sm font-medium text-gray-900">
@@ -255,6 +281,7 @@ const Rejestracja = () => {
                                     <button
                                         type="submit"
                                         className="flex justify-center w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                        disabled={registrationStatus !== "pending"}
                                     >
                                         {registrationStatus === "progress" ? (
                                             <>
