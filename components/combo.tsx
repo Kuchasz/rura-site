@@ -14,9 +14,10 @@ type ComboProps<T> = {
     valueProperty?: keyof T;
     name: string;
     id: string;
+    placeholder: string;
 };
 
-export default function Combo<T>({ name, id, items, displayProperty }: ComboProps<T>) {
+export default function Combo<T>({ name, id, placeholder, items, displayProperty }: ComboProps<T>) {
     const [selectedItem, setSelectedItem] = useState<T>();
     const [query, setQuery] = useState("");
 
@@ -28,6 +29,7 @@ export default function Combo<T>({ name, id, items, displayProperty }: ComboProp
                 <div className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full">
                     <Combobox.Input
                         id={id}
+                        placeholder={placeholder}
                         className="w-full rounded-lg bg-transparent py-2.5 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
                         displayValue={() => query}
                         onChange={(event) => setQuery(event.target.value)}

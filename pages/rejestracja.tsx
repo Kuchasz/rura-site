@@ -149,14 +149,7 @@ const Rejestracja = () => {
                                         <label htmlFor="team" className="block mb-2 text-sm font-medium text-gray-900">
                                             Drużyna
                                         </label>
-                                        <Combo name="team" id="team" items={teams} displayProperty="team"></Combo>
-                                        {/* <input
-                                            name="team2"
-                                            id="team2"
-                                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
-                                            placeholder="nazwa drużyny"
-                                            disabled={registrationStatus !== "pending"}
-                                        /> */}
+                                        <Combo name="team" id="team" placeholder="nazwa drużyny" items={teams} displayProperty="team"></Combo>
                                     </div>
                                     <div>
                                         <label htmlFor="city" className="block mb-2 text-sm font-medium text-gray-900">
