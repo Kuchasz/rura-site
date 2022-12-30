@@ -252,7 +252,7 @@ const Rejestracja = () => {
                                         required
                                     />
                                 </div> */}
-                                    {/* <div className="flex items-start">
+                                    <div className="flex items-start">
                                     <div className="flex items-center h-5">
                                         <input
                                             id="terms"
@@ -264,13 +264,13 @@ const Rejestracja = () => {
                                     </div>
                                     <div className="ml-3 text-sm">
                                         <label htmlFor="terms" className="font-light text-gray-500">
-                                            I accept the{" "}
-                                            <a className="font-medium text-orange-600 hover:underline" href="#">
-                                                Terms and Conditions
+                                            Potwierdzam, że akceptuję{" "}
+                                            <a className="font-medium text-orange-600 hover:underline" href="/files/regulamin_rnk23.pdf">
+                                            Regulamin
                                             </a>
                                         </label>
                                     </div>
-                                </div> */}
+                                </div>
                                     <button
                                         type="submit"
                                         className="flex justify-center w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
