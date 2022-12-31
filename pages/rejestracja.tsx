@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 
 const Rejestracja = () => {
     const [registrationStatus, setRegistrationStatus] = useState<"pending" | "progress" | "successful">("pending");
-    const [teams, setTeams] = useState<{ team: string }[]>([]);
+    const [teams, setTeams] = useState<string[]>([]);
 
     useEffect(() => {
         fetch("/api/teams", {
@@ -149,7 +149,7 @@ const Rejestracja = () => {
                                         <label htmlFor="team" className="block mb-2 text-sm font-medium text-gray-900">
                                             Drużyna
                                         </label>
-                                        <Combo name="team" id="team" placeholder="nazwa drużyny" items={teams} displayProperty="team"></Combo>
+                                        <Combo name="team" id="team" placeholder="nazwa drużyny" items={teams}></Combo>
                                     </div>
                                     <div>
                                         <label htmlFor="city" className="block mb-2 text-sm font-medium text-gray-900">

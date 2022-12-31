@@ -98,13 +98,11 @@ export const Header = () => {
                                 }
                             />
                         </div>
-                        {/* <a
-                            target="_blank"
-                            href="https://dostartu.pl/rura-na-kocierz-v6591"
+                        <Link href="/rejestracja"
                             className="self-center cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 font-mono py-1"
                         >
-                            REJESTRACJA
-                        </a> */}
+                            ZAREJESTRUJ SIĘ!
+                        </Link>
                     </div>
                     <div
                         className={classNames("flex-col ml-2 items-start", menuRevealed ? "flex sm:hidden" : "hidden")}
