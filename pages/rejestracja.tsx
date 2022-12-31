@@ -5,7 +5,7 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
 const Rejestracja = () => {
-    const [registrationStatus, setRegistrationStatus] = useState<"pending" | "progress" | "successful">("pending");
+    const [registrationStatus, setRegistrationStatus] = useState<"pending" | "progress" | "successful" | "error">("pending");
     const [teams, setTeams] = useState<string[]>([]);
 
     useEffect(() => {
@@ -19,8 +19,9 @@ const Rejestracja = () => {
             .then((r) => setTeams(r));
     }, []);
 
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         setRegistrationStatus("progress");
+        console.log((e.currentTarget.elements as any).team);
         const formElements = e.currentTarget.elements as unknown as {
             name: HTMLInputElement;
             lastName: HTMLInputElement;
@@ -46,13 +47,15 @@ const Rejestracja = () => {
             icePhoneNumber: formElements.icePhoneNumber.value,
         };
 
-        fetch("/api/register", {
+        const result = await fetch("/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
-        }).then(() => setRegistrationStatus("successful"));
+        });
+
+        setRegistrationStatus(result.status === 200 ? "successful" : "error");
     };
 
     return (
@@ -67,7 +70,7 @@ const Rejestracja = () => {
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                                 Rejestracja na zawody
                             </h1>
-                            {registrationStatus !== "successful" ? (
+                            {registrationStatus === "pending" || registrationStatus === "progress" ? (
                                 <form
                                     className="space-y-4 md:space-y-6"
                                     onSubmit={(e) => {
@@ -253,24 +256,27 @@ const Rejestracja = () => {
                                     />
                                 </div> */}
                                     <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input
-                                            id="terms"
-                                            aria-describedby="terms"
-                                            type="checkbox"
-                                            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-orange-300"
-                                            required
-                                        />
+                                        <div className="flex items-center h-5">
+                                            <input
+                                                id="terms"
+                                                aria-describedby="terms"
+                                                type="checkbox"
+                                                className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-orange-300"
+                                                required
+                                            />
+                                        </div>
+                                        <div className="ml-3 text-sm">
+                                            <label htmlFor="terms" className="font-light text-gray-500">
+                                                Potwierdzam, że akceptuję{" "}
+                                                <a
+                                                    className="font-medium text-orange-600 hover:underline"
+                                                    href="/files/regulamin_rnk23.pdf"
+                                                >
+                                                    Regulamin
+                                                </a>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div className="ml-3 text-sm">
-                                        <label htmlFor="terms" className="font-light text-gray-500">
-                                            Potwierdzam, że akceptuję{" "}
-                                            <a className="font-medium text-orange-600 hover:underline" href="/files/regulamin_rnk23.pdf">
-                                            Regulamin
-                                            </a>
-                                        </label>
-                                    </div>
-                                </div>
                                     <button
                                         type="submit"
                                         className="flex justify-center w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -292,8 +298,16 @@ const Rejestracja = () => {
                                     </a>
                                 </p> */}
                                 </form>
+                            ) : registrationStatus === "error" ? (
+                                <div>
+                                    <h2 className="mb-8">Nastąpił błąd podczas rejestracji</h2>
+                                    <span>Spróbuj ponownie za jakiś czas. Prosimy o informację jeśli problem będzie się powtarzał.</span>
+                                </div>
                             ) : (
-                                <h2>Rejestracja przebiegła pomyślnie!</h2>
+                                <div>
+                                    <h2 className="mb-8">Rejestracja przebiegła pomyślnie!</h2>
+                                    <span>Sprawdź swoją pocztę email. Znajdziesz tam instrukcję dokonywania wpłaty wpisowego.</span>
+                                </div>
                             )}
                         </div>
                     </div>

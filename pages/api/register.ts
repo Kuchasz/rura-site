@@ -36,7 +36,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     if (result.status !== 200) {
-        res.status(500).send('Error occured');
+        const text = await result.text();
+        res.status(500).send(text);
+        return;
     }
 
     res.send('ok');

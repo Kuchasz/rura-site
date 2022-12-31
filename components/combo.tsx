@@ -21,11 +21,12 @@ export default function Combo({ name, id, placeholder, items }: ComboProps) {
     const filteredItems = fuzzysort.go(query, items, { all: true });
 
     return (
-        <Combobox name={name} value={query}>
+        <Combobox value={query}>
             <div className="relative mt-1">
                 <div className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full">
                     <Combobox.Input
                         id={id}
+                        name={name}
                         placeholder={placeholder}
                         className="w-full rounded-lg bg-transparent py-2.5 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
                         value={query}
