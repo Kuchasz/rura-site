@@ -24,14 +24,23 @@ export default function Combo<T>({ name, id, placeholder, items, displayProperty
     const filteredItems = query === "" ? items : fuzzysort.go(query, items, { key: displayProperty as string }).map((i) => i.obj);
 
     return (
-        <Combobox value={selectedItem} onChange={setSelectedItem} name={name}>
+        <Combobox
+            value={selectedItem}
+            onChange={(e) => {
+                console.log(e);
+                setSelectedItem(e);
+            }}
+            name={name}
+        >
             <div className="relative mt-1">
+                
                 <div className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full">
                     <Combobox.Input
                         id={id}
                         placeholder={placeholder}
                         className="w-full rounded-lg bg-transparent py-2.5 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                        displayValue={() => query}
+                        value={query}
+                        onFocus={()=>{}}
                         onChange={(event) => setQuery(event.target.value)}
                     />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
