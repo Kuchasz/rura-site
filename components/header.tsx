@@ -99,7 +99,7 @@ export const Header = () => {
                             />
                         </div>
                         <Link href="/rejestracja"
-                            className="self-center cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 font-mono py-1"
+                            className="text-sm md:text-base transition-colors mx-2 md:mx-5 uppercase cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 font-mono py-1"
                         >
                             ZAREJESTRUJ SIĘ!
                         </Link>
