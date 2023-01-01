@@ -63,7 +63,7 @@ const Rejestracja = () => {
             <Head>
                 <title>Rejestracja</title>
             </Head>
-            <div className="flex h-full p-16 flex-1 items-center justify-center">
+            <div className="flex h-full py-16 flex-1 items-center justify-center">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

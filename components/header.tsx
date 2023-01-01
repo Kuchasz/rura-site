@@ -82,7 +82,7 @@ export const Header = () => {
             </div>
             <div className="flex justify-center py-3 bg-zinc-900 text-white">
                 <div className="w-full max-w-6xl flex-col flex">
-                    <div className="mx-4 sm:mx-0 flex justify-between">
+                    <div className="mx-4 sm:mx-0 flex items-center justify-between">
                         <div className="hidden sm:flex justify-between md:justify-start">
                             {menuItems.map(mi => (
                                 <MenuButton key={mi.path} activePath={router.asPath} to={mi.path} text={mi.label} />
