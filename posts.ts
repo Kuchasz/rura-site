@@ -137,7 +137,7 @@ export const posts = [
         <br/><br/>
         W tym roku nie uda nam się zrobić etapu ze startu wspólnego, mamy nadzieję że to tylko jednorazowa pauza. W dalszym ciągu czeka na Was mnóstwo dodatkowych niespodzianek i atrakcji dla najlepszych 'climberów'
         <br/><br/>
-        Zapisy ruszą już niebawem.
+        Zapisy dostępne w zakładce <a class="font-bold text-orange-500" href="/rejestracja">"ZAREJESTRUJ SIĘ!"</a>
         <br/><br/>
         Nieustannie naszym głównym partnerem wydarzenia pozostaje Kocierz Hotel&Spa, czyli najpiękniejsza meta kolarskiego wyścigu w Polsce. Wyścig wspierać będą również firmy Agropunkt oraz Ceratizit. 
         <br/><br/>Zegar czas start!`,
