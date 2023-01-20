@@ -142,5 +142,17 @@ export const posts = [
         Nieustannie naszym głównym partnerem wydarzenia pozostaje Kocierz Hotel&Spa, czyli najpiękniejsza meta kolarskiego wyścigu w Polsce. Wyścig wspierać będą również firmy Agropunkt oraz Ceratizit. 
         <br/><br/>Zegar czas start!`,
         excerpt: "Pierwsze informacje na temat wyścigu, jego edycji w roku 2023"
+    }, {
+        date: new Date(Date.parse("2023-01-01 12:23")),
+        author: "administrator",
+        photo: "zapisy-2023.jpg",
+        title: "Zapisy na Rurę 2023 zostały otwarte!",
+        alias: "ruszaja-zapisy-2023",
+        content: `Rura na Kocierz 2023 to wyścig w jeździe indywidualnej na czas, do pokonania będzie wymagająca trasa wiodąca przez ulicę Widokową. Uruchamiamy zapisy do edycji 2023!🚵🔥
+        <br/><br/>W tym roku rejestracji można dokonać bezpośrednio na naszej stronie, link do zapisów znajduje się poniżej 👇
+        <br/><a target="_blank" href="/rejestracja">https://rura.cc/rejestracja</a>
+        <br/><br/>
+        <div>Nie zwlekajcie z opłaceniem wpisowego, do końca stycznia to 80PLN!</div>`,
+        excerpt: "Uruchamiamy zapisy na edycję 2023"
     }
 ];
