@@ -318,7 +318,7 @@ const Rejestracja = () => {
                                 </>
                             ) : registrationSystemStatus === "unknown" ? (
                                 <div>
-                                    <h2 className="mb-8">Weryfikacja statusu systemu do rejestracji zawodników...</h2>
+                                    <h2 className="mb-8">Uruchamianie systemu rejestracji...</h2>
                                 </div>
                             ) : (
                                 <div>
