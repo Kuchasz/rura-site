@@ -169,6 +169,7 @@ export const posts = [
         <li>Do biura po odbiór pakietów zapraszamy w dniu zawodów w godzinach 8:00 - 10:00</li>
         <li>W skład pakietu wchodzą: piwo kocierskie, paczka moonsów, pamiątkowy kubek i bezzwrotny numerek na sztycę</li>
         <li>Pierwszy zawodnik rusza o godzinie 11:00, kolejni zawodnicy ruszać będą co minutę</li>
+        <li>Parking przed wjazdem do Hotelu oraz parking koło mostu w Łękawicy są do Waszej dyspozycji</li>
         <li>Trasa tegorocznej czasówki jest taka sama jak rok temu, do podejrzenia w zakładce "TRASA"</li>
         <li>O bezpieczeństwo na trasie będą dbać wolontariusze, oraz Policja</li>
         <li>Obowiązują Was przepisy ruchu drogowego, pamiętajcie że jedziemy w ruchu otwartym</li>
