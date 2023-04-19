@@ -177,7 +177,7 @@ export const posts = [
         <li>Posiłek regeneracyjny, kawa, herbata oraz dekoracja będą miały miejsce na tarasie widokowym - w razie niepogody w salach obok tarasu</li>
         </ul>
         <br/><br/>
-        Informacje o sponsorach, premiach i nagrodach znajdziecie w filmie
+        Więcej detali w tym informacje o sponsorach, premiach i nagrodach znajdziecie w filmie. Prosimy, obejrzyjcie, to tylko 3 minuty :)
         <br/><br/>
         Ilość miejsc ograniczona. <strong>Zapisy trwają do 9.05 a do 30.04 obowiązuje niższa opłata startowa.</strong>
         <br/><br/><br/><br/>
