@@ -98,6 +98,3 @@ export const Loader = ({ light, small }: { light?: boolean; small?: boolean }) =
         </rect>
     </svg>
 );
-{
-    /* <img className="m-4" width="40px" src="assets/blog/bars.svg"></img>; */
-}

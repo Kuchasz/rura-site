@@ -154,5 +154,33 @@ export const posts = [
         <br/><br/>
         <div>Nie zwlekajcie z opłaceniem wpisowego, do końca stycznia to 80PLN!</div>`,
         excerpt: "Uruchamiamy zapisy na edycję 2023"
-    }
+    }, {
+        date: new Date(Date.parse("2023-04-19 20:20")),
+        author: "administrator",
+        photo: "rura-coraz-blizej-2023.jpg",
+        title: "Rura na Kocierz 2023 coraz bliżej!",
+        alias: "rura-coraz-blizej-2023",
+        content: `Rura na Kocierz rusza 13.05.2023. Tak jak w tamtym roku publikujemy materiał video który zawiera garść najważniejszych informacji przed wyścigiem. 
+        <br/><br/>
+        Jeżeli czegoś w filmie zabrakło, macie dodatkowe pytania - zapraszamy do kontaktu przez facebooka! :)
+        <br/><br/>
+        <ul class="ml-4" style="list-style-type: circle;">
+        <li>Biuro zawodów zlokalizowane będzie w parku Gminy Łękawica (w tym samym miejscu co przy niedzielnej czasówce rok temu)</li>
+        <li>Do biura po odbiór pakietów zapraszamy w dniu zawodów w godzinach 8:00 - 10:00</li>
+        <li>W skład pakietu wchodzą: piwo kocierskie, paczka moonsów, pamiątkowy kubek i bezzwrotny numerek na sztycę</li>
+        <li>Pierwszy zawodnik rusza o godzinie 11:00, kolejni zawodnicy ruszać będą co minutę</li>
+        <li>Trasa tegorocznej czasówki jest taka sama jak rok temu, do podejrzenia w zakładce "TRASA"</li>
+        <li>O bezpieczeństwo na trasie będą dbać wolontariusze, oraz Policja</li>
+        <li>Obowiązują Was przepisy ruchu drogowego, pamiętajcie że jedziemy w ruchu otwartym</li>
+        <li>Zawody dla dzieci obędą się na mecie ok. godziny 14:00</li>
+        <li>Posiłek regeneracyjny, kawa, herbata oraz dekoracja będą miały miejsce na tarasie widokowym - w razie niepogody w salach obok tarasu</li>
+        </ul>
+        <br/><br/>
+        Informacje o sponsorach, premiach i nagrodach znajdziecie w filmie
+        <br/><br/>
+        Ilość miejsc ograniczona. <strong>Zapisy trwają do 9.05 a do 30.04 obowiązuje niższa opłata startowa.</strong>
+        <br/><br/><br/><br/>
+        <iframe width="100%" height="620" src="https://www.youtube.com/embed/cGrGLlBKIGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        excerpt: "Garść informacji organizacyjnych"
+    },
 ];
