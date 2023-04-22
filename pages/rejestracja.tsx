@@ -79,18 +79,6 @@ const RegistrationFormComponent = ({
                     <option value="female">Kobieta</option>
                 </select>
             </div>
-            {/* <div>
-    <label htmlFor="team" className="block mb-2 text-sm font-medium text-gray-900">
-        Drużyna
-    </label>
-    <input
-        name="team"
-        id="team"
-        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
-        placeholder="nazwa drużyny"
-        disabled={registrationStatus !== "pending"}
-    />
-</div> */}
             <div>
                 <label htmlFor="team" className="block mb-2 text-sm font-medium text-gray-900">
                     Drużyna
@@ -204,12 +192,6 @@ const RegistrationFormComponent = ({
                     <span className="mr-2">Zarejestruj się</span>
                 )}
             </button>
-            {/* <p className="text-sm font-light text-gray-500">
-Already have an account?{" "}
-<a href="#" className="font-medium text-orange-600 hover:underline">
-    Login here
-</a>
-</p> */}
         </form>
     );
 };
@@ -245,7 +227,7 @@ const Rejestracja = () => {
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         setRegistrationStatus("progress");
-        console.log((e.currentTarget.elements as any).team);
+        
         const formElements = e.currentTarget.elements as unknown as {
             name: HTMLInputElement;
             lastName: HTMLInputElement;
@@ -258,6 +240,7 @@ const Rejestracja = () => {
             phoneNumber: HTMLInputElement;
             icePhoneNumber: HTMLInputElement;
         };
+        
         const formData = {
             name: formElements.name.value,
             lastName: formElements.lastName.value,
