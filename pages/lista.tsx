@@ -1,7 +1,7 @@
 import { Table } from "components/table";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
-import { getHealthCheck } from "set-api";
+import React from "react";
+import { getHealthCheck, getRegisteredPlayers } from "set-api";
 
 type RegistrationSystemStates = "unknown" | "valid" | "invalid";
 
@@ -10,21 +10,14 @@ const getCompactName = (name: string, lastName: string) => `${name.slice(0, 1)}.
 
 const headers = [<div>Lp.</div>, <div>Zawodnik</div>, <div className="hidden md:block">Miejscowość</div>, <div>Klub</div>];
 
-const Lista = ({ registrationSystemStatus }: { registrationSystemStatus: RegistrationSystemStates }) => {
-    const [players, setPlayers] = useState<{ name: string; lastName: string; team?: string; city?: string }[]>([]);
-
-    useEffect(() => {
-        fetch("/api/registered-players", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then(r => r.json())
-            .then(r => setPlayers(r));
-    }, []);
-
-    const result = players.map((r, i) => ({ ...r, i: i + 1 }));
+const Lista = ({
+    registrationSystemStatus,
+    registeredPlayers,
+}: {
+    registrationSystemStatus: RegistrationSystemStates;
+    registeredPlayers: { name: string; lastName: string; team?: string; city?: string }[];
+}) => {
+    const result = registeredPlayers.map((r, i) => ({ ...r, i: i + 1 }));
     type ItemsType = (typeof result)[0];
 
     return (
@@ -66,12 +59,17 @@ const Lista = ({ registrationSystemStatus }: { registrationSystemStatus: Registr
     );
 };
 
-
 export async function getServerSideProps() {
     const status = await getHealthCheck();
+
+    const registeredPlayersPromise = status.status === "success" ? getRegisteredPlayers() : null;
+
+    const registeredPlayersResult = await registeredPlayersPromise;
+
     return {
         props: {
             registrationSystemStatus: status.status === "success" ? "valid" : "invalid",
+            registeredPlayers: registeredPlayersResult?.status === "success" ? registeredPlayersResult.data : [],
         },
     };
 }
