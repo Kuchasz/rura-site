@@ -45,6 +45,7 @@ const Rejestracja = () => {
             <div className="flex h-full py-16 flex-1 items-center justify-center">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Lista zawodników</h1>
+                    <h2>Ostateczna lista zawodników zawierająca numery startowe i godziny startu pojawi się 11.05</h2>
                     {registrationSystemStatus === "valid" ? (
                         <Table headers={headers} getKey={p => p.name + p.lastName} rows={result}>
                             <Table.Item render={(r: ItemsType) => <div>{r.i}</div>}></Table.Item>
