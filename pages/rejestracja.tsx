@@ -3,6 +3,7 @@ import { Loader } from "components/loader";
 import { countryCodes } from "contry-codes";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import { getHealthCheck } from "set-api";
 
 const RegistrationFormComponent = ({
     registrationStatus,
@@ -199,22 +200,11 @@ const RegistrationFormComponent = ({
 type RegistrationStatuses = "pending" | "progress" | "successful" | "error";
 type RegistrationSystemStates = "unknown" | "valid" | "invalid";
 
-const Rejestracja = () => {
+const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: RegistrationSystemStates }) => {
     const [registrationStatus, setRegistrationStatus] = useState<RegistrationStatuses>("pending");
     const [teams, setTeams] = useState<string[]>([]);
-    const [registrationSystemStatus, setRegistrationSystemStatus] = useState<RegistrationSystemStates>("unknown");
 
     useEffect(() => {
-        fetch("/api/registration-status", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then(r => r.json())
-            .then(() => setRegistrationSystemStatus("valid"))
-            .catch(() => setRegistrationSystemStatus("invalid"));
-
         fetch("/api/teams", {
             method: "POST",
             headers: {
@@ -227,7 +217,7 @@ const Rejestracja = () => {
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         setRegistrationStatus("progress");
-        
+
         const formElements = e.currentTarget.elements as unknown as {
             name: HTMLInputElement;
             lastName: HTMLInputElement;
@@ -240,7 +230,7 @@ const Rejestracja = () => {
             phoneNumber: HTMLInputElement;
             icePhoneNumber: HTMLInputElement;
         };
-        
+
         const formData = {
             name: formElements.name.value,
             lastName: formElements.lastName.value,
@@ -316,5 +306,14 @@ const Rejestracja = () => {
         </>
     );
 };
+
+export async function getServerSideProps() {
+    const status = await getHealthCheck();
+    return {
+        props: {
+            registrationSystemStatus: status.status === "success" ? "valid" : "invalid",
+        },
+    };
+}
 
 export default Rejestracja;

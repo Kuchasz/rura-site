@@ -1,6 +1,7 @@
 import { Table } from "components/table";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import { getHealthCheck } from "set-api";
 
 type RegistrationSystemStates = "unknown" | "valid" | "invalid";
 
@@ -9,21 +10,10 @@ const getCompactName = (name: string, lastName: string) => `${name.slice(0, 1)}.
 
 const headers = [<div>Lp.</div>, <div>Zawodnik</div>, <div className="hidden md:block">Miejscowość</div>, <div>Klub</div>];
 
-const Rejestracja = () => {
+const Lista = ({ registrationSystemStatus }: { registrationSystemStatus: RegistrationSystemStates }) => {
     const [players, setPlayers] = useState<{ name: string; lastName: string; team?: string; city?: string }[]>([]);
-    const [registrationSystemStatus, setRegistrationSystemStatus] = useState<RegistrationSystemStates>("unknown");
 
     useEffect(() => {
-        fetch("/api/registration-status", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then(r => r.json())
-            .then(() => setRegistrationSystemStatus("valid"))
-            .catch(() => setRegistrationSystemStatus("invalid"));
-
         fetch("/api/registered-players", {
             method: "POST",
             headers: {
@@ -76,4 +66,14 @@ const Rejestracja = () => {
     );
 };
 
-export default Rejestracja;
+
+export async function getServerSideProps() {
+    const status = await getHealthCheck();
+    return {
+        props: {
+            registrationSystemStatus: status.status === "success" ? "valid" : "invalid",
+        },
+    };
+}
+
+export default Lista;
