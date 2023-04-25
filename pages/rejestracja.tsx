@@ -286,6 +286,13 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
                                         <div>
                                             <h2 className="mb-8">Rejestracja przebiegła pomyślnie!</h2>
                                             <span>Sprawdź swoją pocztę email. Znajdziesz tam instrukcję dokonywania wpłaty wpisowego.</span>
+                                            <br/><br/>
+                                            <div>
+                                                Możesz już zobaczyć swoje nazwisko w zakładce {" "}
+                                                <a className="font-medium text-orange-600 hover:underline" href="/lista">
+                                                    Zawodnicy
+                                                </a>
+                                            </div>
                                         </div>
                                     )}
                                 </>
