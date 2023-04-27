@@ -165,15 +165,16 @@ export const posts = [
         Jeżeli czegoś w filmie zabrakło, macie dodatkowe pytania - zapraszamy do kontaktu przez facebooka! :)
         <br/><br/>
         <ul class="ml-4" style="list-style-type: circle;">
-        <li>Biuro zawodów zlokalizowane będzie w parku Gminy Łękawica (w tym samym miejscu co przy niedzielnej czasówce rok temu)</li>
+        <li>Biuro zawodów zlokalizowane będzie w parku Gminy Łękawica (<strong><a target="_blank" href="https://www.google.com/maps/place/49%C2%B043'46.4%22N+19%C2%B015'42.4%22E/@49.7295472,19.2617728,17z">mapa</a></strong>, w tym samym miejscu co przy niedzielnej czasówce rok temu)</li>
         <li>Do biura po odbiór pakietów zapraszamy w dniu zawodów w godzinach 8:00 - 10:00</li>
         <li>W skład pakietu wchodzą: piwo kocierskie, paczka moonsów, pamiątkowy kubek i bezzwrotny numerek na sztycę</li>
         <li>Pierwszy zawodnik rusza o godzinie 11:00, kolejni zawodnicy ruszać będą co minutę</li>
-        <li>Parking przed wjazdem do Hotelu oraz parking koło mostu w Łękawicy są do Waszej dyspozycji</li>
-        <li>Trasa tegorocznej czasówki jest taka sama jak rok temu, do podejrzenia w zakładce "TRASA"</li>
+        <li>Ostateczna lista zawodników zawierająca numery startowe i godziny startu pojawi się 11.05</li>
+        <li>Parking przed wjazdem do Hotelu (<strong><a target="_blank" href="https://www.google.com/maps/place/49%C2%B046'33.7%22N+19%C2%B019'28.8%22E/@49.7760278,19.3246667,17z">mapa</a></strong>, <strong><a target="_blank" href="https://www.google.com/maps/place/49%C2%B046'40.5%22N+19%C2%B018'59.5%22E/@49.7779167,19.3165278,17z">mapa</a></strong>) oraz parking koło mostu w Łękawicy (<strong><a target="_blank" href="https://www.google.com/maps/place/49%C2%B043'39.4%22N+19%C2%B015'43.8%22E/@49.7276029,19.2621613,17z">mapa</a></strong>) są do Waszej dyspozycji</li>
+        <li>Trasa tegorocznej czasówki jest taka sama jak rok temu, do podejrzenia w zakładce <a href="/trasa">TRASA</a></li>
         <li>O bezpieczeństwo na trasie będą dbać wolontariusze, oraz Policja</li>
         <li>Obowiązują Was przepisy ruchu drogowego, pamiętajcie że jedziemy w ruchu otwartym</li>
-        <li>Zawody dla dzieci obędą się na mecie ok. godziny 14:00</li>
+        <li>Zawody dla dzieci odbędą się na mecie ok. godziny 14:00</li>
         <li>Posiłek regeneracyjny, kawa, herbata oraz dekoracja będą miały miejsce na tarasie widokowym - w razie niepogody w salach obok tarasu</li>
         </ul>
         <br/><br/>
