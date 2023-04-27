@@ -63,6 +63,7 @@ export const Header = () => {
                         <div className="ml-4">
                             <div className="text-zinc-700 font-bold">ZAWODY DLA DZIECI</div>
                             <DumpEmail>zapisy 14:00 na mecie</DumpEmail>
+                            {/* <Email>zawodydzieci@rura.cc</Email> */}
                         </div>
                         <div className="h-8 inline-block mx-4 md:mx-12 w-0.5 bg-zinc-700"></div>
                         <Icon className="text-orange-500" size={1.5} path={mdiEmailOpenOutline}></Icon>
