@@ -232,14 +232,14 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
         };
 
         const formData = {
-            name: formElements.name.value,
-            lastName: formElements.lastName.value,
+            name: formElements.name.value.trim(),
+            lastName: formElements.lastName.value.trim(),
             birthDate: formElements.birthDate.value,
             gender: formElements.gender.value,
-            team: formElements.team.value,
-            city: formElements.city.value,
+            team: formElements.team.value.trim(),
+            city: formElements.city.value.trim(),
             country: formElements.country.value,
-            email: formElements.email.value,
+            email: formElements.email.value.trim(),
             phoneNumber: formElements.phoneNumber.value,
             icePhoneNumber: formElements.icePhoneNumber.value,
         };
