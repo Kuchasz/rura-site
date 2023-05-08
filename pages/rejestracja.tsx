@@ -285,7 +285,17 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
                                     ) : (
                                         <div>
                                             <h2 className="mb-8">Rejestracja przebiegła pomyślnie!</h2>
-                                            <span>Sprawdź swoją pocztę email. Znajdziesz tam instrukcję dokonywania wpłaty wpisowego.</span>
+                                            <div>
+                                            Opłatę startową wnosi się przelewem na konto:<br/>
+                                            Bank Spółdzielczy Zator<br/>
+                                            89 8136 0000 0022 6934 2000 0010<br/>
+                                            Innergy Racing Team<br/>
+                                            Ul. Okrężna 19<br/>
+                                            32-641 Przeciszów<br/>
+                                            W tytule podając: [IMIĘ] [NAZWISKO] – Wpłata na cele statutowe<br/>
+                                            </div>
+                                            <br/><br/>
+                                            <span>Instrukcję dokonywania wpłaty wpisowego znajdziesz także na swojej poczcie email oraz regulaminie imprezy.</span>
                                             <br/><br/>
                                             <div>
                                                 Możesz już zobaczyć swoje nazwisko w zakładce {" "}
