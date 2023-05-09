@@ -1,9 +1,7 @@
 import { Table } from "components/table";
 import Head from "next/head";
 import React from "react";
-import { getHealthCheck, getRegisteredPlayers } from "set-api";
-
-type RegistrationSystemStates = "unknown" | "valid" | "invalid";
+import { RegistrationStates, getRegisteredPlayers, getRegistrationStatus } from "set-api";
 
 const getName = (name: string, lastName: string) => `${name} ${lastName}`;
 const getCompactName = (name: string, lastName: string) => `${name.slice(0, 1)}. ${lastName}`;
@@ -14,7 +12,7 @@ const Lista = ({
     registrationSystemStatus,
     registeredPlayers,
 }: {
-    registrationSystemStatus: RegistrationSystemStates;
+    registrationSystemStatus: RegistrationStates;
     registeredPlayers: { name: string; lastName: string; team?: string; city?: string }[];
 }) => {
     const result = registeredPlayers.map((r, i) => ({ ...r, i: i + 1 }));
@@ -29,7 +27,7 @@ const Lista = ({
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Lista zawodników</h1>
                     <h2>Ostateczna lista zawodników zawierająca numery startowe i godziny startu pojawi się 11.05.</h2>
-                    {registrationSystemStatus === "valid" ? (
+                    {registrationSystemStatus !== "down" ? (
                         <Table headers={headers} getKey={p => p.name + p.lastName} rows={result}>
                             <Table.Item render={(r: ItemsType) => <div>{r.i}</div>}></Table.Item>
                             <Table.Item
@@ -43,10 +41,6 @@ const Lista = ({
                             <Table.Item render={(r: ItemsType) => <div className="hidden md:block">{r.city}</div>}></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div>{r.team}</div>}></Table.Item>
                         </Table>
-                    ) : registrationSystemStatus === "unknown" ? (
-                        <div>
-                            <h2 className="mb-8">Uruchamianie systemu rejestracji...</h2>
-                        </div>
                     ) : (
                         <div>
                             <h2 className="mb-8">System rejestracji zawodników aktualnie jest niedostępny</h2>
@@ -60,15 +54,15 @@ const Lista = ({
 };
 
 export async function getServerSideProps() {
-    const status = await getHealthCheck();
+    const status = await getRegistrationStatus();
 
-    const registeredPlayersPromise = status.status === "success" ? getRegisteredPlayers() : null;
+    const registeredPlayersPromise = status.status !== "down" ? getRegisteredPlayers() : null;
 
     const registeredPlayersResult = await registeredPlayersPromise;
 
     return {
         props: {
-            registrationSystemStatus: status.status === "success" ? "valid" : "invalid",
+            registrationSystemStatus: status.status,
             registeredPlayers: registeredPlayersResult?.status === "success" ? registeredPlayersResult.data : [],
         },
     };

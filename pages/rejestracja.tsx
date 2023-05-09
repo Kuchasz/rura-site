@@ -3,7 +3,7 @@ import { Loader } from "components/loader";
 import { countryCodes } from "contry-codes";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { getHealthCheck } from "set-api";
+import { RegistrationStates, getRegistrationStatus } from "set-api";
 
 const RegistrationFormComponent = ({
     registrationStatus,
@@ -198,9 +198,8 @@ const RegistrationFormComponent = ({
 };
 
 type RegistrationStatuses = "pending" | "progress" | "successful" | "error";
-type RegistrationSystemStates = "unknown" | "valid" | "invalid";
 
-const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: RegistrationSystemStates }) => {
+const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: RegistrationStates }) => {
     const [registrationStatus, setRegistrationStatus] = useState<RegistrationStatuses>("pending");
     const [teams, setTeams] = useState<string[]>([]);
 
@@ -267,7 +266,7 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                                 Rejestracja na zawody
                             </h1>
-                            {registrationSystemStatus === "valid" ? (
+                            {registrationSystemStatus === "enabled" ? (
                                 <>
                                     {registrationStatus === "pending" || registrationStatus === "progress" ? (
                                         <RegistrationFormComponent
@@ -306,11 +305,17 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
                                         </div>
                                     )}
                                 </>
-                            ) : registrationSystemStatus === "unknown" ? (
+                            ) : registrationSystemStatus === "disabled" ? (
                                 <div>
-                                    <h2 className="mb-8">Uruchamianie systemu rejestracji...</h2>
+                                    <h2 className="mb-8">System rejestracji zawodników został wyłączony</h2>
+                                    <span>System rejestracji może zostać wyłączony po przekroczonym terminie rejestracji do zawodów.</span>
                                 </div>
-                            ) : (
+                            ) : registrationSystemStatus === "limit-reached" ? (
+                                <div>
+                                    <h2 className="mb-8">System rejestracji zawodników został wyłączony</h2>
+                                    <span>Limit zawodników został osiągnięty.</span>
+                                </div>
+                            ) :(
                                 <div>
                                     <h2 className="mb-8">System rejestracji zawodników aktualnie jest niedostępny</h2>
                                     <span>Spróbuj ponownie za jakiś czas. Prosimy o informację jeśli problem będzie się powtarzał.</span>
@@ -325,10 +330,10 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
 };
 
 export async function getServerSideProps() {
-    const status = await getHealthCheck();
+    const status = await getRegistrationStatus();
     return {
         props: {
-            registrationSystemStatus: status.status === "success" ? "valid" : "invalid",
+            registrationSystemStatus: status.status,
         },
     };
 }
