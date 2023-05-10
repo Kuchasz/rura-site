@@ -42,7 +42,7 @@ const Index = () => {
             </Head>
             <Slogan {...mainPost} link={mainPost.alias} photo={`assets/posts/${mainPost.photo}`} />
             <div className="flex w-full justify-center">
-                <div className="w-full flex flex-col sm:flex-row py-4 px-12">
+                <div className="w-full flex justify-center flex-col sm:flex-row py-4 px-12">
                     {sortedPosts.slice(1, 4).map(sp => (
                         <SneakPeak key={sp.title} article={sp} />
                     ))}
