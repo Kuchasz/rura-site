@@ -6,14 +6,14 @@ import { RegistrationStates, getRegisteredPlayers, getRegistrationStatus } from 
 const getName = (name: string, lastName: string) => `${name} ${lastName}`;
 const getCompactName = (name: string, lastName: string) => `${name.slice(0, 1)}. ${lastName}`;
 
-const headers = [<div>Lp.</div>, <div>Zawodnik</div>, <div className="hidden md:block">Miejscowość</div>, <div>Klub</div>];
+const headers = [<div>Lp.</div>, <div>Zawodnik</div>, <div className="hidden md:block">Miejscowość</div>, <div>Klub</div>, <div>Opłacony</div>];
 
 const Lista = ({
     registrationSystemStatus,
     registeredPlayers,
 }: {
     registrationSystemStatus: RegistrationStates;
-    registeredPlayers: { name: string; lastName: string; team?: string; city?: string }[];
+    registeredPlayers: { name: string; lastName: string; team?: string; city?: string, hasPaid: boolean }[];
 }) => {
     const result = registeredPlayers.map((r, i) => ({ ...r, i: i + 1 }));
     type ItemsType = (typeof result)[0];
@@ -40,6 +40,7 @@ const Lista = ({
                             ></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div className="hidden md:block">{r.city}</div>}></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div>{r.team}</div>}></Table.Item>
+                            <Table.Item render={(r: ItemsType) => <div className="text-xs">{r.hasPaid ? <strong>Opłacony</strong> : "Niepłacony"}</div>}></Table.Item>
                         </Table>
                     ) : (
                         <div>
