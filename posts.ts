@@ -180,7 +180,6 @@ export const posts = [
         <br/><br/>
         Więcej detali w tym informacje o sponsorach, premiach i nagrodach znajdziecie w filmie. Prosimy, obejrzyjcie, to tylko 3 minuty :)
         <br/><br/>
-        Ilość miejsc ograniczona. <strong>Zapisy trwają do 9.05 a do 30.04 obowiązuje niższa opłata startowa.</strong>
         <br/><br/><br/><br/>
         <iframe width="100%" height="620" src="https://www.youtube.com/embed/cGrGLlBKIGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         excerpt: "Garść informacji organizacyjnych"
