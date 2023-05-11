@@ -30,7 +30,7 @@ const ListaStartowa = ({
                     <h2>Ostateczna lista zawodników zawierająca numery startowe i godziny startu pojawi się 11.05.</h2>
                     {registrationSystemStatus !== "down" ? (
                         <Table headers={headers} getKey={p => p.name + p.lastName} rows={result}>
-                            <Table.Item render={(r: ItemsType) => <div>{r.i}</div>}></Table.Item>
+                            <Table.Item render={(r: ItemsType) => <div className="text-center">{r.bibNumber}</div>}></Table.Item>
                             <Table.Item
                                 render={(r: ItemsType) => (
                                     <>
