@@ -4,7 +4,7 @@ export const formatNumber = (n: number, precision = 2) =>
 export const formatTimeWithSec = (time?: number) => {
     if (!time) return "--:--:--";
     const dateTime = new Date(time);
-    return `${formatNumber(dateTime.getHours())}:${formatNumber(dateTime.getMinutes())}:${formatNumber(
+    return `${formatNumber(dateTime.getHours() - 1)}:${formatNumber(dateTime.getMinutes())}:${formatNumber(
         dateTime.getSeconds()
     )}`;
 };
