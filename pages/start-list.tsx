@@ -32,7 +32,7 @@ const ListaStartowa = ({
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Lista zawodników</h1>
                     <h2>Lista startowa z numerami startowymi i wyznaczonymi godzinami startu.</h2>
                     {registrationSystemStatus !== "down" ? (
-                        <Table headers={headers} getKey={p => p.name + p.lastName} rows={result}>
+                        <Table headers={headers} getKey={p => p.bibNumber.toString()} rows={result}>
                             <Table.Item render={(r: ItemsType) => <div className="text-center">{r.bibNumber}</div>}></Table.Item>
                             <Table.Item
                                 render={(r: ItemsType) => (
