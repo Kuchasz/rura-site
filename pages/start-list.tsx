@@ -29,7 +29,7 @@ const ListaStartowa = ({
             </Head>
             <div className="flex h-full py-16 flex-1 items-center justify-center">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Lista zawodników</h1>
+                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Lista startowa zawodników</h1>
                     <h2>Lista startowa z numerami startowymi i wyznaczonymi godzinami startu.</h2>
                     {registrationSystemStatus !== "down" ? (
                         <Table headers={headers} getKey={p => p.bibNumber.toString()} rows={result}>
