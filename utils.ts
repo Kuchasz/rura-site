@@ -3,8 +3,14 @@ export const formatNumber = (n: number, precision = 2) =>
 
 export const formatTimeWithSec = (time?: number) => {
     if (!time) return "--:--:--";
-    const dateTime = new Date(time);
-    return `${formatNumber(dateTime.getHours() - 1)}:${formatNumber(dateTime.getMinutes())}:${formatNumber(
+
+    
+    const dateTime2 = new Date(time);
+    const offset = dateTime2.getTimezoneOffset();
+
+    const dateTime = new Date(time - offset * 60_000);
+
+    return `${formatNumber(dateTime.getHours())}:${formatNumber(dateTime.getMinutes())}:${formatNumber(
         dateTime.getSeconds()
     )}`;
 };
