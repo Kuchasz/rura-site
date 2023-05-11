@@ -21,7 +21,7 @@ const Lista = ({
     return (
         <>
             <Head>
-                <title>Lista zawodników</title>
+                <title>Lista zarejestrowanych zawodników</title>
             </Head>
             <div className="flex h-full py-16 flex-1 items-center justify-center">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

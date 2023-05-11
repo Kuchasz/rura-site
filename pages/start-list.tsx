@@ -16,9 +16,9 @@ const ListaStartowa = ({
     registrationSystemStatus: RegistrationStates;
     registeredPlayers: { bibNumber: string; name: string; lastName: string; team?: string; city?: string; startTime: number; }[];
 }) => {
-    const res = registeredPlayers.map((r, i) => ({ ...r, i: i + 1 }));
+    const res = registeredPlayers.map((r, i) => ({ ...r, bibNumber: Number(r.bibNumber), i: i + 1 }));
 
-    const result = sort(res, r => Number(r.bibNumber));
+    const result = sort(res, r => r.bibNumber);
 
     type ItemsType = (typeof result)[0];
 
@@ -44,7 +44,7 @@ const ListaStartowa = ({
                             ></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div className="hidden md:block">{r.city}</div>}></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div>{r.team}</div>}></Table.Item>
-                            <Table.Item render={(r: ItemsType) => <div className="text-xs">{formatTimeWithSec(r.startTime)}</div>}></Table.Item>
+                            <Table.Item render={(r: ItemsType) => <div className="text-xs font-semibold">{formatTimeWithSec(r.startTime)}</div>}></Table.Item>
                         </Table>
                     ) : (
                         <div>
