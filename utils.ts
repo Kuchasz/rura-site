@@ -8,7 +8,7 @@ export const formatTimeWithSec = (time?: number) => {
     const dateTime2 = new Date(time);
     const offset = dateTime2.getTimezoneOffset();
 
-    const dateTime = new Date(time - offset * 60_000);
+    const dateTime = new Date(time + offset * 60_000);
 
     return `${formatNumber(dateTime.getHours())}:${formatNumber(dateTime.getMinutes())}:${formatNumber(
         dateTime.getSeconds()
