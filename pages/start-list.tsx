@@ -2,7 +2,7 @@ import { Table } from "components/table";
 import Head from "next/head";
 import React from "react";
 import { RegistrationStates, getRegistrationStatus, getStartList } from "set-api";
-import { formatTimeWithSec } from "utils";
+import { formatTimeWithSec, sort } from "utils";
 
 const getName = (name: string, lastName: string) => `${name} ${lastName}`;
 const getCompactName = (name: string, lastName: string) => `${name.slice(0, 1)}. ${lastName}`;
@@ -16,7 +16,10 @@ const ListaStartowa = ({
     registrationSystemStatus: RegistrationStates;
     registeredPlayers: { bibNumber: string; name: string; lastName: string; team?: string; city?: string; startTime: number; }[];
 }) => {
-    const result = registeredPlayers.map((r, i) => ({ ...r, i: i + 1 }));
+    const res = registeredPlayers.map((r, i) => ({ ...r, i: i + 1 }));
+
+    const result = sort(res, r => Number(r.bibNumber));
+
     type ItemsType = (typeof result)[0];
 
     return (

@@ -8,3 +8,16 @@ export const formatTimeWithSec = (time?: number) => {
         dateTime.getSeconds()
     )}`;
 };
+
+export const sort = <T>(items: T[], func: (item: T) => number): T[] => {
+    const i = [...items];
+
+    return i.sort((a, b) => func(a) - func(b));
+};
+
+
+export const sortDesc = <T>(items: T[], func: (item: T) => number): T[] => {
+    const i = [...items];
+
+    return i.sort((a, b) => func(b) - func(a));
+};
