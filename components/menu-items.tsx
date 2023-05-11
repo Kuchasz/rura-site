@@ -1,8 +1,8 @@
 export const menuItems = [
     { path: "/", label: "aktualności" },
     { path: "/trasa", label: "trasa" },
-    { path: "/lista", label: "zawodnicy" },
-    // { path: "/start-list", label: "lista startowa" },
+    { path: "/lista", label: "zapisani" },
+    { path: "/start-list", label: "lista startowa" },
     // { path: "/program", label: "program" },
     // { path: "/zapisy", label: "zapisy" },
     // { path: "/zegar", label: "zegar" },

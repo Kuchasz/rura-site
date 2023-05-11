@@ -4,7 +4,6 @@ export const formatNumber = (n: number, precision = 2) =>
 export const formatTimeWithSec = (time?: number) => {
     if (!time) return "--:--:--";
 
-    
     const dateTime2 = new Date(time);
     const offset = dateTime2.getTimezoneOffset();
 
