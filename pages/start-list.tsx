@@ -1,6 +1,5 @@
 import { Table } from "components/table";
 import Head from "next/head";
-import Link from "next/link";
 import React from "react";
 import { RegistrationStates, getRegistrationStatus, getStartList } from "set-api";
 import { formatTimeWithSec, sort } from "utils";

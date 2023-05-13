@@ -1,38 +1,23 @@
-import classNames from "classnames";
+import { mdiEmailOpenOutline, mdiFacebook, mdiHumanMaleChild, mdiMenu } from "@mdi/js";
 import Icon from "@mdi/react";
-import Link from "next/link";
-import { Email } from "./email";
-import {
-    mdiEmailOpenOutline,
-    mdiFacebook,
-    mdiHumanMaleChild,
-    mdiMenu
-    } from "@mdi/js";
-import { menuItems } from "./menu-items";
+import classNames from "classnames";
 import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 import { useState } from "react";
 import { DumpEmail } from "./dump-email";
+import { Email } from "./email";
+import { menuItems } from "./menu-items";
 
 const MenuText = ({ text }: { text: string }) => (
     <span className="text-sm md:text-base font-semibold transition-colors py-1 mx-2 md:mx-5 uppercase">{text}</span>
 );
 
-const MenuButton = ({
-    onClick,
-    activePath = "",
-    to,
-    text
-}: {
-    onClick?: () => void;
-    activePath: string;
-    to: string;
-    text: string;
-}) => (
+const MenuButton = ({ onClick, activePath = "", to, text }: { onClick?: () => void; activePath: string; to: string; text: string }) => (
     <Link href={to}>
         <button
             onClick={onClick}
             className={classNames({
-                ["text-orange-500 "]: to === "/" ? activePath === to : activePath.startsWith(to)
+                ["text-orange-500 "]: to === "/" ? activePath === to : activePath.startsWith(to),
             })}
         >
             <MenuText text={text} />
@@ -94,14 +79,22 @@ export const Header = () => {
                             <Icon size={1.5} path={mdiMenu} />
                             <MenuText
                                 text={
-                                    menuItems.find(mi =>
-                                        mi.path === "/" ? router.asPath === mi.path : router.asPath.startsWith(mi.path)
-                                    )?.label ?? "MENU"
+                                    menuItems.find(mi => (mi.path === "/" ? router.asPath === mi.path : router.asPath.startsWith(mi.path)))
+                                        ?.label ?? "MENU"
                                 }
                             />
                         </div>
-                          <Link href="https://app.rura.cc/result/15" target="_blank"
-                            className="text-sm md:text-base transition-colors mx-2 md:mx-5 uppercase cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 font-mono py-1"
+                        <Link
+                            href="https://app.rura.cc/result/15"
+                            target="_blank"
+                            className="text-sm md:text-base transition-colors uppercase cursor-pointer text-center hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 py-1"
+                        >
+                            ŚLEDZENIE STARTów
+                        </Link>
+                        <Link
+                            href="https://app.rura.cc/result/15"
+                            target="_blank"
+                            className="text-sm md:text-base transition-colors mx-2 md:mx-5 uppercase cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 py-1"
                         >
                             WYNIKI LIVE!
                         </Link>
@@ -111,9 +104,7 @@ export const Header = () => {
                             ZAREJESTRUJ SIĘ!
                         </Link> */}
                     </div>
-                    <div
-                        className={classNames("flex-col ml-2 items-start", menuRevealed ? "flex sm:hidden" : "hidden")}
-                    >
+                    <div className={classNames("flex-col ml-2 items-start", menuRevealed ? "flex sm:hidden" : "hidden")}>
                         {menuItems.map(mi => (
                             <MenuButton
                                 onClick={() => setMenuRevealed(false)}
