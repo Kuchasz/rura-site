@@ -4,8 +4,8 @@ export const formatNumber = (n: number, precision = 2) =>
 export const formatTimeWithSec = (time?: number) => {
     if (!time) return "--:--:--";
 
-    const dateTime2 = new Date(time);
-    const offset = dateTime2.getTimezoneOffset();
+    const timeStampAsDate = new Date(time);
+    const offset = timeStampAsDate.getTimezoneOffset();
 
     const dateTime = new Date(time + offset * 60_000);
 
