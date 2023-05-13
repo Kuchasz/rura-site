@@ -1,5 +1,6 @@
 import { Table } from "components/table";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import { RegistrationStates, getRegistrationStatus, getStartList } from "set-api";
 import { formatTimeWithSec, sort } from "utils";
@@ -7,14 +8,20 @@ import { formatTimeWithSec, sort } from "utils";
 const getName = (name: string, lastName: string) => `${name} ${lastName}`;
 const getCompactName = (name: string, lastName: string) => `${name.slice(0, 1)}. ${lastName}`;
 
-const headers = [<div>Bib</div>, <div>Zawodnik</div>, <div className="hidden md:block">Miejscowość</div>, <div>Klub</div>, <div>Start</div>];
+const headers = [
+    <div>Bib</div>,
+    <div>Zawodnik</div>,
+    <div className="hidden md:block">Miejscowość</div>,
+    <div>Klub</div>,
+    <div>Start</div>,
+];
 
 const ListaStartowa = ({
     registrationSystemStatus,
     registeredPlayers,
 }: {
     registrationSystemStatus: RegistrationStates;
-    registeredPlayers: { bibNumber: string; name: string; lastName: string; team?: string; city?: string; startTime: number; }[];
+    registeredPlayers: { bibNumber: string; name: string; lastName: string; team?: string; city?: string; startTime: number }[];
 }) => {
     const res = registeredPlayers.map((r, i) => ({ ...r, bibNumber: Number(r.bibNumber), i: i + 1 }));
 
@@ -44,7 +51,9 @@ const ListaStartowa = ({
                             ></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div className="hidden md:block">{r.city}</div>}></Table.Item>
                             <Table.Item render={(r: ItemsType) => <div>{r.team}</div>}></Table.Item>
-                            <Table.Item render={(r: ItemsType) => <div className="text-xs font-semibold">{formatTimeWithSec(r.startTime)}</div>}></Table.Item>
+                            <Table.Item
+                                render={(r: ItemsType) => <div className="text-xs font-semibold">{formatTimeWithSec(r.startTime)}</div>}
+                            ></Table.Item>
                         </Table>
                     ) : (
                         <div>
