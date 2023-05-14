@@ -29,20 +29,20 @@ function Zdjecia() {
     useEffect(() => {
         if (dir === undefined) return;
         fetch(rura("index.json"))
-            .then((x) => x.json())
+            .then(x => x.json())
             .then((dirs: Directory[]) => {
-                const d = dirs.find((d) => d.dir === dir)!;
+                const d = dirs.find(d => d.dir === dir)!;
                 console.log(d, dirs);
                 return fetch(rura(`${d.dir}/photos.json`))
-                    .then((x) => x.json())
+                    .then(x => x.json())
                     .then((x: string[]) =>
                         Promise.resolve({
                             ...d,
-                            items: x.map((i) => ({
+                            items: x.map(i => ({
                                 thumb: rura(`${d.dir}/thumb/${i}`),
                                 big: rura(`${d.dir}/big/${i}`),
-                                full: rura(`${d.dir}/full/${i}`)
-                            }))
+                                full: rura(`${d.dir}/full/${i}`),
+                            })),
                         })
                     );
             })
@@ -56,8 +56,7 @@ function Zdjecia() {
             </Head>
             <div className="flex p-4 flex-col items-center">
                 <div className="p-4 text-white bg-zinc-700 rounded-md">
-                    <strong>INFO: </strong>Każde zdjęcie można pobrać w wysokiej rozdzielczości za pomocą odpowiedniego
-                    przycisku.
+                    <strong>INFO: </strong>Każde zdjęcie można pobrać w wysokiej rozdzielczości za pomocą odpowiedniego przycisku.
                 </div>
 
                 {directory && <Photos directory={directory} />}
