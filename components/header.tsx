@@ -85,8 +85,7 @@ export const Header = () => {
                             />
                         </div>
                         <Link
-                        href="https://app.rura.cc/timer/m/15"
-                            
+                            href="https://app.rura.cc/timer/m/15"
                             target="_blank"
                             className="text-sm md:text-base transition-colors uppercase cursor-pointer text-center hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 py-1"
                         >
