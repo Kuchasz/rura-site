@@ -180,16 +180,6 @@ export const posts = [
         <br/><br/>
         Więcej detali w tym informacje o sponsorach, premiach i nagrodach znajdziecie w filmie. Prosimy, obejrzyjcie, to tylko 3 minuty :)
         <br/><br/>
-        <strong>AKTUALIZACJA 11.05.2023:</strong><br/>
-        Lista startowa wraz z numerami startowymi i godzinami startu znajduje się w zakładce <strong><a target="_blank" href="/start-list">LISTA STARTOWA</a></strong><a></a>
-        <br/><br/>
-        <br/><br/>
-        <strong>AKTUALIZACJA 13.05.2023:</strong><br/>
-        <br/>
-        <a target="_blank" href="https://app.rura.cc/result/15"><strong>WYNIKI LIVE</strong></a> - kliknij, żeby śledzić wyniki na żywo. Nie trzeba jej odświeżać, aktualizuje się sama
-        <br/><br/>
-        <a target="_blank" href="https://app.rura.cc/timer/m/15"><strong>LISTA STARTOWA LIVE</strong></a> - kliknij, żeby śledzić kto niedługo wystartuje
-        <br/><br/>
         <br/><br/>
         <iframe width="100%" height="620" src="https://www.youtube.com/embed/cGrGLlBKIGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         excerpt: "Garść informacji organizacyjnych"
