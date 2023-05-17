@@ -9,6 +9,6 @@ export const menuItems = [
     // { path: "/regulamin", label: "regulamin" },
     // { path: "/live", label: "na żywo" },
     // { path: "/wyniki", label: "wyniki" },
-    // { path: "/edycja22", label: "edycja 2022" },
+    { path: "/edycja22", label: "edycja 2022" },
     { path: "/zdjecia", label: "zdjęcia" }
 ];
