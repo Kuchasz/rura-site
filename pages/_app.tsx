@@ -1,5 +1,4 @@
 import Layout from "../components/layout";
-import SimpleReactLightbox from "simple-react-lightbox";
 import { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import "../globals.scss";
@@ -20,9 +19,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         getLayout(<Component {...pageProps} />)
     ) : (
         <Layout>
-            <SimpleReactLightbox>
-                <Component {...pageProps} />
-            </SimpleReactLightbox>
+            <Component {...pageProps} />
         </Layout>
     );
 }

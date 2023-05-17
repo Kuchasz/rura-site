@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Photos from "../../components/photos";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 type Item = {
     thumb: string;
@@ -20,35 +18,7 @@ type Directory = {
 
 const rura = (url: string) => `https://galleries.azureedge.net/rura/${url}`;
 
-function Zdjecia() {
-    const router = useRouter();
-    const { dir } = router.query;
-
-    const [directory, setDirectory] = useState<Directory>();
-
-    useEffect(() => {
-        if (dir === undefined) return;
-        fetch(rura("index.json"))
-            .then(x => x.json())
-            .then((dirs: Directory[]) => {
-                const d = dirs.find(d => d.dir === dir)!;
-                console.log(d, dirs);
-                return fetch(rura(`${d.dir}/photos.json`))
-                    .then(x => x.json())
-                    .then((x: string[]) =>
-                        Promise.resolve({
-                            ...d,
-                            items: x.map(i => ({
-                                thumb: rura(`${d.dir}/thumb/${i}`),
-                                big: rura(`${d.dir}/big/${i}`),
-                                full: rura(`${d.dir}/full/${i}`),
-                            })),
-                        })
-                    );
-            })
-            .then(setDirectory);
-    }, [dir]);
-
+function Zdjecia({ directory }: { directory: Directory }) {
     return (
         <>
             <Head>
@@ -66,3 +36,32 @@ function Zdjecia() {
 }
 
 export default Zdjecia;
+
+export const getStaticProps = async ({ params: { dir } }: { params: { dir: string } }) => {
+    const allDirsResult = await fetch(rura("index.json"));
+    const allDirs = (await allDirsResult.json()) as Directory[];
+
+    const photosUrlsResult = await fetch(rura(`${dir}/photos.json`));
+    const photosUrls = (await photosUrlsResult.json()) as string[];
+
+    const directory = allDirs.find(d => d.dir === dir)!;
+
+    const items = photosUrls.map(i => ({
+        thumb: rura(`${directory.dir}/thumb/${i}`),
+        big: rura(`${directory.dir}/big/${i}`),
+        full: rura(`${directory.dir}/full/${i}`),
+    }));
+
+    return {
+        props: {
+            directory: { ...directory, items },
+        },
+    };
+};
+
+export const getStaticPaths = async () => {
+    const result = await fetch(rura("index.json"));
+    const allDirs = (await (await result).json()) as Directory[];
+
+    return { paths: allDirs.map(d => ({ params: { dir: d.dir } })), fallback: false };
+};
