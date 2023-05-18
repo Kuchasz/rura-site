@@ -1,6 +1,6 @@
 export const menuItems = [
     { path: "/", label: "aktualności" },
-    { path: "/trasa", label: "trasa" },
+    // { path: "/trasa", label: "trasa" },
     // { path: "/lista", label: "zapisani" },
     // { path: "/start-list", label: "lista startowa" },
     // { path: "/program", label: "program" },
@@ -9,6 +9,7 @@ export const menuItems = [
     // { path: "/regulamin", label: "regulamin" },
     // { path: "/live", label: "na żywo" },
     // { path: "/wyniki", label: "wyniki" },
+    { path: "/edycja23", label: "edycja 2023" },
     { path: "/edycja22", label: "edycja 2022" },
     { path: "/zdjecia", label: "zdjęcia" }
 ];

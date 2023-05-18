@@ -19,10 +19,10 @@ const Edycja22 = () => (
                     <div className="bg-white border border-gray-300 rounded-sm p-10">
                         <h2 className="text-2xl uppercase font-semibold">wyniki</h2>
                         <span>
-                            Wyniki wraz z podziałem na kategorie wiekowe możliwe są do pobrania w pliku .pdf poniżej
+                            Wyniki wszystkich zawodników możliwe są do pobrania w pliku .pdf poniżej
                             <div className="flex flex-col items-start">
                                 <div className="my-2 flex">
-                                    <Anchor href="/files/rnk_2022_wyniki.pdf">Pobierz plik .PDF</Anchor>
+                                    <Anchor href="/files/rnk_2023_wyniki.pdf">Pobierz plik .PDF</Anchor>
                                 </div>
                             </div>
                         </span>
@@ -30,34 +30,7 @@ const Edycja22 = () => (
                         <br />
                         <h2 className="text-2xl uppercase font-semibold">trasa wyścigu</h2>
                         <span>
-                            W roku 2022 Rura na Kocierz toczyła się dwa dni z rzędu. Pierwszego dnia zawodnicy wystartowali w wyścigu ze
-                            startu wspólnego na jednym z dwóch dystansów. Drugiego dnia przeprowadzony został wyścig na czas.
-                            <div className="my-8 flex flex-col items-start">
-                                <span className="items-baseline">
-                                    <h3 className="font-semibold text-lg">Start wspólny - PRO</h3>
-                                    <div className="text-lg">104km / 2340m przewyższenia</div>
-                                </span>
-                                <div className="my-2 flex">
-                                    <Anchor href="/gpsies/rura_na_kocierz_2022_start_wspolny_pro.gpx">Pobierz plik .GPX</Anchor>
-                                    <Anchor href="https://www.strava.com/routes/2897239559631378416">
-                                        Zobacz w
-                                        <img className="ml-2 self-center" src="assets/strava-logo-small.jpg" />
-                                    </Anchor>
-                                </div>
-                            </div>
-                            <div className="my-8 flex flex-col items-start">
-                                <span className="items-baseline">
-                                    <h3 className="font-semibold text-lg">Start wspólny - FUN</h3>
-                                    <div className="text-lg">52km / 1120m przewyższenia</div>
-                                </span>
-                                <div className="my-2 flex">
-                                    <Anchor href="/gpsies/rura_na_kocierz_2022_start_wspolny_fun.gpx">Pobierz plik .GPX</Anchor>
-                                    <Anchor href="https://www.strava.com/routes/2897229113276376702">
-                                        Zobacz w
-                                        <img className="ml-2 self-center" src="assets/strava-logo-small.jpg" />
-                                    </Anchor>
-                                </div>
-                            </div>
+                            W roku 2023 Rura na Kocierz wróciła do korzeni. To jednodniowy uphill z jazdą indywidualną na czas.
                             <div className="my-8 flex flex-col items-start">
                                 <span className="items-baseline">
                                     <h3 className="font-semibold text-lg">Time Trial</h3>
