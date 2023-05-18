@@ -13,7 +13,7 @@ const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
 
 const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
     <Link href={`artykul/${article.alias}`}>
-        <div className="flex-1 flex flex-col rounded-md group overflow-hidden justify-end mx-4 my-4 relative cursor-pointer">
+        <div className="flex-1 flex flex-col rounded-md group overflow-hidden justify-end mx-4 max-h-72 my-4 relative cursor-pointer">
             <div
                 className="absolute w-full transition-transform group-hover:scale-105 duration-500 h-full bg-center bg-cover brightness-50"
                 style={{ backgroundImage: `url(/assets/posts/${article.photo})`, zIndex: -1 }}
