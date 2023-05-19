@@ -9,14 +9,25 @@ const Edycja22 = () => (
             <title>Edycja 2022</title>
         </Head>
         <div>
-            <Slogan
-                title="Edycja 2022"
-                excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2022"
-                photo="assets/rura_2022.jpg"
-            />
+            <Slogan title="Edycja 2022" excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2022" photo="assets/rura_2022.jpg" />
             <div className="flex w-full bg-zinc-200 justify-center">
                 <div className="max-w-6xl my-14">
                     <div className="bg-white border border-gray-300 rounded-sm p-10">
+                        <h2 className="text-2xl uppercase font-semibold">Podsumowujący klip video</h2>
+                        <span>
+                            <iframe
+                                width="100%"
+                                height="620"
+                                src="https://www.youtube.com/embed/kJthfzb95ik"
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </span>
+                        <br />
+                        <br />
+
                         <h2 className="text-2xl uppercase font-semibold">wyniki</h2>
                         <span>
                             Wyniki wszystkich zawodników możliwe są do pobrania w pliku .pdf poniżej
