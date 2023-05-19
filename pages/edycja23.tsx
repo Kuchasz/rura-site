@@ -6,7 +6,7 @@ import { Slogan } from "../components/slogan";
 const Edycja22 = () => (
     <>
         <Head>
-            <title>Edycja 2022</title>
+            <title>Edycja 2023</title>
         </Head>
         <div>
             <Slogan title="Edycja 2022" excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2022" photo="assets/posts/podsumowanie-rura-2023.jpg" />
