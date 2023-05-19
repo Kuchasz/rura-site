@@ -183,5 +183,15 @@ export const posts = [
         <br/><br/>
         <iframe width="100%" height="620" src="https://www.youtube.com/embed/cGrGLlBKIGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         excerpt: "Garść informacji organizacyjnych"
+    },{
+        date: new Date(Date.parse("2023-04-19 20:20")),
+        author: "administrator",
+        photo: "podsumowanie-rura-2023.jpg",
+        title: "Rura na Kocierz 2023 już za nami!",
+        alias: "podsumowanie-rura-2023",
+        content: `W tym roku na trasie wyścigu pojawiła się ekipa filmowa. Poniżej klip prezentujący wydarzenia i emocje związane z RnK 2023!
+        <br/><br/>
+        <iframe width="100%" height="620" src="https://www.youtube.com/embed/kJthfzb95ik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+        excerpt: "Video z edycji na rok 2023"
     },
 ];
