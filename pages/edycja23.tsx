@@ -9,7 +9,7 @@ const Edycja22 = () => (
             <title>Edycja 2022</title>
         </Head>
         <div>
-            <Slogan title="Edycja 2022" excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2022" photo="assets/rura_2022.jpg" />
+            <Slogan title="Edycja 2022" excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2022" photo="assets/posts/podsumowanie-rura-2023.jpg" />
             <div className="flex w-full bg-zinc-200 justify-center">
                 <div className="max-w-6xl my-14">
                     <div className="bg-white border border-gray-300 rounded-sm p-10">
