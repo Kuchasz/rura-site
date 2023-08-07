@@ -16,7 +16,7 @@ type Directory = {
     items: Item[];
 };
 
-const rura = (url: string) => `https://galleries.azureedge.net/rura/${url}`;
+const rura = (url: string) => `https://ps-wed.azurewebsites.net/rura/${url}`;
 
 function Zdjecia({ directory }: { directory: Directory }) {
     return (
