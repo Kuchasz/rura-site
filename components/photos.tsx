@@ -1,3 +1,4 @@
+import Image from "next/image";
 import LightGallery from "lightgallery/react";
 
 // import styles
@@ -36,13 +37,19 @@ const Photos = ({ directory }: Props) => {
                 >
                     {directory.items.map(i => (
                         <a
-                            className="gallery-item block hover:opacity-50 h-24 w-24 md:h-48 md:w-48 cursor-pointer m-1 md:m-3"
+                            className="gallery-item block hover:opacity-50 h-24 w-24 md:h-48 md:w-48 cursor-pointer m-1 md:m-3 relative"
                             href={i.big}
                             key={i.big}
                             data-src={i.big}
                             data-download-url={i.full}
                         >
-                            <img className="img-responsive border rounded-md w-full h-full object-cover" src={i.thumb} loading="lazy" />
+                            <Image 
+                                className="border rounded-md object-cover" 
+                                src={i.thumb} 
+                                alt="Photo thumbnail"
+                                fill
+                                sizes="(max-width: 768px) 96px, 192px"
+                            />
                         </a>
                     ))}
                 </LightGallery>

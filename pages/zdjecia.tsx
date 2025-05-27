@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
+
 type Item = {
     thumb: string;
     big: string;
@@ -27,7 +29,14 @@ function Zdjecia({ directories }: { directories: Directory[] }) {
                     {directories.length !== 0
                         ? directories.map((d) => (
                               <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
-                                  <img className="absolute z-[-10] top-0 w-full h-full object-center object-cover" src={d.items[0].big} />
+                                  <Image 
+                                      className="object-center object-cover" 
+                                      src={d.items[0].big} 
+                                      alt={d.title}
+                                      fill
+                                      sizes="(max-width: 768px) 100vw, 33vw"
+                                      style={{ zIndex: -10 }}
+                                  />
                                   <div className="bg-gradient-to-b from-black via-transparent to-black absolute z-[-9] top-0 w-full h-full opacity-75"></div>
                                   <div className="group text-white font-semibold h-full flex flex-col hover:bg-gray-900 transition-colors justify-between p-4">
                                       <div className="flex flex-col">
