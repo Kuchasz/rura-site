@@ -1,12 +1,11 @@
-import classNames from "classnames";
+import { mdiEmailOpenOutline, mdiFacebook } from "@mdi/js";
 import Icon from "@mdi/react";
-import Link from "next/link";
-import { Email } from "./email";
-import { mdiEmailOpenOutline, mdiFacebook, mdiHumanMaleChild } from "@mdi/js";
-import { menuItems } from "./menu-items";
-import { ReactNode } from "react";
+import classNames from "classnames";
 import { useRouter } from "next/dist/client/router";
-import { DumpEmail } from "./dump-email";
+import Link from "next/link";
+import { ReactNode } from "react";
+import { Email } from "./email";
+import { menuItems } from "./menu-items";
 
 const MenuButton = ({
     activePath = "",

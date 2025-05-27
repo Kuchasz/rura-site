@@ -1,10 +1,9 @@
-import { mdiEmailOpenOutline, mdiFacebook, mdiHumanMaleChild, mdiMenu } from "@mdi/js";
+import { mdiEmailOpenOutline, mdiFacebook, mdiMenu } from "@mdi/js";
 import Icon from "@mdi/react";
 import classNames from "classnames";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useState } from "react";
-import { DumpEmail } from "./dump-email";
 import { Email } from "./email";
 import { menuItems } from "./menu-items";
 
