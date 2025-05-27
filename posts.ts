@@ -1,4 +1,5 @@
 export const posts = [
+
     {
         date: new Date(Date.parse("2021-08-31 11:01")),
         author: "administrator",
@@ -183,7 +184,7 @@ export const posts = [
         <br/><br/>
         <iframe width="100%" height="620" src="https://www.youtube.com/embed/cGrGLlBKIGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         excerpt: "Garść informacji organizacyjnych"
-    },{
+    }, {
         date: new Date(Date.parse("2023-04-19 20:20")),
         author: "administrator",
         photo: "podsumowanie-rura-2023.jpg",
@@ -193,5 +194,32 @@ export const posts = [
         <br/><br/>
         <iframe width="100%" height="620" src="https://www.youtube.com/embed/kJthfzb95ik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
         excerpt: "Video z edycji na rok 2023"
+    }, {
+        date: new Date(Date.parse("2025-05-25 14:50")),
+        author: "administrator",
+        photo: "rura_2025_zapowiedz.png",
+        title: "Wracamy! Rura na Kocierz 2025 już 5 października!",
+        alias: "rura-na-kocierz-2025-zapowiedz",
+        content: `Drodzy miłośnicy kolarstwa górskiego! 🚵‍♂️🔥
+        <br/><br/>
+        Po dwuletniej przerwie z ogromną radością ogłaszamy powrót legendarnej Rury na Kocierz! 🎉 Tak, dobrze słyszycie - 5 października 2025 roku ponownie spotkamy się na najpiękniejszej i najbardziej wymagającej trasie w tej części Polski.
+        <br/><br/>
+        Wiemy, że od ostatniej edycji w 2023 roku minęło sporo czasu i na pewno niektórzy z Was zastanawiali się, czy jeszcze kiedykolwiek usłyszycie charakterystyczny dźwięk kół na asfalcie ulicy Widokowej. 😊 Czas oczekiwania dobiegł końca!
+        <br/><br/>
+        Czy słynna ulica Widokowa nadal będzie tak samo stroma? Czy wasze nogi zapamiętały to brutalne podejście? Czy kondycja po dwóch latach przerwy pozwoli na powtórzenie poprzednich wyników? Na te pytania odpowiecie sobie sami, stając na linii startu jesiennego wyścigu.
+        <br/><br/>
+        To będzie wyjątkowy powrót po długiej przerwie - czas pokazać, że prawdziwi rurzyści nigdy nie zapominają, jak się pedałuje pod górę! 💪
+        <br/><br/>
+        <strong>Data:</strong> 5 października 2025 roku<br/>
+        <strong>Miejsce:</strong> Tradycyjnie - z Łękawicy na szczyt Kocierza<br/>
+        <strong>Trasa:</strong> Legendarna ulica Widokowa czeka na Was w niezmienionej formie
+        <br/><br/>
+        Szczegółowe informacje dotyczące zapisów, tras, kategorii wiekowych oraz wszystkich organizacyjnych detali pojawią się już wkrótce. Śledźcie nasze kanały komunikacji!
+        <br/><br/>
+        Trzymajcie się ciepło, trenujcie systematycznie i przygotowujcie się na emocjonujący powrót do kolarskiej klasyki. Jesień 2025 zapowiada się naprawdę gorąco! 🍂🚴‍♂️
+        <br/><br/>
+        Do zobaczenia na trasie!<br/>
+        Organizatorzy Rury na Kocierz`,
+        excerpt: "Po dwuletniej przerwie ogłaszamy powrót legendarnej Rury na Kocierz! 5 października 2025 ponownie zmierzymy się z ulicą Widokową."
     },
 ];
