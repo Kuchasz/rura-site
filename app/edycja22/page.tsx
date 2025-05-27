@@ -1,18 +1,15 @@
-import Head from "next/head";
-import React from "react";
-import { Anchor } from "../components/anchor";
-import { Slogan } from "../components/slogan";
+import { Anchor } from "../../components/anchor";
+import { Slogan } from "../../components/slogan";
 
-const Edycja22 = () => (
-    <>
-        <Head>
-            <title>Edycja 2022</title>
-        </Head>
+export const dynamic = "force-static";
+
+export default function Edycja22() {
+    return (
         <div>
             <Slogan
                 title="Edycja 2022"
                 excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2022"
-                photo="assets/rura_2022.jpg"
+                photo="/assets/rura_2022.jpg"
             />
             <div className="flex w-full bg-zinc-200 justify-center">
                 <div className="max-w-6xl my-14">
@@ -87,7 +84,5 @@ const Edycja22 = () => (
                 </div>
             </div>
         </div>
-    </>
-);
-
-export default Edycja22;
+    );
+}

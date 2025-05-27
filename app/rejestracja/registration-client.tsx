@@ -1,9 +1,10 @@
-import Combo from "components/combo";
-import { Loader } from "components/loader";
-import { countryCodes } from "contry-codes";
-import Head from "next/head";
+"use client";
+
+import Combo from "../../components/combo";
+import { Loader } from "../../components/loader";
+import { countryCodes } from "../../contry-codes";
 import React, { useEffect, useState } from "react";
-import { RegistrationStates, getRegistrationStatus } from "set-api";
+import { RegistrationStates } from "../../set-api";
 
 const RegistrationFormComponent = ({
     registrationStatus,
@@ -72,7 +73,6 @@ const RegistrationFormComponent = ({
                     name="gender"
                     id="gender"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
-                    placeholder="płeć"
                     required
                     disabled={registrationStatus !== "pending"}
                 >
@@ -107,7 +107,6 @@ const RegistrationFormComponent = ({
                     name="country"
                     id="country"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
-                    placeholder="kraj"
                     defaultValue="PL"
                     required
                     disabled={registrationStatus !== "pending"}
@@ -199,7 +198,11 @@ const RegistrationFormComponent = ({
 
 type RegistrationStatuses = "pending" | "progress" | "successful" | "error";
 
-const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: RegistrationStates }) => {
+interface RegistrationPageProps {
+    registrationSystemStatus: RegistrationStates;
+}
+
+export const RegistrationClientComponent = ({ registrationSystemStatus }: RegistrationPageProps) => {
     const [registrationStatus, setRegistrationStatus] = useState<RegistrationStatuses>("pending");
     const [teams, setTeams] = useState<string[]>([]);
 
@@ -255,87 +258,71 @@ const Rejestracja = ({ registrationSystemStatus }: { registrationSystemStatus: R
     };
 
     return (
-        <>
-            <Head>
-                <title>Rejestracja</title>
-            </Head>
-            <div className="flex h-full py-16 flex-1 items-center justify-center">
-                <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-                    <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-                        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                                Rejestracja na zawody
-                            </h1>
-                            {registrationSystemStatus === "enabled" ? (
-                                <>
-                                    {registrationStatus === "pending" || registrationStatus === "progress" ? (
-                                        <RegistrationFormComponent
-                                            teams={teams}
-                                            registrationStatus={registrationStatus}
-                                            handleFormSubmit={handleFormSubmit}
-                                        />
-                                    ) : registrationStatus === "error" ? (
+        <div className="flex h-full py-16 flex-1 items-center justify-center">
+            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                            Rejestracja na zawody
+                        </h1>
+                        {registrationSystemStatus === "enabled" ? (
+                            <>
+                                {registrationStatus === "pending" || registrationStatus === "progress" ? (
+                                    <RegistrationFormComponent
+                                        teams={teams}
+                                        registrationStatus={registrationStatus}
+                                        handleFormSubmit={handleFormSubmit}
+                                    />
+                                ) : registrationStatus === "error" ? (
+                                    <div>
+                                        <h2 className="mb-8">Nastąpił błąd podczas rejestracji</h2>
+                                        <span>
+                                            Spróbuj ponownie za jakiś czas. Prosimy o informację jeśli problem będzie się powtarzał.
+                                        </span>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <h2 className="mb-8">Rejestracja przebiegła pomyślnie!</h2>
                                         <div>
-                                            <h2 className="mb-8">Nastąpił błąd podczas rejestracji</h2>
-                                            <span>
-                                                Spróbuj ponownie za jakiś czas. Prosimy o informację jeśli problem będzie się powtarzał.
-                                            </span>
+                                        Opłatę startową wnosi się przelewem na konto:<br/>
+                                        Bank Spółdzielczy Zator<br/>
+                                        89 8136 0000 0022 6934 2000 0010<br/>
+                                        Innergy Racing Team<br/>
+                                        Ul. Okrężna 19<br/>
+                                        32-641 Przeciszów<br/>
+                                        W tytule podając: [IMIĘ] [NAZWISKO] – Wpłata na cele statutowe<br/>
                                         </div>
-                                    ) : (
+                                        <br/><br/>
+                                        <span>Instrukcję dokonywania wpłaty wpisowego znajdziesz także na swojej poczcie email oraz regulaminie imprezy.</span>
+                                        <br/><br/>
                                         <div>
-                                            <h2 className="mb-8">Rejestracja przebiegła pomyślnie!</h2>
-                                            <div>
-                                            Opłatę startową wnosi się przelewem na konto:<br/>
-                                            Bank Spółdzielczy Zator<br/>
-                                            89 8136 0000 0022 6934 2000 0010<br/>
-                                            Innergy Racing Team<br/>
-                                            Ul. Okrężna 19<br/>
-                                            32-641 Przeciszów<br/>
-                                            W tytule podając: [IMIĘ] [NAZWISKO] – Wpłata na cele statutowe<br/>
-                                            </div>
-                                            <br/><br/>
-                                            <span>Instrukcję dokonywania wpłaty wpisowego znajdziesz także na swojej poczcie email oraz regulaminie imprezy.</span>
-                                            <br/><br/>
-                                            <div>
-                                                Możesz już zobaczyć swoje nazwisko w zakładce {" "}
-                                                <a className="font-medium text-orange-600 hover:underline" href="/lista">
-                                                    Zawodnicy
-                                                </a>
-                                            </div>
+                                            Możesz już zobaczyć swoje nazwisko w zakładce {" "}
+                                            <a className="font-medium text-orange-600 hover:underline" href="/lista">
+                                                Zawodnicy
+                                            </a>
                                         </div>
-                                    )}
-                                </>
-                            ) : registrationSystemStatus === "disabled" ? (
-                                <div>
-                                    <h2 className="mb-8">System rejestracji zawodników został wyłączony</h2>
-                                    <span>System rejestracji może zostać wyłączony po przekroczonym terminie rejestracji do zawodów.</span>
-                                </div>
-                            ) : registrationSystemStatus === "limit-reached" ? (
-                                <div>
-                                    <h2 className="mb-8">System rejestracji zawodników został wyłączony</h2>
-                                    <span>Limit zawodników został osiągnięty.</span>
-                                </div>
-                            ) :(
-                                <div>
-                                    <h2 className="mb-8">System rejestracji zawodników aktualnie jest niedostępny</h2>
-                                    <span>Spróbuj ponownie za jakiś czas. Prosimy o informację jeśli problem będzie się powtarzał.</span>
-                                </div>
-                            )}
-                        </div>
+                                    </div>
+                                )}
+                            </>
+                        ) : registrationSystemStatus === "disabled" ? (
+                            <div>
+                                <h2 className="mb-8">System rejestracji zawodników został wyłączony</h2>
+                                <span>System rejestracji może zostać wyłączony po przekroczonym terminie rejestracji do zawodów.</span>
+                            </div>
+                        ) : registrationSystemStatus === "limit-reached" ? (
+                            <div>
+                                <h2 className="mb-8">System rejestracji zawodników został wyłączony</h2>
+                                <span>Limit zawodników został osiągnięty.</span>
+                            </div>
+                        ) :(
+                            <div>
+                                <h2 className="mb-8">System rejestracji zawodników aktualnie jest niedostępny</h2>
+                                <span>Spróbuj ponownie za jakiś czas. Prosimy o informację jeśli problem będzie się powtarzał.</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
-};
-
-export async function getServerSideProps() {
-    const status = await getRegistrationStatus();
-    return {
-        props: {
-            registrationSystemStatus: status.status,
-        },
-    };
-}
-
-export default Rejestracja;
+}; 

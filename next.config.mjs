@@ -12,13 +12,11 @@ function defineNextConfig(config) {
 
 export default defineNextConfig({
   reactStrictMode: true,
-  swcMinify: true,
-  // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing
-  i18n: {
-    locales: ["pl"],
-    defaultLocale: "pl",
-  },
   images: {
-    domains: ["localhost", "rura.cc", "ps-wed.azurewebsites.net"],
+    remotePatterns: [
+      { hostname: "localhost" },
+      { hostname: "rura.cc" },
+      { hostname: "ps-wed.azurewebsites.net" },
+    ],
   }
 });

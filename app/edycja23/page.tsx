@@ -1,13 +1,10 @@
-import Head from "next/head";
-import React from "react";
-import { Anchor } from "../components/anchor";
-import { Slogan } from "../components/slogan";
+import { Anchor } from "../../components/anchor";
+import { Slogan } from "../../components/slogan";
 
-const Edycja22 = () => (
-    <>
-        <Head>
-            <title>Edycja 2023</title>
-        </Head>
+export const dynamic = "force-static";
+
+export default function Edycja23() {
+    return (
         <div>
             <Slogan title="Edycja 2023" excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2023" photo="/assets/posts/podsumowanie-rura-2023.jpg" />
             <div className="flex w-full bg-zinc-200 justify-center">
@@ -27,7 +24,6 @@ const Edycja22 = () => (
                         </span>
                         <br />
                         <br />
-
                         <h2 className="text-2xl uppercase font-semibold">wyniki</h2>
                         <span>
                             Wyniki wszystkich zawodników możliwe są do pobrania w pliku .pdf poniżej
@@ -71,7 +67,5 @@ const Edycja22 = () => (
                 </div>
             </div>
         </div>
-    </>
-);
-
-export default Edycja22;
+    );
+}

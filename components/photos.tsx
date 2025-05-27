@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import LightGallery from "lightgallery/react";
 
@@ -29,10 +30,10 @@ const Photos = ({ directory }: Props) => {
         <div className="flex p-4 flex-col items-center">
             <h1 className="text-4xl text-center font-bold my-10">{directory.title}</h1>
             <h2 className="text-xl text-center text-zinc-500 mb-10">{directory.description}</h2>
-            <div className="w-100 flex flex-wrap justify-center">
+            <div className="w-full flex flex-wrap justify-center">
                 <LightGallery
                     mobileSettings={{ download: true, showCloseIcon: true }}
-                    elementClassNames="w-100 flex flex-wrap justify-center"
+                    elementClassNames="w-full flex flex-wrap justify-center"
                     plugins={[lgThumbnail, lgZoom]}
                 >
                     {directory.items.map(i => (

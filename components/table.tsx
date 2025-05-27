@@ -56,5 +56,5 @@ export const Table = <T extends {}>({ rows, headers, children, getKey }: TablePr
     );
 };
 
-Table.Item = <T extends unknown>(props: { item?: T; render: (item: T) => JSX.Element }) =>
+Table.Item = <T extends unknown>(props: { item?: T; render: (item: T) => React.JSX.Element }) =>
     props.item ? props.render(props.item) : null;

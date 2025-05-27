@@ -1,7 +1,9 @@
+'use client';
+
 import { mdiEmailOpenOutline, mdiFacebook } from "@mdi/js";
 import Icon from "@mdi/react";
 import classNames from "classnames";
-import { useRouter } from "next/dist/client/router";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { Email } from "./email";
@@ -33,6 +35,7 @@ const MenuButton = ({
 
 export const Footer = () => {
     const router = useRouter();
+    const pathname = usePathname();
     return (
         <footer>
             <div className="flex flex-col items-center py-8 bg-zinc-100 text-white">
@@ -111,7 +114,7 @@ export const Footer = () => {
                         {menuItems.map((mi, i) => (
                             <MenuButton
                                 key={mi.path}
-                                activePath={router.asPath}
+                                activePath={pathname}
                                 to={mi.path}
                                 isLast={i + 1 === menuItems.length}
                             >

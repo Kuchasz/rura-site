@@ -1,7 +1,9 @@
+"use client";
+
 import { mdiEmailOpenOutline, mdiFacebook, mdiMenu } from "@mdi/js";
 import Icon from "@mdi/react";
 import classNames from "classnames";
-import { useRouter } from "next/dist/client/router";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import { Email } from "./email";
@@ -25,7 +27,7 @@ const MenuButton = ({ onClick, activePath = "", to, text }: { onClick?: () => vo
 );
 
 export const Header = () => {
-    const router = useRouter();
+    const pathname = usePathname();
     const [menuRevealed, setMenuRevealed] = useState(false);
     return (
         <header className="flex flex-col">
@@ -70,14 +72,14 @@ export const Header = () => {
                     <div className="mx-4 sm:mx-0 flex items-center justify-between">
                         <div className="hidden sm:flex justify-between md:justify-start">
                             {menuItems.map(mi => (
-                                <MenuButton key={mi.path} activePath={router.asPath} to={mi.path} text={mi.label} />
+                                <MenuButton key={mi.path} activePath={pathname || ""} to={mi.path} text={mi.label} />
                             ))}
                         </div>
                         <div onClick={() => setMenuRevealed(!menuRevealed)} className="flex sm:hidden items-center">
                             <Icon size={1.5} path={mdiMenu} />
                             <MenuText
                                 text={
-                                    menuItems.find(mi => (mi.path === "/" ? router.asPath === mi.path : router.asPath.startsWith(mi.path)))
+                                    menuItems.find(mi => (mi.path === "/" ? (pathname || "") === mi.path : (pathname || "").startsWith(mi.path)))
                                         ?.label ?? "MENU"
                                 }
                             />
@@ -107,7 +109,7 @@ export const Header = () => {
                             <MenuButton
                                 onClick={() => setMenuRevealed(false)}
                                 key={mi.path}
-                                activePath={router.asPath}
+                                activePath={pathname || ""}
                                 to={mi.path}
                                 text={mi.label}
                             />
