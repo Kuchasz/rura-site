@@ -46,7 +46,7 @@ export default async function ZdjeciaPage() {
                     ? directories.map((d) => (
                           <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
                               <img
-                                  className="object-center object-cover"
+                                  className="object-center w-full h-full absolute object-cover"
                                   src={d.items[0].big}
                                   alt={d.title}
                                   

@@ -14,7 +14,7 @@ export const Slogan = ({ photo, title, excerpt, link, linkText }: SloganProps) =
             src={photo}
             alt={title}
 
-            className="object-cover object-center brightness-50"
+            className="object-cover absolute object-center brightness-50 w-full h-full"
             style={{ zIndex: -2 }}
 
             sizes="100vw"

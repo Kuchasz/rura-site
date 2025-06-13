@@ -6,7 +6,7 @@ import { Slogan } from "../components/slogan";
 import { posts } from "../posts";
 
 export const metadata: Metadata = {
-  title: "Aktualności",
+    title: "Aktualności",
 };
 
 const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
@@ -21,10 +21,8 @@ const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
             <img
                 src={`/assets/posts/${article.photo}`}
                 alt={article.title}
-                
-                className="object-cover object-center brightness-50 transition-transform group-hover:scale-105 duration-500"
+                className="object-cover absolute object-center w-full h-full brightness-50 transition-transform group-hover:scale-105 duration-500"
                 style={{ zIndex: -1 }}
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             />
 
             <div className="p-6 pt-40 flex flex-col text-white">
@@ -62,9 +60,8 @@ export default function HomePage() {
                                     <img
                                         src={`/assets/posts/${sp.photo}`}
                                         alt={sp.title}
-                                        
-                                        className="object-cover object-center"
-                                        sizes="(max-width: 768px) 100vw, 384px"
+
+                                        className="object-cover w-full h-full object-center"
                                     />
                                 </div>
                                 <div className="px-4 flex flex-col">
