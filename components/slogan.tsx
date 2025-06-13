@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export type SloganProps = {
     photo: string;
@@ -11,13 +10,13 @@ export type SloganProps = {
 
 export const Slogan = ({ photo, title, excerpt, link, linkText }: SloganProps) => (
     <div className="flex w-full h-128 uppercase text-white bg-center bg-contain relative justify-center overflow-hidden">
-        <Image
+        <img
             src={photo}
             alt={title}
-            fill
+
             className="object-cover object-center brightness-50"
             style={{ zIndex: -2 }}
-            priority
+
             sizes="100vw"
         />
         <div className="w-full max-w-6xl flex drop-shadow-3xl p-4 flex-col items-center md:items-start justify-center">

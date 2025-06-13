@@ -1,15 +1,14 @@
 'use client';
-import Image from "next/image";
 import LightGallery from "lightgallery/react";
 
 // import styles
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lightgallery.css";
 
 // If you want you can use SCSS instead of css
-import "lightgallery/scss/lightgallery.scss";
 import "lightgallery/scss/lg-zoom.scss";
+import "lightgallery/scss/lightgallery.scss";
 
 // import plugins if you need
 import lgThumbnail from "lightgallery/plugins/thumbnail";
@@ -44,11 +43,11 @@ const Photos = ({ directory }: Props) => {
                             data-src={i.big}
                             data-download-url={i.full}
                         >
-                            <Image 
+                            <img 
                                 className="border rounded-md object-cover" 
                                 src={i.thumb} 
                                 alt="Photo thumbnail"
-                                fill
+                                
                                 sizes="(max-width: 768px) 96px, 192px"
                             />
                         </a>

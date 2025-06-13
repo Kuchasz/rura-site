@@ -1,10 +1,9 @@
+import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { DateAdded } from "../components/date-added";
 import { PostDetails } from "../components/post-details";
-import { posts } from "../posts";
 import { Slogan } from "../components/slogan";
-import { Metadata } from "next";
+import { posts } from "../posts";
 
 export const metadata: Metadata = {
   title: "Aktualności",
@@ -19,10 +18,10 @@ const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
 const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
     <Link href={`artykul/${article.alias}`} className="my-4">
         <div className="flex-1 flex flex-col rounded-md group overflow-hidden justify-end mx-4 max-h-72 relative cursor-pointer">
-            <Image
+            <img
                 src={`/assets/posts/${article.photo}`}
                 alt={article.title}
-                fill
+                
                 className="object-cover object-center brightness-50 transition-transform group-hover:scale-105 duration-500"
                 style={{ zIndex: -1 }}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
@@ -60,10 +59,10 @@ export default function HomePage() {
                         <Link key={sp.alias} href={`artykul/${sp.alias}`}>
                             <div className="cursor-pointer flex flex-col md:flex-row mb-4">
                                 <div className="relative w-full md:w-96 h-64">
-                                    <Image
+                                    <img
                                         src={`/assets/posts/${sp.photo}`}
                                         alt={sp.title}
-                                        fill
+                                        
                                         className="object-cover object-center"
                                         sizes="(max-width: 768px) 100vw, 384px"
                                     />

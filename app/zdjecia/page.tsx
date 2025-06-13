@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export const dynamic = "force-static";
 
@@ -46,11 +45,11 @@ export default async function ZdjeciaPage() {
                 {directories.length !== 0
                     ? directories.map((d) => (
                           <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
-                              <Image
+                              <img
                                   className="object-center object-cover"
                                   src={d.items[0].big}
                                   alt={d.title}
-                                  fill
+                                  
                                   sizes="(max-width: 768px) 100vw, 33vw"
                                   style={{ zIndex: -10 }}
                               />
