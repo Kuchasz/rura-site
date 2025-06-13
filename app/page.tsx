@@ -45,7 +45,7 @@ export default function HomePage() {
         <>
             <Slogan {...mainPost} link={mainPost.alias} photo={`/assets/posts/${mainPost.photo}`} />
             <div className="flex w-full justify-center">
-                <div className="w-full flex justify-center flex-col sm:flex-row py-4 px-12">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4 px-4 md:px-12">
                     {sortedPosts.slice(1, 4).map(sp => (
                         <SneakPeak key={sp.title} article={sp} />
                     ))}
@@ -54,14 +54,14 @@ export default function HomePage() {
             <div className="flex w-full relative justify-center overflow-hidden">
                 <div className="w-full my-12 max-w-6xl flex flex-col items-start justify-center">
                     {sortedPosts.slice(4).map(sp => (
-                        <Link key={sp.alias} href={`artykul/${sp.alias}`}>
+                        <Link className="w-full" key={sp.alias} href={`artykul/${sp.alias}`}>
                             <div className="cursor-pointer flex flex-col md:flex-row mb-4">
-                                <div className="relative w-full md:w-96 h-64">
+                                <div className="relative shrink-0 w-full md:w-96 h-64">
                                     <img
                                         src={`/assets/posts/${sp.photo}`}
                                         alt={sp.title}
 
-                                        className="object-cover w-full h-full object-center"
+                                        className="object-cover absolute w-full h-full object-center"
                                     />
                                 </div>
                                 <div className="px-4 flex flex-col">
