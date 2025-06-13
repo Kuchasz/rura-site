@@ -1,6 +1,6 @@
 'use client';
 
-import { mdiEmailOpenOutline, mdiFacebook } from "@mdi/js";
+import { mdiEmailOpenOutline, mdiFacebook, mdiHumanMaleChild } from "@mdi/js";
 import Icon from "@mdi/react";
 import classNames from "classnames";
 import { usePathname, useRouter } from "next/navigation";
@@ -20,16 +20,12 @@ const MenuButton = ({
     children: ReactNode;
     isLast: boolean;
 }) => (
-    <Link href={to}>
-        <button
-            className={classNames("font-semibold transition-colors uppercase", {
-                ["text-orange-500 "]: to === "/" ? activePath === to : activePath.startsWith(to),
-                ["ml-2"]: isLast,
-                ["mx-2"]: !isLast
-            })}
-        >
-            {children}
-        </button>
+    <Link href={to} className={classNames("font-semibold cursor-pointer hover:text-orange-500 transition-colors uppercase", {
+        ["text-orange-500 "]: to === "/" ? activePath === to : activePath.startsWith(to),
+        ["ml-2"]: isLast,
+        ["mx-2"]: !isLast
+    })}>
+        {children}
     </Link>
 );
 
@@ -88,12 +84,13 @@ export const Footer = () => {
                         </div>
                     </div>
                     <div className="flex items-center my-3 md:my-0">
-                        {/* <Icon className="text-orange-500" size={1.5} path={mdiHumanMaleChild}></Icon>
+                        <Icon className="text-orange-500" size={1.5} path={mdiHumanMaleChild}></Icon>
                         <div className="ml-4">
                             <div className="text-zinc-700 font-bold">ZAWODY DLA DZIECI</div>
-                            <DumpEmail>zapisy 14:00 na mecie</DumpEmail>
-                        </div> */}
-                        {/* <div className="h-8 inline-block mx-4 md:mx-12 w-0.5 bg-zinc-700"></div> */}
+                            <Email>biuro@rura.cc</Email>
+                            {/* <DumpEmail>zapisy 14:00 na mecie</DumpEmail> */}
+                        </div>
+                        <div className="h-8 inline-block mx-4 md:mx-12 w-0.5 bg-zinc-700"></div>
                         <Icon className="text-orange-500" size={1.5} path={mdiEmailOpenOutline}></Icon>
                         <div className="ml-4">
                             <div className="text-zinc-700 font-bold">KONTAKT</div>
@@ -109,7 +106,7 @@ export const Footer = () => {
             </div>
             <div className="bg-zinc-800 text-zinc-600 flex justify-center py-4 text-xs font-semibold">
                 <div className="w-full max-w-6xl flex flex-col-reverse md:flex-row justify-between">
-                    <div className="mx-2">RURA NA KOCIERZ © 2022</div>
+                    <div className="mx-2">RURA NA KOCIERZ © 2025</div>
                     <div>
                         {menuItems.map((mi, i) => (
                             <MenuButton

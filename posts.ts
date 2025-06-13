@@ -1,5 +1,46 @@
 export const posts = [
-
+    {
+        date: new Date(Date.parse("2025-06-13 10:00")),
+        author: "administrator",
+        photo: "zapisy-2023.jpg",
+        title: "Ruszyły zapisy na Rurę na Kocierz 2025!",
+        alias: "ruszaja-zapisy-2025",
+        content: `Drodzy miłośnicy kolarstwa górskiego! 🚵‍♂️🔥
+        <br/><br/>
+        Z ogromną radością ogłaszamy, że ruszyły zapisy na Rurę na Kocierz 2025! 🎉 5 października ponownie zmierzymy się z legendarną ulicą Widokową.
+        <br/><br/>
+        <strong>Ceny wpisowego:</strong>
+        <ul class="ml-4" style="list-style-type: circle;">
+            <li>do 30 czerwca 2025 r: 120 zł</li>
+            <li>do 30 września 2025 r: 150 zł</li>
+            <li>w dniu zawodów 3 października 2025 r: 170 zł (bez gwarancji otrzymania pakietu startowego)</li>
+        </ul>
+        <br/>
+        <strong>W ramach opłaty startowej zapewniamy:</strong>
+        <ul class="ml-4" style="list-style-type: circle;">
+            <li>pakiet startowy (nr startowy, koszulka bawełniana RnK, bidon, upominki od sponsorów)</li>
+            <li>elektroniczny pomiar czasu</li>
+            <li>medal dla osób, które ukończyły zawody</li>
+            <li>oznakowaną trasę</li>
+            <li>serwis foto</li>
+        </ul>
+        <br/>
+        <strong>Ważne informacje:</strong>
+        <ul class="ml-4" style="list-style-type: circle;">
+            <li>Termin wnoszenia opłat startowych upływa 30 września 2025 r.</li>
+            <li>Za termin wniesienia opłaty uważa się datę i godzinę uznania rachunku bankowego.</li>
+            <li>Gwarancję otrzymania pakietu startowego mają zawodnicy, którzy dokonają zgłoszenia i uiszczą opłatę przed wyczerpaniem limitu miejsc.</li>
+            <li>Po wyczerpaniu limitu miejsc dokonanie zgłoszenia nie będzie możliwe.</li>
+        </ul>
+        <br/>
+        Zapisy dostępne są pod adresem: <a target="_blank" class="hover:text-orange-500" href="https://events.stoprace.com/pl/1/register/1">https://events.stoprace.com/pl/1/register/1</a>
+        <br/><br/>
+        Nie zwlekajcie z zapisami - liczba miejsc jest ograniczona! 🚴‍♂️
+        <br/><br/>
+        Do zobaczenia na trasie!<br/>
+        Organizatorzy Rury na Kocierz`,
+        excerpt: "Ruszyły zapisy na Rurę na Kocierz 2025! Sprawdź ceny wpisowego i co zawiera pakiet startowy."
+    },
     {
         date: new Date(Date.parse("2021-08-31 11:01")),
         author: "administrator",
