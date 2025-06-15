@@ -21,7 +21,7 @@ const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
             <img
                 src={`/assets/posts/${article.photo}`}
                 alt={article.title}
-                className="object-cover absolute object-center w-full h-full brightness-50 transition-transform group-hover:scale-105 duration-500"
+                className="object-cover absolute object-center w-full h-full brightness-25 transition-transform group-hover:scale-105 duration-500"
                 style={{ zIndex: -1 }}
             />
 
@@ -30,7 +30,7 @@ const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
                     {article.title}
                 </h3>
 
-                <h4 className="my-4">{article.excerpt}</h4>
+                <h4 className="my-4 line-clamp-1">{article.excerpt}</h4>
                 <DateAdded date={article.date} />
             </div>
         </div>
