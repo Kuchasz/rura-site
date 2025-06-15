@@ -52,15 +52,14 @@ export default function HomePage() {
                 </div>
             </div>
             <div className="flex w-full relative justify-center overflow-hidden">
-                <div className="w-full my-12 max-w-6xl flex flex-col items-start justify-center">
-                    {sortedPosts.slice(4).map(sp => (
+                <div className="w-full gap-12 my-12 max-w-6xl flex flex-col items-start justify-center">
+                    {sortedPosts.slice(4, 6).map(sp => (
                         <Link className="w-full" key={sp.alias} href={`artykul/${sp.alias}`}>
-                            <div className="cursor-pointer flex flex-col md:flex-row mb-4">
-                                <div className="relative shrink-0 w-full md:w-96 h-64">
+                            <div className="cursor-pointer flex flex-col md:flex-row">
+                                <div className="relative rounded-md overflow-hidden shrink-0 w-full md:w-96 h-48">
                                     <img
                                         src={`/assets/posts/${sp.photo}`}
                                         alt={sp.title}
-
                                         className="object-cover absolute w-full h-full object-center"
                                     />
                                 </div>
@@ -72,6 +71,16 @@ export default function HomePage() {
                             </div>
                         </Link>
                     ))}
+                    {sortedPosts.length > 5 && (
+                        <div className="w-full flex justify-center mt-8">
+                            <Link
+                                href="/artykuly"
+                                className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-colors"
+                            >
+                                Zobacz wszystkie artykuły
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </>

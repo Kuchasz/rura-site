@@ -33,41 +33,29 @@ export const Footer = () => {
     const router = useRouter();
     const pathname = usePathname();
     return (
-        <footer>
-            <div className="flex flex-col items-center py-8 bg-zinc-100 text-white">
-                <div className="text-zinc-700 font-semibold text-2xl">ORGANIZATORZY</div>
-                <div className="h-1 w-10 bg-orange-500 my-6"></div>
-                <div className="max-w-6xl flex flex-col md:flex-row flex-wrap justify-center items-center">
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-innergy-racing-team.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-kocierz.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-gmina-lekawica.png"></img>
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-gmina-porabka.png"></img> */}
+        <footer className="bg-zinc-100">
+            <div className="flex flex-col items-center py-8 text-white">
+                <div className="text-zinc-700 font-semibold text-3xl">PARTNERZY WYDARZENIA</div>
+                <div className="text-zinc-600 text-center max-w-2xl mt-4 mb-8">
+                    Organizacje i firmy, które pomagają w organizacji Rury na Kocierz
                 </div>
-                <div className="text-zinc-700 font-semibold text-2xl mt-20">SPONSORZY</div>
                 <div className="h-1 w-10 bg-orange-500 my-6"></div>
-                <div className="max-w-6xl flex flex-col md:flex-row flex-wrap justify-center items-center">
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-maspex.png"></img> */}
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-ceratizit.png"></img> */}
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-decathlon.png"></img> */}
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-eurowafel.png"></img>
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-czaniecki-makaron.png"></img> */}
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-agropunkt.png"></img>
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-pbw.png"></img> */}
-                    {/* <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-pkp-cargo-service.png"></img> */}
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-power-of-science.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-ravelo.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-euro-stempel.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-trek.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-bardomed.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-artgrawer.png"></img>
-                </div>
-                <div className="text-zinc-700 font-semibold text-2xl mt-20">PATRONI MEDIALNI</div>
-                <div className="h-1 w-10 bg-orange-500 my-6"></div>
-                <div className="max-w-6xl flex flex-col md:flex-row flex-wrap justify-center items-center">
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-kolarsko-pl.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-turdetur.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-velonews-pl.png"></img>
-                    <img className="scale-50 -m-4 md:-m-8" src="/assets/partners/logo-naszosie-pl.png"></img>
+                <div className="max-w-6xl flex flex-col md:flex-row flex-wrap justify-center items-center gap-4">
+                    <img src="/assets/partners25/logo-bluesport.png"></img>
+                    <img src="/assets/partners25/logo-bikers.png"></img>
+                    <img src="/assets/partners25/logo-eurowafel.png"></img>
+                    <img src="/assets/partners25/logo-kocierz.png"></img>
+                    <img src="/assets/partners25/logo-kross.png"></img>
+                    <img src="/assets/partners25/logo-lyson.png"></img>
+                    <img src="/assets/partners25/logo-manolo.png"></img>
+                    <img src="/assets/partners25/logo-orbea.png"></img>
+                    <img src="/assets/partners25/logo-peleton.png"></img>
+                    <img src="/assets/partners25/logo-plusssz.png"></img>
+                    <img src="/assets/partners25/logo-polsport.png"></img>
+                    <img src="/assets/partners25/logo-pos.png"></img>
+                    <img src="/assets/partners25/logo-ravelo.png"></img>
+                    <img src="/assets/partners25/logo-shimano.png"></img>
+                    <img src="/assets/partners25/logo-witt.png"></img>
                 </div>
             </div>
             <div className="flex justify-center py-4 bg-zinc-900 text-white">
@@ -76,12 +64,12 @@ export const Footer = () => {
                         <Link href="/">
                             <img className="cursor-pointer mr-2 md:mr-10" width="200px" src="/assets/logo-sm.png"></img>
                         </Link>
-                        <div className="grow text-zinc-400">
+                        {/* <div className="grow text-zinc-400">
                             <div className="text-base">
                                 Ambasador <strong>Marta Lach</strong>
                             </div>
                             <div className="text-2xs">Mistrzyni Polski, Olimpijka Tokio 2020</div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="flex items-center my-3 md:my-0">
                         <Icon className="text-orange-500" size={1.5} path={mdiHumanMaleChild}></Icon>

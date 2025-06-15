@@ -14,15 +14,10 @@ const MenuText = ({ text }: { text: string }) => (
 );
 
 const MenuButton = ({ onClick, activePath = "", to, text }: { onClick?: () => void; activePath: string; to: string; text: string }) => (
-    <Link href={to}>
-        <button
-            onClick={onClick}
-            className={classNames({
-                ["text-orange-500 "]: to === "/" ? activePath === to : activePath.startsWith(to),
-            })}
-        >
-            <MenuText text={text} />
-        </button>
+    <Link href={to} onClick={onClick} className={classNames("hover:text-orange-500", {
+        ["text-orange-500"]: to === "/" ? activePath === to : activePath.startsWith(to),
+    })}>
+        <MenuText text={text} />
     </Link>
 );
 
@@ -37,12 +32,12 @@ export const Header = () => {
                         <Link href="/">
                             <img className="cursor-pointer mr-2 md:mr-10" width="200px" src="/assets/logo-sm.png"></img>
                         </Link>
-                        <div className="grow text-zinc-400">
+                        {/* <div className="grow text-zinc-400">
                             <div className="text-base">
                                 Ambasador <strong>Marta Lach</strong>
                             </div>
                             <div className="text-2xs">Mistrzyni Polski, Olimpijka Tokio 2020</div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="flex items-center my-3 md:my-0">
                         <Icon className="text-orange-500" size={1.5} path={mdiHumanMaleChild}></Icon>
