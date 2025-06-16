@@ -17,8 +17,8 @@ const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
 };
 
 const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
-    <Link href={`artykul/${article.alias}`} className="my-4">
-        <div className="flex-1 flex flex-col rounded-md group overflow-hidden justify-end mx-4 max-h-72 relative cursor-pointer">
+    <Link href={`artykul/${article.alias}`}>
+        <div className="flex-1 flex flex-col rounded-md group overflow-hidden justify-end max-h-72 relative cursor-pointer">
             <img
                 src={`/assets/posts/${article.photo}`}
                 alt={article.title}
@@ -93,7 +93,7 @@ export default function HomePage() {
 
             <div className="container mx-auto px-4 py-16">
                 <h2 className="text-3xl font-bold text-center mb-12">Najnowsze informacje</h2>
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-4">
                     {sortedPosts.slice(1, 4).map(sp => (
                         <SneakPeak key={sp.title} article={sp} />
                     ))}
@@ -101,27 +101,9 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col container mx-auto items-center w-full px-4 relative justify-center overflow-hidden">
-                <div className="w-full gap-12 my-12 flex flex-col items-start justify-center">
-                    {sortedPosts.slice(4, 6).map(sp => (
-                        <Link className="w-full" key={sp.alias} href={`artykul/${sp.alias}`}>
-                            <div className="cursor-pointer flex flex-col md:flex-row">
-                                <div className="relative rounded-md overflow-hidden shrink-0 w-full md:w-96 h-48">
-                                    <img
-                                        src={`/assets/posts/${sp.photo}`}
-                                        alt={sp.title}
-                                        className="object-cover w-full h-full"
-                                    />
-                                </div>
-                                <div className="px-4 flex flex-col">
-                                    <div className="font-semibold text-lg uppercase">{sp.title}</div>
-                                    <h4>{sp.excerpt}</h4>
-                                    <PostDetails date={sp.date} author={sp.author} />
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
+                <div className="w-full mb-12 flex flex-col items-start justify-center">
                     {sortedPosts.length > 5 && (
-                        <div className="w-full flex justify-center mt-8">
+                        <div className="w-full flex justify-center">
                             <Link
                                 href="/artykuly"
                                 className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-colors"
