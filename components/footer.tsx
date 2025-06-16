@@ -35,7 +35,7 @@ export const Footer = () => {
     return (
         <footer className="bg-zinc-100">
             <div className="flex flex-col items-center py-8 text-white">
-                <div className="text-zinc-700 font-semibold text-3xl">PARTNERZY WYDARZENIA</div>
+                <div className="text-zinc-700 font-semibold text-center text-3xl">PARTNERZY WYDARZENIA</div>
                 <div className="text-zinc-600 text-center max-w-2xl mt-4 mb-8">
                     Organizacje i firmy, które pomagają w organizacji Rury na Kocierz
                 </div>
