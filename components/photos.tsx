@@ -37,17 +37,17 @@ const Photos = ({ directory }: Props) => {
                 >
                     {directory.items.map(i => (
                         <a
-                            className="gallery-item block hover:opacity-50 h-24 w-24 md:h-48 md:w-48 cursor-pointer m-1 md:m-3 relative"
+                            className="gallery-item block hover:opacity-50 size-24 md:size-48 cursor-pointer m-1 md:m-3 relative"
                             href={i.big}
                             key={i.big}
                             data-src={i.big}
                             data-download-url={i.full}
                         >
-                            <img 
-                                className="border rounded-md object-cover" 
-                                src={i.thumb} 
+                            <img
+                                className="border object-cover w-full h-full"
+                                src={i.thumb}
                                 alt="Photo thumbnail"
-                                
+
                                 sizes="(max-width: 768px) 96px, 192px"
                             />
                         </a>
