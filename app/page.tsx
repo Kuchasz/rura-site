@@ -45,13 +45,13 @@ export default function HomePage() {
         <>
             <Slogan {...mainPost} link={mainPost.alias} photo={`/assets/posts/${mainPost.photo}`} />
             <div className="flex w-full justify-center">
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4 px-4 md:px-12">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4 md:px-12">
                     {sortedPosts.slice(1, 4).map(sp => (
                         <SneakPeak key={sp.title} article={sp} />
                     ))}
                 </div>
             </div>
-            <div className="flex w-full relative justify-center overflow-hidden">
+            <div className="flex w-full px-4 container relative justify-center overflow-hidden">
                 <div className="w-full gap-12 my-12 max-w-6xl flex flex-col items-start justify-center">
                     {sortedPosts.slice(4, 6).map(sp => (
                         <Link className="w-full" key={sp.alias} href={`artykul/${sp.alias}`}>

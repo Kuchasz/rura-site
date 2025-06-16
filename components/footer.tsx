@@ -40,7 +40,7 @@ export const Footer = () => {
                     Organizacje i firmy, które pomagają w organizacji Rury na Kocierz
                 </div>
                 <div className="h-1 w-10 bg-orange-500 my-6"></div>
-                <div className="max-w-6xl flex flex-col md:flex-row flex-wrap justify-center items-center gap-4">
+                <div className="max-w-6xl flex flex-col md:flex-row flex-wrap justify-center items-center md:gap-8">
                     <img src="/assets/partners25/logo-bluesport.png"></img>
                     <img src="/assets/partners25/logo-bikers.png"></img>
                     <img src="/assets/partners25/logo-eurowafel.png"></img>
