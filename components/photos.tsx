@@ -46,8 +46,6 @@ const Photos = ({ directory }: Props) => {
                             <img
                                 className="border object-cover w-full h-full"
                                 src={i.thumb}
-                                alt="Photo thumbnail"
-
                                 sizes="(max-width: 768px) 96px, 192px"
                             />
                         </a>

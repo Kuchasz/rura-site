@@ -40,29 +40,29 @@ async function getDirectories(): Promise<Directory[]> {
 export default async function ZdjeciaPage() {
     const directories = await getDirectories();
     return (
-        <div className="flex p-4 flex-col items-center">
-            <div className="flex flex-wrap">
+        <div className="flex py-4 flex-col items-center w-full">
+            <div className="flex flex-wrap container mx-auto">
                 {directories.length !== 0
                     ? directories.map((d) => (
-                          <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
-                              <img
-                                  className="object-center w-full h-full absolute object-cover"
-                                  src={d.items[0].big}
-                                  alt={d.title}
-                                  
-                                  sizes="(max-width: 768px) 100vw, 33vw"
-                                  style={{ zIndex: -10 }}
-                              />
-                              <div className="bg-gradient-to-b from-black via-transparent to-black absolute z-[-9] top-0 w-full h-full opacity-75"></div>
-                              <div className="group text-white font-semibold h-full flex flex-col hover:bg-gray-900 transition-colors justify-between p-4">
-                                  <div className="flex flex-col">
-                                      <span>{d.date}</span>
-                                      <span>fot. {d.author}</span>
-                                  </div>
-                                  <div className="transition-transform group-hover:translate-x-2 text-3xl">{d.title}</div>
-                              </div>
-                          </Link>
-                      ))
+                        <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
+                            <img
+                                className="object-center w-full h-full absolute object-cover"
+                                src={d.items[0].big}
+                                alt={d.title}
+
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                style={{ zIndex: -10 }}
+                            />
+                            <div className="bg-gradient-to-b from-black via-transparent to-black absolute z-[-9] top-0 w-full h-full opacity-75"></div>
+                            <div className="group text-white font-semibold h-full flex flex-col hover:bg-zinc-900/50 transition-colors justify-between p-4">
+                                <div className="flex flex-col">
+                                    <span>{d.date}</span>
+                                    <span>fot. {d.author}</span>
+                                </div>
+                                <div className="transition-transform group-hover:translate-x-2 text-3xl">{d.title}</div>
+                            </div>
+                        </Link>
+                    ))
                     : null}
             </div>
         </div>
