@@ -8,7 +8,7 @@ import { mdiCalendar, mdiMapMarker, mdiFlagCheckered } from "@mdi/js";
 import Icon from "@mdi/react";
 
 export const metadata: Metadata = {
-    title: "Rura na Kocierz - Wyścig MTB",
+    title: "Rura na Kocierz - jazda indywidualna na czas",
 };
 
 const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
