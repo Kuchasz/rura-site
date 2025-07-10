@@ -13,7 +13,7 @@ export const posts = [
         <ul class="ml-4" style="list-style-type: circle;">
             <li>do 30 czerwca 2025 r: 120 zł</li>
             <li>do 30 września 2025 r: 150 zł</li>
-            <li>w dniu zawodów 3 października 2025 r: 170 zł (bez gwarancji otrzymania pakietu startowego)</li>
+            <li>w dniu zawodów 5 października 2025 r: 170 zł (bez gwarancji otrzymania pakietu startowego)</li>
         </ul>
         <br/>
         <strong>W ramach opłaty startowej zapewniamy:</strong>
