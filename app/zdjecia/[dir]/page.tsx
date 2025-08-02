@@ -2,7 +2,7 @@ import Photos from "../../../components/photos";
 
 export const dynamic = "force-dynamic";
 
-const rura = (url: string) => `https://ps-wed.azurewebsites.net/rura/${url}`;
+const rura = (url: string) => `https://eu2.contabostorage.com/b198b89caced412197f2059257d331be:wed-gal-eu-001/rura/${url}`;
 
 type Item = {
     thumb: string;

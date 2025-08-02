@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const dynamic = "force-static";
 
-const rura = (url: string) => `https://ps-wed.azurewebsites.net/rura/${url}`;
+const rura = (url: string) => `https://eu2.contabostorage.com/b198b89caced412197f2059257d331be:wed-gal-eu-001/rura/${url}`;
 
 type Item = {
     thumb: string;
@@ -20,7 +20,7 @@ type Directory = {
 };
 
 async function getDirectories(): Promise<Directory[]> {
-    const dirs = await fetch(rura(`index.json?v=${Math.random()}`), { cache: "no-store" }).then(x => x.json());
+    const dirs = await fetch(rura(`index.json`), { cache: "no-store" }).then(x => x.json());
     return Promise.all(
         dirs.map(async (d: Directory) => {
             const x = await fetch(rura(`${d.dir}/photos.json`), { cache: "no-store" }).then(x => x.json());

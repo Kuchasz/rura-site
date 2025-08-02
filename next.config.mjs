@@ -17,6 +17,7 @@ export default defineNextConfig({
       { hostname: "localhost" },
       { hostname: "rura.cc" },
       { hostname: "ps-wed.azurewebsites.net" },
+      { hostname: "*.contabostorage.com" }
     ],
   }
 });
