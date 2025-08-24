@@ -56,6 +56,11 @@ export const Footer = () => {
                     <img src="/assets/partners25/logo-ravelo.png"></img>
                     <img src="/assets/partners25/logo-shimano.png"></img>
                     <img src="/assets/partners25/logo-witt.png"></img>
+                    <img src="/assets/partners25/logo-tech.png"></img>
+                    <img src="/assets/partners25/logo-sinum.png"></img>
+                    <img src="/assets/partners25/logo-mardo.png"></img>
+                    <img src="/assets/partners25/logo-ale.png"></img>
+                    
                 </div>
             </div>
             <div className="flex justify-center py-4 bg-zinc-900 text-white">
