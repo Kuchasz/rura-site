@@ -5,7 +5,7 @@ export const posts = [
         photo: "zapisy-2023.jpg",
         title: "Ruszyły zapisy na Rurę na Kocierz 2025!",
         alias: "ruszaja-zapisy-2025",
-        content: `Drodzy miłośnicy kolarstwa górskiego! 🚵‍♂️🔥
+        content: `Drodzy miłośnicy kolarstwa! 🚵‍♂️🔥
         <br/><br/>
         Z ogromną radością ogłaszamy, że ruszyły zapisy na Rurę na Kocierz 2025! 🎉 5 października ponownie zmierzymy się z legendarną ulicą Widokową.
         <br/><br/>
