@@ -31,7 +31,7 @@ export const posts = [
         photo: "zapisy-2023.jpg",
         title: "Ruszyły zapisy na Rurę na Kocierz 2025!",
         alias: "ruszaja-zapisy-2025",
-        content: `Drodzy miłośnicy kolarstwa górskiego! 🚵‍♂️🔥
+        content: `Drodzy miłośnicy kolarstwa! 🚵‍♂️🔥
         <br/><br/>
         Z ogromną radością ogłaszamy, że ruszyły zapisy na Rurę na Kocierz 2025! 🎉 5 października ponownie zmierzymy się z legendarną ulicą Widokową.
         <br/><br/>
@@ -267,7 +267,7 @@ export const posts = [
         photo: "rura_2025_zapowiedz.png",
         title: "Wracamy! Rura na Kocierz 2025 już 5 października!",
         alias: "rura-na-kocierz-2025-zapowiedz",
-        content: `Drodzy miłośnicy kolarstwa górskiego! 🚵‍♂️🔥
+        content: `Drodzy miłośnicy kolarstwa! 🚵‍♂️🔥
         <br/><br/>
         Po dwuletniej przerwie z ogromną radością ogłaszamy powrót legendarnej Rury na Kocierz! 🎉 Tak, dobrze słyszycie - 5 października 2025 roku ponownie spotkamy się na najpiękniejszej i najbardziej wymagającej trasie w tej części Polski.
         <br/><br/>
