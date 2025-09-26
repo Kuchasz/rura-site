@@ -1,5 +1,31 @@
 export const posts = [
     {
+        "date": new Date(Date.parse("2025-09-26 16:00")),
+        "author": "administrator",
+        "photo": "nagrody-rura-2021.jpg",
+        "title": "Losowanie nagród po dekoracji!",
+        "alias": "losowanie-nagrod-2025",
+        "content": `Drodzy zawodnicy i kibice! 🎉🚴‍♂️  
+        <br/><br/>
+        Po emocjonującej dekoracji zwycięzców zapraszamy Was na wyjątkowe <strong>losowanie nagród</strong> o łącznej wartości niemal <strong>15 000 zł!</strong> 🔥  
+        <br/><br/>
+        Do wygrania czekają m.in.:  
+        <ul class="ml-4" style="list-style-type: circle;">
+            <li>🚲 Rower młodzieżowy <strong>Kross Hexagon 1.0</strong></li>
+            <li>🚴 Rower <strong>Kross Esker 6.0 Ultra</strong></li>
+            <li>🧴 Zestawy kosmetyków</li>
+            <li>👕 Koszulki kolarskie</li>
+        </ul>
+        <br/>
+        To doskonała okazja, aby oprócz sportowych emocji zabrać do domu także fantastyczne nagrody! 🎁  
+        <br/><br/>
+        Pamiętajcie – szczęście może uśmiechnąć się do każdego! 🍀  
+        <br/><br/>
+        Do zobaczenia podczas losowania!<br/>
+        Organizatorzy Rury na Kocierz`,
+        "excerpt": "Po dekoracji zwycięzców odbędzie się losowanie nagród o wartości prawie 15 000 zł! Sprawdź, co możesz wygrać!"
+    },
+    {
         date: new Date(Date.parse("2025-06-13 10:00")),
         author: "administrator",
         photo: "zapisy-2023.jpg",
