@@ -111,6 +111,7 @@ export const getTerms = async () => {
         return { status: 'success', data: data as { termsUrl: string } } as const;
 
     } catch (e) {
+        console.error(e);
         return { status: 'failure', message: 'Error occured' };
     }
 }
