@@ -103,6 +103,7 @@ export const getTerms = async () => {
         });
 
         if (result.status !== 200) {
+            console.error(result);
             return { status: 'failure', message: 'Error occured' } as const;
         }
 
