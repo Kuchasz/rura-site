@@ -98,9 +98,9 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="bg-zinc-800 text-zinc-600 flex justify-center py-4 text-xs font-semibold">
-                <div className="w-full max-w-6xl flex flex-col-reverse md:flex-row justify-between">
+                <div className="w-full max-w-6xl gap-4 flex flex-col-reverse md:flex-row justify-between items-center px-4">
                     <div className="mx-2">RURA NA KOCIERZ © 2025</div>
-                    <div>
+                    <div className="flex flex-wrap md:justify-end gap-x-2 gap-y-1">
                         {menuItems.map((mi, i) => (
                             <MenuButton
                                 key={mi.path}
