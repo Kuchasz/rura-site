@@ -3,13 +3,13 @@ import { env } from "../../../env/server.mjs";
 
 export async function POST(_: NextRequest) {
     try {
-        const result = await fetch(`${env.REGISTRATION_API_URL}${env.REGISTRATION_API_NAME}/teams`, {
+        const result = await fetch(`${env.STOPRACE_API_URL}/teams`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                apiKey: env.REGISTRATION_API_KEY
+                apiKey: env.STOPRACE_API_KEY
             })
         });
 

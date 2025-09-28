@@ -16,13 +16,13 @@ export async function POST(req: NextRequest) {
             icePhoneNumber
         } = await req.json();
 
-        const result = await fetch(`${env.REGISTRATION_API_URL}${env.REGISTRATION_API_NAME}/register`, {
+        const result = await fetch(`${env.STOPRACE_API_URL}/register`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                apiKey: env.REGISTRATION_API_KEY,
+                apiKey: env.STOPRACE_API_KEY,
                 name,
                 lastName,
                 birthDate,

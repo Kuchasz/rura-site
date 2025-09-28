@@ -1,3 +1,5 @@
+"use server";
+
 import { env } from "env/server.mjs";
 
 export type RegistrationStates = 'down' | 'disabled' | 'enabled' | 'limit-reached';
@@ -13,13 +15,13 @@ type RegistrationStatus = {
 export const getRegistrationStatus = async () => {
 
     try {
-        const result = await fetch(`${env.REGISTRATION_API_URL}${env.REGISTRATION_API_NAME}/registration-status`, {
+        const result = await fetch(`${env.STOPRACE_API_URL}/registration-status`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                apiKey: env.REGISTRATION_API_KEY
+                apiKey: env.STOPRACE_API_KEY
             })
         });
 
@@ -38,13 +40,13 @@ export const getRegistrationStatus = async () => {
 export const getRegisteredPlayers = async () => {
 
     try {
-        const result = await fetch(`${env.REGISTRATION_API_URL}${env.REGISTRATION_API_NAME}/list`, {
+        const result = await fetch(`${env.STOPRACE_API_URL}/list`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                apiKey: env.REGISTRATION_API_KEY
+                apiKey: env.STOPRACE_API_KEY
             })
         });
 
@@ -64,13 +66,13 @@ export const getRegisteredPlayers = async () => {
 export const getStartList = async () => {
 
     try {
-        const result = await fetch(`${env.REGISTRATION_API_URL}${env.REGISTRATION_API_NAME}/start-list`, {
+        const result = await fetch(`${env.STOPRACE_API_URL}/start-list`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                apiKey: env.REGISTRATION_API_KEY
+                apiKey: env.STOPRACE_API_KEY
             })
         });
 
@@ -81,6 +83,32 @@ export const getStartList = async () => {
         const data = await result.json();
 
         return { status: 'success', data: data as { bibNumber: string; name: string; lastName: string; team?: string; city?: string; startTime: number; }[] } as const;
+
+    } catch (e) {
+        return { status: 'failure', message: 'Error occured' };
+    }
+}
+
+export const getTerms = async () => {
+
+    try {
+        const result = await fetch(`${env.STOPRACE_API_URL}/terms`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                apiKey: env.STOPRACE_API_KEY
+            })
+        });
+
+        if (result.status !== 200) {
+            return { status: 'failure', message: 'Error occured' } as const;
+        }
+
+        const data = await result.json();
+
+        return { status: 'success', data: data as { termsUrl: string } } as const;
 
     } catch (e) {
         return { status: 'failure', message: 'Error occured' };
