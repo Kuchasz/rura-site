@@ -1,3 +1,5 @@
+import createMDX from '@next/mdx'
+
 /**
  * Don't be scared of the generics here.
  * All they do is to give us autocompletion when using this.
@@ -10,8 +12,9 @@ function defineNextConfig(config) {
   return config;
 }
 
-export default defineNextConfig({
+const nextConfig = defineNextConfig({
   reactStrictMode: true,
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [
       { hostname: "localhost" },
@@ -21,3 +24,12 @@ export default defineNextConfig({
     ],
   }
 });
+
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+export default withMDX(nextConfig);

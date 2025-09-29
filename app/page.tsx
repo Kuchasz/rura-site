@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DateAdded } from "../components/date-added";
 import { PostDetails } from "../components/post-details";
 import { Slogan } from "../components/slogan";
-import { posts } from "../posts";
+import { getAllPosts } from "../lib/mdx";
 import { mdiCalendar, mdiMapMarker, mdiFlagCheckered } from "@mdi/js";
 import Icon from "@mdi/react";
 
@@ -11,12 +11,7 @@ export const metadata: Metadata = {
     title: "Rura na Kocierz - jazda indywidualna na czas",
 };
 
-const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
-    const i = [...items];
-    return i.sort((a, b) => func(a) - func(b));
-};
-
-const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
+const SneakPeak = ({ article }: { article: ReturnType<typeof getAllPosts>[0] }) => (
     <Link href={`artykul/${article.alias}`}>
         <div className="flex-1 flex flex-col rounded-md group overflow-hidden justify-end max-h-72 relative cursor-pointer">
             <img
@@ -32,7 +27,7 @@ const SneakPeak = ({ article }: { article: typeof posts[0] }) => (
                 </h3>
 
                 <h4 className="my-4 line-clamp-1">{article.excerpt}</h4>
-                <DateAdded date={article.date} />
+                <DateAdded date={new Date(article.date)} />
             </div>
         </div>
     </Link>
@@ -81,7 +76,7 @@ const RegistrationCTA = () => (
 );
 
 export default function HomePage() {
-    const sortedPosts = sort(posts, p => p.date.getTime()).reverse();
+    const sortedPosts = getAllPosts();
     const [mainPost] = sortedPosts;
 
     return (

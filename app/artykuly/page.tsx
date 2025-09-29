@@ -1,19 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { PostDetails } from "../../components/post-details";
-import { posts } from "../../posts";
+import { getAllPosts } from "../../lib/mdx";
 
 export const metadata: Metadata = {
     title: "Wszystkie artykuły",
 };
 
-const sort = <T,>(items: T[], func: (item: T) => number): T[] => {
-    const i = [...items];
-    return i.sort((a, b) => func(a) - func(b));
-};
-
 export default function AllPostsPage() {
-    const sortedPosts = sort(posts, p => p.date.getTime()).reverse();
+    const sortedPosts = getAllPosts();
 
     return (
         <div className="flex w-full relative justify-center overflow-hidden">
@@ -33,7 +28,7 @@ export default function AllPostsPage() {
                                 <div className="p-6 flex flex-col">
                                     <div className="font-semibold text-xl uppercase mb-2">{sp.title}</div>
                                     <h4 className="text-gray-600 mb-4">{sp.excerpt}</h4>
-                                    <PostDetails date={sp.date} author={sp.author} />
+                                    <PostDetails date={new Date(sp.date)} author={sp.author} />
                                 </div>
                             </div>
                         </Link>

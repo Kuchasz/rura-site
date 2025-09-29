@@ -1,7 +1,9 @@
 import { PostDetails } from "../../../components/post-details";
-import { posts } from "../../../posts";
+import { getPostByAlias } from "../../../lib/mdx";
 import { Slogan } from "../../../components/slogan";
 import { notFound } from "next/navigation";
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { useMDXComponents } from '../../../components/mdx-components'
 
 // Force dynamic rendering to avoid React 19 SSR issues with embedded content
 export const dynamic = 'force-dynamic';
@@ -14,11 +16,13 @@ interface Props {
 
 export default async function ArticlePage({ params }: Props) {
     const { alias } = await params;
-    const post = posts.find((p) => p.alias === alias);
+    const post = getPostByAlias(alias);
 
     if (!post) {
         notFound();
     }
+
+    const components = useMDXComponents({});
 
     return (
         <div>
@@ -27,8 +31,10 @@ export default async function ArticlePage({ params }: Props) {
                 <div className="max-w-6xl my-14">
                     <div className="bg-white border border-gray-300 rounded-sm p-10">
                         <h2 className="text-2xl uppercase font-semibold">{post.title}</h2>
-                        <PostDetails date={post.date} author={post.author} />
-                        <span dangerouslySetInnerHTML={{ __html: post.content }}></span>
+                        <PostDetails date={new Date(post.date)} author={post.author} />
+                        <div className="prose prose-lg max-w-none">
+                            <MDXRemote source={post.content} components={components} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,7 +44,7 @@ export default async function ArticlePage({ params }: Props) {
 
 export async function generateMetadata({ params }: Props) {
     const { alias } = await params;
-    const post = posts.find((p) => p.alias === alias);
+    const post = getPostByAlias(alias);
     
     if (!post) {
         return {
