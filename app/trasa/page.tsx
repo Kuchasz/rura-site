@@ -17,19 +17,19 @@ export default function TrasaPage() {
                         <br />
                         <span>
                             <div className="flex flex-col items-start">
-                                <div className="font-semibold text-xl">11km / 380m przewyższenia</div>
+                                <div className="font-semibold text-xl">11km / 350m przewyższenia</div>
                                 <span className="my-4">
                                     Wymagająca, górska trasa wyścigu indywidualnej jazdy na czas. Startujemy w parku w Gminie Łękawica,
-                                    na zawodników czeka 11km i 380m wzniosu. Po drodze przejedziemy ekstra atrakcję, ul. Widokową
+                                    na zawodników czeka 11km i 350m wzniosu. Po drodze przejedziemy ekstra atrakcję, ul. Widokową
                                 </span>
                                 <div className="my-2 flex">
-                                    <Anchor href="/gpsies/rura_na_kocierz_2022_time_trial.gpx">Pobierz plik .GPX</Anchor>
-                                    <Anchor href="https://www.strava.com/routes/2897239796664260592">
+                                    <Anchor href="/gpsies/rura_na_kocierz_2025_time_trial.gpx">Pobierz plik .GPX</Anchor>
+                                    <Anchor href="https://www.strava.com/routes/3401126294890017916">
                                         Zobacz w
-                                        <img className="ml-2 self-center" src="assets/strava-logo-small.jpg" />
+                                        <img className="ml-2 self-center" width={100} src="assets/strava-logo.png" />
                                     </Anchor>
                                 </div>
-                                <a className="w-full" target="_blank" href="https://www.strava.com/routes/2897239796664260592">
+                                <a className="w-full" target="_blank" href="https://www.strava.com/routes/3401126294890017916">
                                     <img className="w-full" src="assets/trasa-time-trial.jpg" />
                                 </a>
                                 <img src="assets/wysokosciowka-time-trial.png" />

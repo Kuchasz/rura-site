@@ -41,13 +41,13 @@ export default function Edycja23() {
                             <div className="my-8 flex flex-col items-start">
                                 <span className="items-baseline">
                                     <h3 className="font-semibold text-lg">Time Trial</h3>
-                                    <div className="text-lg">11km / 380m przewyższenia</div>
+                                    <div className="text-lg">11km / 350m przewyższenia</div>
                                 </span>
                                 <div className="my-2 flex">
                                     <Anchor href="/gpsies/rura_na_kocierz_2022_time_trial.gpx">Pobierz plik .GPX</Anchor>
                                     <Anchor href="https://www.strava.com/routes/2897239796664260592">
                                         Zobacz w
-                                        <img className="ml-2 self-center" src="assets/strava-logo-small.jpg" />
+                                        <img className="ml-2 self-center" width={100} src="assets/strava-logo.png" />
                                     </Anchor>
                                 </div>
                             </div>

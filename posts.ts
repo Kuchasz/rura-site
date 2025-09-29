@@ -137,7 +137,7 @@ export const posts = [
         alias: "rusza-edycja-2022",
         content: `Po niewątpliwym sukcesie Rury na Kocierz postanowiliśmy pójść za ciosem: wzorem najlepszych sequeli filmowych będzie mocniej, szybciej i dłużej. Wiemy doskonale, że otwieracie już swoje jaskinie wytopu, odpalając pierwsze plany treningowe z mozołem przygotowywane przez Waszych trenerów 📊.
         <br/><br/>Wobec tego możecie już obrać sobie pierwszy cel na przyszły rok, bo 9 kwietnia 2022 r. widzimy się na otwarciu sezonu! To będzie dwudniowe kolarskie święto. Pierwszego dnia naszej etapówki będziecie mieli do wyboru dwa dystanse: Fun (52 km/ 1120 m) Pro (104 km/ 2340 m).
-        <br/><br/>W drugi dzień natomiast zaprosimy was na samotną walkę z czasem: będziecie wtedy mogli odrobić ewentualne straty w klasyfikacji generalnej… lub je powiększyć. Czasówka ma długość 11 km i 380 m przewyższeń. Już teraz możecie zaplanować weekend 9-10 kwietnia wraz ze swoją rodziną.
+        <br/><br/>W drugi dzień natomiast zaprosimy was na samotną walkę z czasem: będziecie wtedy mogli odrobić ewentualne straty w klasyfikacji generalnej… lub je powiększyć. Czasówka ma długość 11 km i 350 m przewyższeń. Już teraz możecie zaplanować weekend 9-10 kwietnia wraz ze swoją rodziną.
         <br/><br/>Naprzeciw wychodzi Wam niezawodny <a target="_blank" href="https://www.facebook.com/HotelKocierz">Kocierz Hotel & SPA</a> z ofertą rabatu 15% na pobyt w trakcie naszego szalonego weekendu! 
         <br/><br/>Szczegółowe informacje będziemy sukcesywnie publikować na naszych social mediach, wkrótce ruszą też zapisy. `,
         excerpt:
