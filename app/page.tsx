@@ -34,7 +34,7 @@ const SneakPeak = ({ article }: { article: ReturnType<typeof getAllPosts>[0] }) 
 );
 
 const EventInfo = () => (
-    <div className="w-full bg-zinc-100 py-16">
+    <div className="w-full bg-white py-16">
         <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Rura na Kocierz 2025</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -83,9 +83,6 @@ export default function HomePage() {
         <>
             <Slogan {...mainPost} link={mainPost.alias} photo={`/assets/posts/${mainPost.photo}`} />
 
-            <EventInfo />
-            <RegistrationCTA />
-
             <div className="container mx-auto px-4 py-16">
                 <h2 className="text-3xl font-bold text-center mb-12">Najnowsze informacje</h2>
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-4">
@@ -109,6 +106,8 @@ export default function HomePage() {
                     )}
                 </div>
             </div>
+
+            <EventInfo />
 
 
         </>

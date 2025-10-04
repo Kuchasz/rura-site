@@ -14,9 +14,13 @@ const MenuText = ({ text }: { text: string }) => (
 );
 
 const MenuButton = ({ onClick, activePath = "", to, text }: { onClick?: () => void; activePath: string; to: string; text: string }) => (
-    <Link href={to} onClick={onClick} className={classNames("hover:text-orange-500", {
-        ["text-orange-500"]: to === "/" ? activePath === to : activePath.startsWith(to),
-    })}>
+    <Link
+        href={to}
+        onClick={onClick}
+        className={classNames("hover:text-orange-500", {
+            ["text-orange-500"]: to === "/" ? activePath === to : activePath.startsWith(to),
+        })}
+    >
         <MenuText text={text} />
     </Link>
 );
@@ -65,7 +69,7 @@ export const Header = () => {
             </div>
             <div className="flex justify-center py-3 bg-zinc-900 text-white">
                 <div className="w-full max-w-6xl flex-col flex">
-                    <div className="mx-4 sm:mx-0 flex items-center justify-between">
+                    <div className="mx-4 sm:mx-0 gap-2 flex items-center justify-between">
                         <div className="hidden sm:flex justify-between md:justify-start">
                             {menuItems.map(mi => (
                                 <MenuButton key={mi.path} activePath={pathname || ""} to={mi.path} text={mi.label} />
@@ -75,8 +79,9 @@ export const Header = () => {
                             <Icon size={1.5} path={mdiMenu} />
                             <MenuText
                                 text={
-                                    menuItems.find(mi => (mi.path === "/" ? (pathname || "") === mi.path : (pathname || "").startsWith(mi.path)))
-                                        ?.label ?? "MENU"
+                                    menuItems.find(mi =>
+                                        mi.path === "/" ? (pathname || "") === mi.path : (pathname || "").startsWith(mi.path)
+                                    )?.label ?? "MENU"
                                 }
                             />
                         </div>
@@ -94,10 +99,11 @@ export const Header = () => {
                         >
                             WYNIKI
                         </Link> */}
-                        <Link href="https://events.stoprace.com/pl/1/register/1"
-                            className="text-sm md:text-base transition-colors mx-2 md:mx-5 uppercase cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full px-4 py-1"
+                        <Link
+                            href="https://events.stoprace.com/pl/1/"
+                            className="text-xs px-2 md:px-4 md:text-base transition-colors uppercase cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full py-1"
                         >
-                            ZAPISZ SIĘ!
+                            LISTA STARTOWA I WYNIKI
                         </Link>
                     </div>
                     <div className={classNames("flex-col ml-2 items-start", menuRevealed ? "flex sm:hidden" : "hidden")}>
