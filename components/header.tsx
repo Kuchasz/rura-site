@@ -99,12 +99,12 @@ export const Header = () => {
                         >
                             WYNIKI
                         </Link> */}
-                        <Link
+                        {/* <Link
                             href="https://events.stoprace.com/pl/1/"
                             className="text-xs px-2 md:px-4 md:text-base transition-colors uppercase cursor-pointer text-center bg-orange-500 hover:bg-white hover:text-orange-500 font-bold rounded-full py-1"
                         >
                             LISTA STARTOWA I WYNIKI
-                        </Link>
+                        </Link> */}
                     </div>
                     <div className={classNames("flex-col ml-2 items-start", menuRevealed ? "flex sm:hidden" : "hidden")}>
                         {menuItems.map(mi => (
