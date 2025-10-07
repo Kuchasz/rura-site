@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image'
 import Link from 'next/link'
+import FacebookVideo from './facebook-video'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -117,6 +118,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: ({ ...props }) => (
       <hr className="my-8 border-gray-300" {...props} />
     ),
+    // Custom Facebook video component
+    FacebookVideo,
     ...components,
   }
 }
