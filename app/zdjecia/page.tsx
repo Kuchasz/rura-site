@@ -50,7 +50,7 @@ export default async function ZdjeciaPage() {
                 description="Wysokiej rozdzielczości zdjęcia z trasy, startu, mety i dekoracji do swobodnego pobrania."
             >
                 <KickerLight>Zdjęcia</KickerLight>
-                <h1>Katalogi z trasy, startu, mety i dekoracji.</h1>
+                <h1>Zdjęcia z trasy, startu, mety i dekoracji.</h1>
                 <Lead className="text-white/90">
                     Zebrane galerie z poprzednich edycji Rury na Kocierz oraz Żar Everesting.
                 </Lead>

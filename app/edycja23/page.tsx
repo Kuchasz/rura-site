@@ -17,8 +17,8 @@ export default function Edycja23() {
                     Garść najważniejszych informacji o Rurze na Kocierz 2023: jednodniowy uphill z jazdą indywidualną na czas.
                 </Lead>
                 <Actions>
-                    <ButtonLink primary href="https://events.stoprace.com/event/129/results">
-                        Lista startowa i wyniki
+                    <ButtonLink primary href="/files/rnk_2023_wyniki.pdf">
+                        Pobierz wyniki PDF
                     </ButtonLink>
                     <ButtonRoute href="/zdjecia">
                         Przejdź do zdjęć

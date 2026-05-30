@@ -51,7 +51,7 @@ export default function TrasaPage() {
             </Section>
 
             <Section>
-                <RouteMap src="/assets/trasa-time-trial.jpg" alt="Ulica Widokowa na trasie Time Trial" />
+                <RouteMap src="/assets/26_trasa_tt.jpg" alt="Ulica Widokowa na trasie Time Trial" />
             </Section>
         </>
     );

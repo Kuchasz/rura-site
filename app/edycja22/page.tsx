@@ -48,9 +48,6 @@ export default function Edycja22() {
                     <ButtonRoute href="/zdjecia">
                         Zdjęcia z edycji
                     </ButtonRoute>
-                    <ButtonRoute href="/trasa">
-                        Aktualna trasa
-                    </ButtonRoute>
                 </Actions>
             </HeroWithVisual>
 
