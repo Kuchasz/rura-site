@@ -1,4 +1,4 @@
-import { Hero, Kicker, Lead, Panel, Section, VisualCard } from "../../components/design";
+import { HeroWithVisual, Kicker, KickerLight, Lead, Panel, Section } from "../../components/design";
 
 export const dynamic = "force-static";
 
@@ -34,16 +34,16 @@ const days = [
 export default function Program() {
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Program</Kicker>
-                    <h1>Program Rury na Kocierz.</h1>
-                    <Lead>Program zawodów Rura na Kocierz 2022.</Lead>
-                </div>
-                <VisualCard image="/assets/plan-zawodow-2022.jpg" alt="Program zawodów" pill="Archiwum">
-                    Trzy dni biura, startów i dekoracji.
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image="/assets/plan-zawodow-2022.jpg"
+                alt="Program zawodów"
+                pill="Archiwum"
+                description="Szczegółowy harmonogram trzech dni: biuro zawodów, starty i dekoracje."
+            >
+                <KickerLight>Program</KickerLight>
+                <h1>Program Rury na Kocierz.</h1>
+                <Lead className="text-white/90">Program zawodów Rura na Kocierz 2022.</Lead>
+            </HeroWithVisual>
             <Section>
                 <div className="grid gap-2.5">
                     {days.map(day => (

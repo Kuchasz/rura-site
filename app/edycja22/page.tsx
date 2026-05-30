@@ -1,4 +1,4 @@
-import { Actions, ButtonLink, ButtonRoute, Hero, Kicker, Lead, Panel, Section, SectionHead, StatCard, VisualCard } from "../../components/design";
+import { Actions, ButtonLink, ButtonRoute, HeroWithVisual, Kicker, KickerLight, Lead, Panel, Section, SectionHead, StatCard } from "../../components/design";
 
 export const dynamic = "force-static";
 
@@ -29,30 +29,30 @@ const routes = [
 export default function Edycja22() {
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Edycja 2022</Kicker>
-                    <h1>Dwa dni ścigania, trzy formaty.</h1>
-                    <Lead>
-                        Rura na Kocierz 2022 toczyła się dwa dni z rzędu: start wspólny na dwóch dystansach oraz indywidualna jazda na
-                        czas.
-                    </Lead>
-                    <Actions>
-                        <ButtonLink primary href="/files/rnk_2022_wyniki.pdf">
-                            Pobierz wyniki PDF
-                        </ButtonLink>
-                        <ButtonRoute href="/zdjecia">
-                            Zdjęcia z edycji
-                        </ButtonRoute>
-                        <ButtonRoute href="/trasa">
-                            Aktualna trasa
-                        </ButtonRoute>
-                    </Actions>
-                </div>
-                <VisualCard image="/assets/posts/rusza-edycja-2022.jpg" alt="Edycja 2022" pill="Archiwum">
-                    Wyniki z podziałem na kategorie wiekowe.
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image="/assets/posts/rusza-edycja-2022.jpg"
+                alt="Edycja 2022"
+                pill="Archiwum"
+                description="Start wspólny PRO i FUN oraz Time Trial — trzy formaty wyścigu w jeden weekend."
+            >
+                <KickerLight>Edycja 2022</KickerLight>
+                <h1>Dwa dni ścigania, trzy formaty.</h1>
+                <Lead className="text-white/90">
+                    Rura na Kocierz 2022 toczyła się dwa dni z rzędu: start wspólny na dwóch dystansach oraz indywidualna jazda na
+                    czas.
+                </Lead>
+                <Actions>
+                    <ButtonLink primary href="/files/rnk_2022_wyniki.pdf">
+                        Pobierz wyniki PDF
+                    </ButtonLink>
+                    <ButtonRoute href="/zdjecia">
+                        Zdjęcia z edycji
+                    </ButtonRoute>
+                    <ButtonRoute href="/trasa">
+                        Aktualna trasa
+                    </ButtonRoute>
+                </Actions>
+            </HeroWithVisual>
 
             <Section>
                 <SectionHead>

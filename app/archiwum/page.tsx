@@ -1,4 +1,4 @@
-import { ButtonRoute, Hero, Kicker, Lead, Section, SectionHead, VisualCard } from "../../components/design";
+import { ButtonRoute, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead } from "../../components/design";
 
 export const metadata = {
     title: "Archiwum",
@@ -31,16 +31,16 @@ const editions = [
 export default function ArchivePage() {
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Archiwum</Kicker>
-                    <h1>Poprzednie edycje Rury na Kocierz.</h1>
-                    <Lead>Wyniki, trasy, zdjęcia i najważniejsze informacje z minionych startów.</Lead>
-                </div>
-                <VisualCard image="/assets/posts/podsumowanie_rnk_2025.jpg" alt="Archiwum Rury na Kocierz" pill="Edycje">
-                    2025, 2023 i 2022 w jednym miejscu.
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image="/assets/posts/podsumowanie_rnk_2025.jpg"
+                alt="Archiwum Rury na Kocierz"
+                pill="3 edycje"
+                description="Wyniki, trasy, zdjęcia i najważniejsze informacje z edycji 2025, 2023 i 2022."
+            >
+                <KickerLight>Archiwum</KickerLight>
+                <h1>Poprzednie edycje Rury na Kocierz.</h1>
+                <Lead className="text-white/90">Wyniki, trasy, zdjęcia i najważniejsze informacje z minionych startów.</Lead>
+            </HeroWithVisual>
 
             <Section>
                 <SectionHead>

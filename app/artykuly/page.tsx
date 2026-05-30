@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Hero, Kicker, Lead, Section, VisualCard } from "../../components/design";
+import { HeroWithVisual, Kicker, KickerLight, Lead, Section } from "../../components/design";
 import { YearFilter } from "../../components/year-filter";
 import { getAllPosts } from "../../lib/mdx";
 
@@ -20,16 +20,16 @@ export default function AllPostsPage() {
 
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Wszystkie artykuły</Kicker>
-                    <h1>Komunikaty, zapisy, wyniki i archiwum.</h1>
-                    <Lead>Indeks artykułów z rura.cc w układzie szybszym do skanowania przed startem i po zawodach.</Lead>
-                </div>
-                <VisualCard image={`/assets/posts/${mainPost.photo}`} alt={mainPost.title} pill="Najnowsze" hot>
-                    {mainPost.title}
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image={`/assets/posts/${mainPost.photo}`}
+                alt={mainPost.title}
+                pill="Najnowsze"
+                description={mainPost.title}
+            >
+                <KickerLight>Wszystkie artykuły</KickerLight>
+                <h1>Komunikaty, zapisy, wyniki i archiwum.</h1>
+                <Lead className="text-white/90">Indeks artykułów z rura.cc w układzie szybszym do skanowania przed startem i po zawodach.</Lead>
+            </HeroWithVisual>
 
             <Section>
                 <YearFilter

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Actions, ButtonRoute, Card, Hero, Kicker, Lead, Section, SectionHead, StatCard, VisualCard } from "../components/design";
+import { Actions, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, StatCard } from "../components/design";
 import { PostDetails } from "../components/post-details";
 import { getAllPosts } from "../lib/mdx";
 
@@ -27,24 +27,23 @@ export default function HomePage() {
 
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Aktualności</Kicker>
-                    <h1>{mainPost.title}</h1>
-                    <Lead>{mainPost.excerpt}</Lead>
-                    <Actions>
-                        <ButtonRoute primary href={`/artykul/${mainPost.alias}`}>
-                            Czytaj więcej
-                        </ButtonRoute>
-                        <ButtonRoute href="/trasa">
-                            Zobacz trasę
-                        </ButtonRoute>
-                    </Actions>
-                </div>
-                <VisualCard image={`/assets/posts/${mainPost.photo}`} alt={mainPost.title} pill="Najnowszy wpis">
-                    Widokowa, finisz, dekoracja i pełna energia zawodników.
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image={`/assets/posts/${mainPost.photo}`}
+                alt={mainPost.title}
+                pill="Najnowszy wpis"
+                description={mainPost.excerpt}
+            >
+                <KickerLight>Aktualności</KickerLight>
+                <h1>{mainPost.title}</h1>
+                <Actions>
+                    <ButtonRoute primary href={`/artykul/${mainPost.alias}`}>
+                        Czytaj więcej
+                    </ButtonRoute>
+                    <ButtonRoute href="/trasa">
+                        Zobacz trasę
+                    </ButtonRoute>
+                </Actions>
+            </HeroWithVisual>
 
             <Section>
                 <SectionHead
@@ -75,7 +74,7 @@ export default function HomePage() {
                 </SectionHead>
                 <div className="grid grid-cols-3 gap-3.5 max-[760px]:grid-cols-1">
                     <StatCard label="Data" value="13.09.2026" />
-                    <StatCard label="Miejsce" value="Łękawica + Kocierz" />
+                    <StatCard label="Miejsce" value="Łękawica + Kocierz" negative />
                     <StatCard label="Trasa" value="11 km" />
                 </div>
             </Section>

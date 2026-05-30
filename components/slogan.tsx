@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ButtonClasses, Hero, Kicker, Lead, VisualCard } from "./design";
+import { ButtonClasses, HeroWithVisual, KickerLight } from "./design";
 
 export type SloganProps = {
     photo: string;
@@ -10,19 +10,18 @@ export type SloganProps = {
 };
 
 export const Slogan = ({ photo, title, excerpt, link, linkText }: SloganProps) => (
-    <Hero>
-        <div>
-            <Kicker>Rura na Kocierz</Kicker>
-            <h1>{title}</h1>
-            <Lead>{excerpt}</Lead>
-            {link && (
-                <Link className={`${ButtonClasses(true)} mt-7`} href={`artykul/${link}`}>
-                    {linkText || "Czytaj więcej"}
-                </Link>
-            )}
-        </div>
-        <VisualCard image={photo} alt={title} pill="Najnowszy wpis">
-            {excerpt}
-        </VisualCard>
-    </Hero>
+    <HeroWithVisual
+        image={photo}
+        alt={title}
+        pill="Najnowszy wpis"
+        description={excerpt}
+    >
+        <KickerLight>Rura na Kocierz</KickerLight>
+        <h1>{title}</h1>
+        {link && (
+            <Link className={`${ButtonClasses(true)} mt-7`} href={`artykul/${link}`}>
+                {linkText || "Czytaj więcej"}
+            </Link>
+        )}
+    </HeroWithVisual>
 );

@@ -1,4 +1,4 @@
-import { Actions, ButtonLink, ButtonRoute, Hero, Kicker, Lead, Panel, Section, VisualCard } from "../../components/design";
+import { Actions, ButtonLink, ButtonRoute, HeroWithVisual, Kicker, KickerLight, Lead, Panel, Section } from "../../components/design";
 
 export const dynamic = "force-static";
 
@@ -9,29 +9,29 @@ export const metadata = {
 export default function Edycja25() {
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Edycja 2025</Kicker>
-                    <h1>Widokowa, powrót i pełna energia.</h1>
-                    <Lead>
-                        Rura na Kocierz 2025 odbyła się 5 października jako jednodniowa jazda indywidualna na czas z Łękawicy na Kocierz.
-                    </Lead>
-                    <Actions>
-                        <ButtonLink primary href="/files/rnk_2025_wyniki.pdf">
-                            Pobierz wyniki PDF
-                        </ButtonLink>
-                        <ButtonRoute href="/artykul/podsumowanie-rura-2025">
-                            Podsumowanie edycji
-                        </ButtonRoute>
-                        <ButtonRoute href="/zdjecia">
-                            Zdjęcia
-                        </ButtonRoute>
-                    </Actions>
-                </div>
-                <VisualCard image="/assets/posts/podsumowanie_rnk_2025.jpg" alt="Edycja 2025" pill="Archiwum">
-                    Emocje, rywalizacja i atmosfera na ulicy Widokowej.
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image="/assets/posts/podsumowanie_rnk_2025.jpg"
+                alt="Edycja 2025"
+                pill="Archiwum"
+                description="5 października 2025 — jazda na czas z Łękawicy przez legendarną Widokową na Kocierz."
+            >
+                <KickerLight>Edycja 2025</KickerLight>
+                <h1>Widokowa, powrót i pełna energia.</h1>
+                <Lead className="text-white/90">
+                    Rura na Kocierz 2025 odbyła się 5 października jako jednodniowa jazda indywidualna na czas z Łękawicy na Kocierz.
+                </Lead>
+                <Actions>
+                    <ButtonLink primary href="/files/rnk_2025_wyniki.pdf">
+                        Pobierz wyniki PDF
+                    </ButtonLink>
+                    <ButtonRoute href="/artykul/podsumowanie-rura-2025">
+                        Podsumowanie edycji
+                    </ButtonRoute>
+                    <ButtonRoute href="/zdjecia">
+                        Zdjęcia
+                    </ButtonRoute>
+                </Actions>
+            </HeroWithVisual>
 
             <Section>
                 <div className="grid grid-cols-2 gap-[18px] max-[760px]:grid-cols-1">

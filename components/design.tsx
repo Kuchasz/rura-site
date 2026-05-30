@@ -21,14 +21,44 @@ export function Section({ children, className = "" }: { children: ReactNode; cla
 
 export function Hero({ children, className = "" }: { children: ReactNode; className?: string }) {
     return (
-        <section className={`mx-auto grid w-[min(1180px,calc(100%_-_32px))] grid-cols-[minmax(0,1.02fr)_minmax(320px,.78fr)] items-center gap-[clamp(24px,5vw,72px)] py-[clamp(44px,8vw,96px)] pb-12 max-[1024px]:grid-cols-1 max-[760px]:w-[min(100%_-_24px,680px)] ${className}`}>
+        <section className={`mx-auto w-[min(1180px,calc(100%_-_32px))] py-[clamp(44px,8vw,96px)] pb-12 max-[760px]:w-[min(100%_-_24px,680px)] ${className}`}>
             {children}
+        </section>
+    );
+}
+
+export function HeroWithVisual({ 
+    image, 
+    alt, 
+    pill, 
+    description,
+    children 
+}: { 
+    image: string; 
+    alt: string; 
+    pill: string; 
+    description: string;
+    children: ReactNode;
+}) {
+    return (
+        <section className="relative min-h-[clamp(480px,60vh,680px)] overflow-hidden py-[clamp(44px,8vw,96px)] pb-12">
+            <img className="absolute inset-0 h-full w-full object-cover" src={image} alt={alt} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
+            <div className="relative mx-auto flex h-full min-h-[clamp(480px,60vh,680px)] w-[min(1180px,calc(100%_-_32px))] flex-col justify-end pb-8 text-white max-[760px]:w-[min(100%_-_24px,680px)]">
+                <div className="max-w-[840px]">
+                    {children}
+                </div>
+            </div>
         </section>
     );
 }
 
 export function Kicker({ children, className = "" }: { children: ReactNode; className?: string }) {
     return <p className={`mb-3.5 text-xs font-extrabold uppercase tracking-[.12em] text-orange-600 ${className}`}>{children}</p>;
+}
+
+export function KickerLight({ children, className = "" }: { children: ReactNode; className?: string }) {
+    return <p className={`mb-3.5 text-xs font-extrabold uppercase tracking-[.12em] text-orange-400 ${className}`}>{children}</p>;
 }
 
 export function Lead({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -123,10 +153,10 @@ export function SectionHead({ children, action }: { children: ReactNode; action?
     );
 }
 
-export function StatCard({ label, value, children }: { label: string; value: string; children?: ReactNode }) {
+export function StatCard({ label, value, children, negative = false }: { label: string; value: string; children?: ReactNode; negative?: boolean }) {
     return (
-        <Card className="p-[18px]">
-            <span className="text-xs uppercase text-gray-500">{label}</span>
+        <Card className={`p-[18px] ${negative ? "!border-gray-900 !bg-gray-900 text-white" : ""}`}>
+            <span className={`text-xs uppercase ${negative ? "text-gray-400" : "text-gray-500"}`}>{label}</span>
             <strong className="mt-2 block text-[clamp(28px,4vw,46px)] leading-none">{value}</strong>
             {children}
         </Card>

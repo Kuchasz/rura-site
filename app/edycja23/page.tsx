@@ -1,30 +1,30 @@
-import { Actions, ButtonLink, ButtonRoute, Hero, Kicker, Lead, Panel, Section, VisualCard } from "../../components/design";
+import { Actions, ButtonLink, ButtonRoute, HeroWithVisual, Kicker, KickerLight, Lead, Panel, Section } from "../../components/design";
 
 export const dynamic = "force-static";
 
 export default function Edycja23() {
     return (
         <>
-            <Hero>
-                <div>
-                    <Kicker>Edycja 2023</Kicker>
-                    <h1>Rura wróciła do korzeni.</h1>
-                    <Lead>
-                        Garść najważniejszych informacji o Rurze na Kocierz 2023: jednodniowy uphill z jazdą indywidualną na czas.
-                    </Lead>
-                    <Actions>
-                        <ButtonLink primary href="https://events.stoprace.com/event/129/results">
-                            Lista startowa i wyniki
-                        </ButtonLink>
-                        <ButtonRoute href="/zdjecia">
-                            Przejdź do zdjęć
-                        </ButtonRoute>
-                    </Actions>
-                </div>
-                <VisualCard image="/assets/posts/podsumowanie-rura-2023.jpg" alt="Edycja 2023" pill="Archiwum">
-                    Podsumowujący klip video i pełne wyniki zawodników.
-                </VisualCard>
-            </Hero>
+            <HeroWithVisual
+                image="/assets/posts/podsumowanie-rura-2023.jpg"
+                alt="Edycja 2023"
+                pill="Archiwum"
+                description="Jednodniowy uphill z jazdą na czas — powrót do klasycznego formatu z pełnymi wynikami."
+            >
+                <KickerLight>Edycja 2023</KickerLight>
+                <h1>Rura wróciła do korzeni.</h1>
+                <Lead className="text-white/90">
+                    Garść najważniejszych informacji o Rurze na Kocierz 2023: jednodniowy uphill z jazdą indywidualną na czas.
+                </Lead>
+                <Actions>
+                    <ButtonLink primary href="https://events.stoprace.com/event/129/results">
+                        Lista startowa i wyniki
+                    </ButtonLink>
+                    <ButtonRoute href="/zdjecia">
+                        Przejdź do zdjęć
+                    </ButtonRoute>
+                </Actions>
+            </HeroWithVisual>
 
             <Section>
                 <div className="grid grid-cols-2 gap-[18px] max-[760px]:grid-cols-1">
