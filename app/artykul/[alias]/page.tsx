@@ -4,6 +4,7 @@ import { Slogan } from "../../../components/slogan";
 import { notFound } from "next/navigation";
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { useMDXComponents } from '../../../components/mdx-components'
+import { Panel, Section } from "../../../components/design";
 
 // Force dynamic rendering to avoid React 19 SSR issues with embedded content
 export const dynamic = 'force-dynamic';
@@ -25,20 +26,18 @@ export default async function ArticlePage({ params }: Props) {
     const components = useMDXComponents({});
 
     return (
-        <div>
+        <>
             <Slogan {...post} photo={`/assets/posts/${post.photo}`} />
-            <div className="flex w-full bg-zinc-200 justify-center">
-                <div className="max-w-6xl my-14">
-                    <div className="bg-white border border-gray-300 rounded-sm p-10">
-                        <h2 className="text-2xl uppercase font-semibold">{post.title}</h2>
+            <Section>
+                <Panel>
+                        <h2>{post.title}</h2>
                         <PostDetails date={new Date(post.date)} author={post.author} />
-                        <div className="prose prose-lg max-w-none">
+                        <div className="mt-8 text-lg font-semibold text-gray-700 [&_a]:font-extrabold [&_a]:text-orange-600 [&_iframe]:rounded-xl [&_img]:rounded-xl [&_li+li]:mt-2 [&_ol]:my-4 [&_ol]:pl-5 [&_p]:mb-4 [&_p]:mt-0 [&_ul]:my-4 [&_ul]:pl-5">
                             <MDXRemote source={post.content} components={components} />
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </Panel>
+            </Section>
+        </>
     );
 }
 

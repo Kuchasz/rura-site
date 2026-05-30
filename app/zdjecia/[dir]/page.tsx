@@ -1,4 +1,5 @@
 import Photos from "../../../components/photos";
+import { Shell } from "../../../components/design";
 
 export const dynamic = "force-dynamic";
 
@@ -39,10 +40,10 @@ export default async function ZdjeciaDirPage({ params }: ZdjeciaProps) {
     const { dir } = await params;
     const directory = await getDirectory(dir);
     return (
-        <div className="flex p-4 flex-col items-center">
-            <div className="p-4 text-white bg-zinc-700 rounded-md">
+        <div>
+            <Shell className="mt-8 rounded-lg border border-stone-200 bg-white p-4 text-xs font-extrabold uppercase text-gray-700">
                 <strong>INFO: </strong>Każde zdjęcie można pobrać w wysokiej rozdzielczości za pomocą odpowiedniego przycisku.
-            </div>
+            </Shell>
             {directory && <Photos directory={directory} />}
         </div>
     );

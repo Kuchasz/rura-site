@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ButtonClasses } from "./design";
 
 type AnchorProps = {
     children: ReactNode;
@@ -7,7 +8,7 @@ type AnchorProps = {
 };
 
 export const Anchor = ({ children, href, className }: AnchorProps) => (
-    <a href={href} className={`border py-2 px-4 flex border-gray-200 hover:bg-orange-500 hover:text-white ${className}`}>
+    <a href={href} className={`${ButtonClasses()} ${className ?? ""}`}>
         {children}
     </a>
 );

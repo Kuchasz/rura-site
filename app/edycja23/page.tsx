@@ -1,71 +1,74 @@
-import { Anchor } from "../../components/anchor";
-import { Slogan } from "../../components/slogan";
+import { Actions, ButtonLink, ButtonRoute, Hero, Kicker, Lead, Panel, Section, VisualCard } from "../../components/design";
 
 export const dynamic = "force-static";
 
 export default function Edycja23() {
     return (
-        <div>
-            <Slogan title="Edycja 2023" excerpt="Garść najważniejszych informacji o Rurze na Kocierz 2023" photo="/assets/posts/podsumowanie-rura-2023.jpg" />
-            <div className="flex w-full bg-zinc-200 justify-center">
-                <div className="max-w-6xl my-14">
-                    <div className="bg-white border border-gray-300 rounded-sm p-10">
-                        <h2 className="text-2xl uppercase font-semibold">Podsumowujący klip video</h2>
-                        <span>
-                            <iframe
-                                width="100%"
-                                height="620"
-                                src="https://www.youtube.com/embed/kJthfzb95ik"
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
-                        </span>
-                        <br />
-                        <br />
-                        <h2 className="text-2xl uppercase font-semibold">wyniki</h2>
-                        <span>
-                            Wyniki wszystkich zawodników możliwe są do pobrania w pliku .pdf poniżej
-                            <div className="flex flex-col items-start">
-                                <div className="my-2 flex">
-                                    <Anchor href="/files/rnk_2023_wyniki.pdf">Pobierz plik .PDF</Anchor>
-                                </div>
-                            </div>
-                        </span>
-                        <br />
-                        <br />
-                        <h2 className="text-2xl uppercase font-semibold">trasa wyścigu</h2>
-                        <span>
-                            W roku 2023 Rura na Kocierz wróciła do korzeni. To jednodniowy uphill z jazdą indywidualną na czas.
-                            <div className="my-8 flex flex-col items-start">
-                                <span className="items-baseline">
-                                    <h3 className="font-semibold text-lg">Time Trial</h3>
-                                    <div className="text-lg">11km / 350m przewyższenia</div>
-                                </span>
-                                <div className="my-2 flex">
-                                    <Anchor href="/gpsies/rura_na_kocierz_2022_time_trial.gpx">Pobierz plik .GPX</Anchor>
-                                    <Anchor href="https://www.strava.com/routes/2897239796664260592">
-                                        Zobacz w
-                                        <img className="ml-2 self-center" width={100} src="assets/strava-logo.png" />
-                                    </Anchor>
-                                </div>
-                            </div>
-                        </span>
-                        <br />
-                        <h2 className="text-2xl uppercase font-semibold">zdjęcia</h2>
-                        <span>
-                            Kilka katalogów zdjęć z obu dni rywalizacji dostępne jest w zakładce "ZDJĘCIA". Można je pobierać dowoli za
-                            pomocą przycisku pobierz, są w wysokiej rozdzielczości, nadają się np do wywołania.
-                            <div className="flex flex-col items-start">
-                                <div className="my-2 flex">
-                                    <Anchor href="/zdjecia">Przejdź do zdjęć</Anchor>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
+        <>
+            <Hero>
+                <div>
+                    <Kicker>Edycja 2023</Kicker>
+                    <h1>Rura wróciła do korzeni.</h1>
+                    <Lead>
+                        Garść najważniejszych informacji o Rurze na Kocierz 2023: jednodniowy uphill z jazdą indywidualną na czas.
+                    </Lead>
+                    <Actions>
+                        <ButtonLink primary href="https://events.stoprace.com/event/129/results">
+                            Lista startowa i wyniki
+                        </ButtonLink>
+                        <ButtonRoute href="/zdjecia">
+                            Przejdź do zdjęć
+                        </ButtonRoute>
+                    </Actions>
                 </div>
-            </div>
-        </div>
+                <VisualCard image="/assets/posts/podsumowanie-rura-2023.jpg" alt="Edycja 2023" pill="Archiwum">
+                    Podsumowujący klip video i pełne wyniki zawodników.
+                </VisualCard>
+            </Hero>
+
+            <Section>
+                <div className="grid grid-cols-2 gap-[18px] max-[760px]:grid-cols-1">
+                    <Panel>
+                        <Kicker>Wyniki</Kicker>
+                        <h2>PDF z wynikami</h2>
+                        <p className="mt-5 text-gray-700">Wyniki wszystkich zawodników są dostępne w pliku PDF.</p>
+                        <Actions>
+                            <ButtonLink primary href="/files/rnk_2023_wyniki.pdf">
+                                Pobierz plik .PDF
+                            </ButtonLink>
+                        </Actions>
+                    </Panel>
+                    <Panel>
+                        <Kicker>Trasa wyścigu</Kicker>
+                        <h2>Time Trial</h2>
+                        <p className="mt-5 text-gray-700">11 km / 350 m przewyższenia.</p>
+                        <Actions>
+                            <ButtonLink href="/gpsies/rura_na_kocierz_2022_time_trial.gpx">
+                                Pobierz plik .GPX
+                            </ButtonLink>
+                            <ButtonLink href="https://www.strava.com/routes/2897239796664260592">
+                                Zobacz w Strava
+                            </ButtonLink>
+                        </Actions>
+                    </Panel>
+                </div>
+            </Section>
+
+            <Section>
+                <Panel>
+                    <Kicker>Zdjęcia</Kicker>
+                    <h2>Katalogi zdjęć z rywalizacji</h2>
+                    <p className="mt-5 text-gray-700">
+                        Katalogi zdjęć są dostępne w zakładce Zdjęcia. Można je pobierać dowolnie; są w wysokiej rozdzielczości i
+                        nadają się do wywołania.
+                    </p>
+                    <Actions>
+                        <ButtonRoute primary href="/zdjecia">
+                            Przejdź do zdjęć
+                        </ButtonRoute>
+                    </Actions>
+                </Panel>
+            </Section>
+        </>
     );
 }

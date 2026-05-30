@@ -6,10 +6,9 @@ export const menuItems = [
     // { path: "/program", label: "program" },
     // { path: "/zapisy", label: "zapisy" },
     // { path: "/zegar", label: "zegar" },
-    { path: "/regulamin", label: "regulamin" },
+    // { path: "/regulamin", label: "regulamin" },
     // { path: "/live", label: "na żywo" },
     // { path: "/wyniki", label: "wyniki" },
-    { path: "/edycja23", label: "edycja 2023" },
-    { path: "/edycja22", label: "edycja 2022" },
+    { path: "/archiwum", label: "archiwum" },
     { path: "/zdjecia", label: "zdjęcia" }
 ];

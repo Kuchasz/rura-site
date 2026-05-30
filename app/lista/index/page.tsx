@@ -1,35 +1,27 @@
 import { Anchor } from "../../../components/anchor";
-import { Slogan } from "../../../components/slogan";
+import { Actions, Hero, Kicker, Lead, VisualCard } from "../../../components/design";
 
 export const dynamic = "force-static";
 
 export default function ListaIndex() {
     return (
-        <div>
-            <Slogan
-                title="Lista zawodników"
-                excerpt="Lista zawodników z podziałem na dystanse"
-                photo="/assets/lista-startowa-2022.jpg"
-            />
-            <div className="flex w-full bg-zinc-200 justify-center">
-                <div className="max-w-6xl my-14">
-                    <div className="bg-white border border-gray-300 rounded-sm p-10">
-                        <h2 className="text-2xl uppercase font-semibold">lista zawodników</h2>
-                        <br />
-                        <span>
-                            Zawodnicy startujący w klasyfikacji generalnej uwzględnieni zostali w wyścigach RnK PRO i RnK Time Trial.
-                            Godziny startów w TT zawodników klasyfikacji generalnej zostaną uzupełnione po zakończeniu RnK PRO.
-                            <br />
-                            <br />
-                            <Anchor href={"/lista/pro"}>RnK PRO</Anchor>
-                            <Anchor className="my-4" href={"/lista/fun"}>
-                                RnK FUN
-                            </Anchor>
-                            <Anchor href={"/lista/tt"}>RnK Time Trial</Anchor>
-                        </span>
-                    </div>
-                </div>
+        <Hero>
+            <div>
+                <Kicker>Lista zawodników</Kicker>
+                <h1>Lista zawodników z podziałem na dystanse.</h1>
+                <Lead>
+                    Zawodnicy startujący w klasyfikacji generalnej uwzględnieni zostali w wyścigach RnK PRO i RnK Time Trial.
+                    Godziny startów w TT zawodników klasyfikacji generalnej zostaną uzupełnione po zakończeniu RnK PRO.
+                </Lead>
+                <Actions>
+                    <Anchor href="/lista/pro">RnK PRO</Anchor>
+                    <Anchor href="/lista/fun">RnK FUN</Anchor>
+                    <Anchor href="/lista/tt">RnK Time Trial</Anchor>
+                </Actions>
             </div>
-        </div>
+            <VisualCard image="/assets/lista-startowa-2022.jpg" alt="Lista zawodników" pill="Starty">
+                Godziny startów TT zostaną uzupełnione po RnK PRO.
+            </VisualCard>
+        </Hero>
     );
 }

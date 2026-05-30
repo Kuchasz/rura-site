@@ -2,6 +2,14 @@ import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import "../globals.css";
 import { ReactNode } from "react";
+import { Figtree } from "next/font/google";
+
+const figtree = Figtree({
+    subsets: ["latin", "latin-ext"],
+    weight: ["400", "500", "600", "700", "800", "900"],
+    variable: "--font-figtree",
+    display: "swap",
+});
 
 export const metadata = {
     title: "Aktualności",
@@ -33,7 +41,7 @@ export const metadata = {
 };
 
 export const viewport = {
-    themeColor: "#000",
+    themeColor: "#ea580c",
 };
 
 export default function RootLayout({
@@ -42,12 +50,12 @@ export default function RootLayout({
     children: ReactNode;
 }) {
     return (
-        <html className="w-full h-full" lang="pl">
-            <body className="w-full h-full flex flex-col text-zinc-900">
+        <html className={`${figtree.variable} w-full h-full`} lang="pl">
+            <body className="w-full min-h-full flex flex-col bg-stone-100 text-gray-900">
                 <Header />
-                <main className="grow text-zinc-900">{children}</main>
+                <main className="grow text-gray-900">{children}</main>
                 <Footer />
             </body>
         </html>
     );
-} 
+}

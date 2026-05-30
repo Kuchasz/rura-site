@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Hero, Kicker, Lead, Section, VisualCard } from "../../components/design";
+import { YearFilter } from "../../components/year-filter";
 
 export const dynamic = "force-static";
 
@@ -39,32 +41,42 @@ async function getDirectories(): Promise<Directory[]> {
 
 export default async function ZdjeciaPage() {
     const directories = await getDirectories();
-    return (
-        <div className="flex py-4 flex-col items-center w-full">
-            <div className="flex flex-wrap container mx-auto">
-                {directories.length !== 0
-                    ? directories.map((d) => (
-                        <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
-                            <img
-                                className="object-center w-full h-full absolute object-cover"
-                                src={d.items[0].big}
-                                alt={d.title}
+    const years = Array.from(new Set(directories.map(directory => directory.date.slice(0, 4)))).sort().reverse();
 
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                                style={{ zIndex: -10 }}
-                            />
-                            <div className="bg-gradient-to-b from-black via-transparent to-black absolute z-[-9] top-0 w-full h-full opacity-75"></div>
-                            <div className="group text-white font-semibold h-full flex flex-col hover:bg-zinc-900/50 transition-colors justify-between p-4">
-                                <div className="flex flex-col">
-                                    <span>{d.date}</span>
-                                    <span>fot. {d.author}</span>
-                                </div>
-                                <div className="transition-transform group-hover:translate-x-2 text-3xl">{d.title}</div>
-                            </div>
-                        </Link>
-                    ))
-                    : null}
-            </div>
-        </div>
+    return (
+        <>
+            <Hero>
+                <div>
+                    <Kicker>Zdjęcia</Kicker>
+                    <h1>Katalogi z trasy, startu, mety i dekoracji.</h1>
+                    <Lead>
+                        Zebrane galerie z poprzednich edycji. Układ zachowuje listę katalogów, ale dodaje filtrowanie roczników dla
+                        szybszego szukania.
+                    </Lead>
+                </div>
+                <VisualCard image="/assets/posts/fotografowie-rura-2021.jpg" alt="Zdjęcia w wysokiej jakości do pobrania" pill="Bezpłatne pobieranie">
+                    Zdjęcia w wysokiej rozdzielczości.
+                </VisualCard>
+            </Hero>
+
+            <Section>
+                <YearFilter
+                    years={years}
+                    listClassName="grid grid-cols-3 gap-3.5 max-[1024px]:grid-cols-2 max-[760px]:grid-cols-1"
+                    items={directories.map(directory => ({
+                        key: directory.dir,
+                        year: directory.date.slice(0, 4),
+                        content: (
+                            <Link className="block rounded-xl border border-stone-200 bg-white p-4 text-gray-700" href={`/zdjecia/${directory.dir}`}>
+                                <span className="mb-2 block text-xs text-gray-500">
+                                    {directory.date} / {directory.author}
+                                </span>
+                                <strong className="text-gray-900">{directory.title}</strong>
+                            </Link>
+                        ),
+                    }))}
+                />
+            </Section>
+        </>
     );
 }
