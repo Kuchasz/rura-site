@@ -1,35 +1,27 @@
 import { Anchor } from "../../../components/anchor";
-import { Slogan } from "../../../components/slogan";
+import { Actions, HeroWithVisual, KickerLight, Lead } from "../../../components/design";
 
 export const dynamic = "force-static";
 
 export default function ListaIndex() {
     return (
-        <div>
-            <Slogan
-                title="Lista zawodników"
-                excerpt="Lista zawodników z podziałem na dystanse"
-                photo="/assets/lista-startowa-2022.jpg"
-            />
-            <div className="flex w-full bg-zinc-200 justify-center">
-                <div className="max-w-6xl my-14">
-                    <div className="bg-white border border-gray-300 rounded-sm p-10">
-                        <h2 className="text-2xl uppercase font-semibold">lista zawodników</h2>
-                        <br />
-                        <span>
-                            Zawodnicy startujący w klasyfikacji generalnej uwzględnieni zostali w wyścigach RnK PRO i RnK Time Trial.
-                            Godziny startów w TT zawodników klasyfikacji generalnej zostaną uzupełnione po zakończeniu RnK PRO.
-                            <br />
-                            <br />
-                            <Anchor href={"/lista/pro"}>RnK PRO</Anchor>
-                            <Anchor className="my-4" href={"/lista/fun"}>
-                                RnK FUN
-                            </Anchor>
-                            <Anchor href={"/lista/tt"}>RnK Time Trial</Anchor>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <HeroWithVisual
+            image="/assets/lista-startowa-2022.jpg"
+            alt="Lista zawodników"
+            pill="Archiwum"
+            description="Lista startowa edycji 2022 z podziałem na dystanse PRO, FUN i Time Trial."
+        >
+            <KickerLight>Lista zawodników</KickerLight>
+            <h1>Lista zawodników z podziałem na dystanse.</h1>
+            <Lead className="text-white/90">
+                Zawodnicy startujący w klasyfikacji generalnej uwzględnieni zostali w wyścigach RnK PRO i RnK Time Trial.
+                Godziny startów w TT zawodników klasyfikacji generalnej zostały uzupełnione po zakończeniu RnK PRO.
+            </Lead>
+            <Actions>
+                <Anchor href="/lista/pro">RnK PRO</Anchor>
+                <Anchor href="/lista/fun">RnK FUN</Anchor>
+                <Anchor href="/lista/tt">RnK Time Trial</Anchor>
+            </Actions>
+        </HeroWithVisual>
     );
 }

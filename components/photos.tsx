@@ -6,13 +6,10 @@ import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lightgallery.css";
 
-// If you want you can use SCSS instead of css
-import "lightgallery/scss/lg-zoom.scss";
-import "lightgallery/scss/lightgallery.scss";
-
 // import plugins if you need
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
+import { Kicker, Lead, Section } from "./design";
 
 type Item = {
     thumb: string;
@@ -26,25 +23,28 @@ type Props = {
 
 const Photos = ({ directory }: Props) => {
     return (
-        <div className="flex p-4 flex-col items-center">
-            <h1 className="text-4xl text-center font-bold my-10">{directory.title}</h1>
-            <h2 className="text-xl text-center text-zinc-500 mb-10">{directory.description}</h2>
-            <div className="w-full flex flex-wrap justify-center">
+        <Section>
+            <div className="mb-10 text-center">
+                <Kicker>Galeria</Kicker>
+                <h1>{directory.title}</h1>
+                <Lead className="mx-auto">{directory.description}</Lead>
+            </div>
+            <div className="w-full">
                 <LightGallery
                     mobileSettings={{ download: true, showCloseIcon: true }}
-                    elementClassNames="w-full flex flex-wrap justify-center"
+                    elementClassNames="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3"
                     plugins={[lgThumbnail, lgZoom]}
                 >
                     {directory.items.map(i => (
                         <a
-                            className="gallery-item block hover:opacity-50 size-24 md:size-48 cursor-pointer m-1 md:m-3 relative"
+                            className="gallery-item block aspect-square cursor-pointer overflow-hidden rounded-xl border border-stone-200 bg-white transition-opacity hover:opacity-75"
                             href={i.big}
                             key={i.big}
                             data-src={i.big}
                             data-download-url={i.full}
                         >
                             <img
-                                className="border object-cover w-full h-full"
+                                className="h-full w-full object-cover"
                                 src={i.thumb}
                                 sizes="(max-width: 768px) 96px, 192px"
                             />
@@ -52,7 +52,7 @@ const Photos = ({ directory }: Props) => {
                     ))}
                 </LightGallery>
             </div>
-        </div>
+        </Section>
     );
 };
 

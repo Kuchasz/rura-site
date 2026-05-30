@@ -29,7 +29,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             alt={alt || ''}
             width={800}
             height={400}
-            className="rounded-lg"
+            className="rounded-xl"
             {...props}
           />
         )
@@ -42,7 +42,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <iframe
           src={src}
           title={title}
-          className="w-full rounded-lg"
+          className="w-full rounded-xl"
           {...props}
         />
       </div>
@@ -87,18 +87,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     // Custom styling for blockquotes
     blockquote: ({ children, ...props }) => (
-      <blockquote className="border-l-4 border-orange-500 pl-4 italic my-4" {...props}>
+      <blockquote className="my-4 border-l-4 border-orange-600 pl-4 italic" {...props}>
         {children}
       </blockquote>
     ),
     // Custom styling for code blocks
     code: ({ children, ...props }) => (
-      <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono" {...props}>
+      <code className="rounded bg-stone-100 px-2 py-1 text-sm" {...props}>
         {children}
       </code>
     ),
     pre: ({ children, ...props }) => (
-      <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-4" {...props}>
+      <pre className="my-4 overflow-x-auto rounded-xl bg-gray-900 p-4 text-white" {...props}>
         {children}
       </pre>
     ),
@@ -116,7 +116,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     // Custom styling for horizontal rules
     hr: ({ ...props }) => (
-      <hr className="my-8 border-gray-300" {...props} />
+      <hr className="my-8 border-stone-200" {...props} />
     ),
     // Custom Facebook video component
     FacebookVideo,

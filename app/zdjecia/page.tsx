@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroWithVisual, KickerLight, Lead, Section } from "../../components/design";
 
 export const dynamic = "force-static";
 
@@ -39,32 +40,38 @@ async function getDirectories(): Promise<Directory[]> {
 
 export default async function ZdjeciaPage() {
     const directories = await getDirectories();
-    return (
-        <div className="flex py-4 flex-col items-center w-full">
-            <div className="flex flex-wrap container mx-auto">
-                {directories.length !== 0
-                    ? directories.map((d) => (
-                        <Link key={d.dir} href={`zdjecia/${d.dir}`} className="relative w-full overflow-hidden md:w-1/3 cursor-pointer h-96">
-                            <img
-                                className="object-center w-full h-full absolute object-cover"
-                                src={d.items[0].big}
-                                alt={d.title}
 
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                                style={{ zIndex: -10 }}
-                            />
-                            <div className="bg-gradient-to-b from-black via-transparent to-black absolute z-[-9] top-0 w-full h-full opacity-75"></div>
-                            <div className="group text-white font-semibold h-full flex flex-col hover:bg-zinc-900/50 transition-colors justify-between p-4">
-                                <div className="flex flex-col">
-                                    <span>{d.date}</span>
-                                    <span>fot. {d.author}</span>
-                                </div>
-                                <div className="transition-transform group-hover:translate-x-2 text-3xl">{d.title}</div>
-                            </div>
+    return (
+        <>
+            <HeroWithVisual
+                image="/assets/posts/fotografowie-rura-2021.jpg"
+                alt="Zdjęcia w wysokiej jakości do pobrania"
+                pill="Bezpłatne"
+                description="Wysokiej rozdzielczości zdjęcia z trasy, startu, mety i dekoracji do swobodnego pobrania."
+            >
+                <KickerLight>Zdjęcia</KickerLight>
+                <h1>Zdjęcia z trasy, startu, mety i dekoracji.</h1>
+                <Lead className="text-white/90">
+                    Zebrane galerie z poprzednich edycji Rury na Kocierz oraz Żar Everesting.
+                </Lead>
+            </HeroWithVisual>
+
+            <Section>
+                <div className="grid grid-cols-3 gap-3.5 max-[1024px]:grid-cols-2 max-[760px]:grid-cols-1">
+                    {directories.map(directory => (
+                        <Link
+                            key={directory.dir}
+                            className="block rounded-xl border border-stone-200 bg-white p-4 text-gray-700"
+                            href={`/zdjecia/${directory.dir}`}
+                        >
+                            <span className="mb-2 block text-xs text-gray-500">
+                                {directory.date} / {directory.author}
+                            </span>
+                            <strong className="text-gray-900">{directory.title}</strong>
                         </Link>
-                    ))
-                    : null}
-            </div>
-        </div>
+                    ))}
+                </div>
+            </Section>
+        </>
     );
 }

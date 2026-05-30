@@ -1,47 +1,58 @@
 import React from "react";
-import { Anchor } from "../../components/anchor";
-import { Slogan } from "../../components/slogan";
-
-export default function TrasaPage() {
-    return (
-        <div>
-            <Slogan
-                title="Trasa wyścigu"
-                excerpt="Udostępniamy trasę wyścigu w formie kompatybilnej z komputerami rowerowymi"
-                photo="/assets/mapka-trasa-2022.jpg"
-            />
-            <div className="flex w-full bg-zinc-200 justify-center">
-                <div className="max-w-6xl my-14">
-                    <div className="bg-white border border-gray-300 rounded-sm p-10">
-                        <h2 className="text-2xl uppercase font-semibold">trasa wyścigu</h2>
-                        <br />
-                        <span>
-                            <div className="flex flex-col items-start">
-                                <div className="font-semibold text-xl">11km / 350m przewyższenia</div>
-                                <span className="my-4">
-                                    Wymagająca, górska trasa wyścigu indywidualnej jazdy na czas. Startujemy w parku w Gminie Łękawica,
-                                    na zawodników czeka 11km i 350m wzniosu. Po drodze przejedziemy ekstra atrakcję, ul. Widokową
-                                </span>
-                                <div className="my-2 flex">
-                                    <Anchor href="/gpsies/rura_na_kocierz_2025_time_trial.gpx">Pobierz plik .GPX</Anchor>
-                                    <Anchor href="https://www.strava.com/routes/3401126294890017916">
-                                        Zobacz w
-                                        <img className="ml-2 self-center" width={100} src="assets/strava-logo.png" />
-                                    </Anchor>
-                                </div>
-                                <a className="w-full" target="_blank" href="https://www.strava.com/routes/3401126294890017916">
-                                    <img className="w-full" src="assets/trasa-time-trial.jpg" />
-                                </a>
-                                <img src="assets/wysokosciowka-time-trial.png" />
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
+import { CopyButton } from "../../components/copy-button";
+import { Actions, ButtonLink, HeroWithVisual, Kicker, KickerLight, Lead, Panel, RouteMap, Section } from "../../components/design";
 
 export const metadata = {
     title: "Trasa",
-}; 
+};
+
+export default function TrasaPage() {
+    const stravaUrl = "https://www.strava.com/routes/3401126294890017916";
+
+    return (
+        <>
+            <HeroWithVisual
+                image="/assets/mapka-trasa-2022.jpg"
+                alt="Trasa wyścigu"
+                pill="11 km"
+                description="Start w Łękawicy, przez Widokową, meta na Kocierzu — wymagająca górska trasa z 350 m przewyższenia."
+            >
+                <KickerLight>Trasa wyścigu</KickerLight>
+                <h1>11 km pod górę. 350 m przewyższenia.</h1>
+                <Lead className="text-white/90">
+                    Wymagająca, górska trasa indywidualnej jazdy na czas. Start w parku w Gminie Łękawica, po drodze ekstra
+                    atrakcja: ulica Widokowa.
+                </Lead>
+                <Actions>
+                    <ButtonLink primary href="/gpsies/rura_na_kocierz_2025_time_trial.gpx">
+                        Pobierz plik .GPX
+                    </ButtonLink>
+                    <ButtonLink href={stravaUrl}>
+                        Zobacz w Strava
+                    </ButtonLink>
+                    <CopyButton text={stravaUrl}>Kopiuj link</CopyButton>
+                </Actions>
+            </HeroWithVisual>
+
+            <Section>
+                <div className="grid grid-cols-2 gap-[18px] max-[760px]:grid-cols-1">
+                    <Panel>
+                        <Kicker>Profil</Kicker>
+                        <h2>Widokowa robi selekcję.</h2>
+                        <p className="mt-5 text-gray-700">
+                            Trasa jest krótka, intensywna i czytelna dla zawodników z komputerami rowerowymi. Plik GPX i Strava
+                            prowadzą dokładnie po odcinku Time Trial.
+                        </p>
+                    </Panel>
+                    <Panel>
+                        <img src="/assets/wysokosciowka-time-trial.png" alt="Profil wysokościowy trasy" />
+                    </Panel>
+                </div>
+            </Section>
+
+            <Section>
+                <RouteMap src="/assets/26_trasa_tt.jpg" alt="Ulica Widokowa na trasie Time Trial" />
+            </Section>
+        </>
+    );
+}

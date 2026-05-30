@@ -14,13 +14,13 @@ type TableProps<T> = {
 };
 
 const HeaderCell = ({ children }: { children: ReactNode }) => (
-    <div className={tdClassName + " border-b-2 border-orange-500 bg-zinc-100 font-semibold sticky top-0"}>
+    <div className={tdClassName + " sticky top-0 border-b-2 border-orange-600 bg-stone-100 text-xs font-extrabold uppercase"}>
         {children}
     </div>
 );
 
 const DataCell = ({ children, index }: { index: number; children: ReactNode }) => (
-    <div className={classNames(tdClassName, index % 2 === 0 ? "bg-zinc-200" : "bg-zinc-100")}>{children}</div>
+    <div className={classNames(tdClassName, index % 2 === 0 ? "bg-stone-50" : "bg-white")}>{children}</div>
 );
 
 export const Table = <T extends {}>({ rows, headers, children, getKey }: TableProps<T>) => {
@@ -36,7 +36,7 @@ export const Table = <T extends {}>({ rows, headers, children, getKey }: TablePr
     // "auto auto minmax(auto, 1fr) minmax(auto, 1fr) minmax(auto, 1fr) auto auto auto auto auto auto";
 
     return (
-        <div className="grid grow auto-rows-min text-sm bg-zinc-100" style={{ gridTemplateColumns }}>
+        <div className="grid grow auto-rows-min overflow-hidden rounded-lg border border-stone-200 bg-stone-100 text-sm" style={{ gridTemplateColumns }}>
             {headers.map((h, i) => (
                 <HeaderCell key={i}>{h}</HeaderCell>
             ))}
