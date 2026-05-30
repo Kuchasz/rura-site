@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 
 const formatDate = (date: string) => {
     const value = new Date(date);
-    return `${value.getDate()}.${value.getMonth() + 1}.${value.getFullYear()}`;
+    const day = String(value.getDate()).padStart(2, '0');
+    const month = String(value.getMonth() + 1).padStart(2, '0');
+    return `${day}.${month}.${value.getFullYear()}`;
 };
 
 export default function AllPostsPage() {
