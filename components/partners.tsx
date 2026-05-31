@@ -31,10 +31,10 @@ export function Partners() {
                     <h2>Organizacje i firmy, które pomagają w organizacji Rury na Kocierz</h2>
                 </>
             </SectionHead>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
                 {partners.map(name => (
                     <img
-                        className="h-36 w-full rounded-lg border border-stone-200 bg-white p-6 object-contain"
+                        className="h-36 w-full rounded-lg border border-stone-200 bg-white p-4 object-contain"
                         key={name}
                         src={`/assets/partners25/${name}`}
                         alt="Partner wydarzenia"

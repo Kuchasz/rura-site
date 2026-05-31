@@ -51,7 +51,7 @@ export default function RootLayout({
 }) {
     return (
         <html className={`${figtree.variable} w-full h-full`} lang="pl">
-            <body className="w-full min-h-full flex flex-col bg-stone-100 text-gray-900">
+            <body className="w-full min-h-full flex flex-col bg-olive-100 text-gray-900">
                 <Header />
                 <main className="grow text-gray-900">{children}</main>
                 <Footer />

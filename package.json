@@ -17,7 +17,7 @@
         "@mdx-js/loader": "^3.1.1",
         "@mdx-js/react": "^3.1.1",
         "@next/mdx": "16.0.10",
-        "@tailwindcss/postcss": "^4.1.17",
+        "@tailwindcss/postcss": "^4.3.0",
         "@types/jest": "^30.0.0",
         "@types/mdx": "^2.0.13",
         "@types/node": "^24.10.2",
@@ -33,7 +33,7 @@
         "react": "19.2.3",
         "react-dom": "19.2.3",
         "sass": "^1.95.0",
-        "tailwindcss": "^4.1.17",
+        "tailwindcss": "^4.3.0",
         "typescript": "^5.9.3",
         "zod": "^4.1.13"
     },
