@@ -59,6 +59,9 @@ export const Header = () => {
                     aria-controls="mobile-navigation"
                     onClick={() => setMenuOpen(value => !value)}
                 >
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
                     Menu
                 </button>
 
@@ -92,7 +95,7 @@ export const Header = () => {
                     <nav
                         id="mobile-navigation"
                         aria-label="Główna nawigacja mobilna"
-                        className="absolute inset-x-0 top-[calc(100%+1px)] z-30 flex flex-col items-stretch gap-1 rounded-xl border border-stone-200 bg-white p-3 shadow-[0_1px_0_rgb(17_24_39_/_0.04),0_12px_28px_rgb(17_24_39_/_0.06)] md:hidden"
+                        className="absolute inset-x-0 top-[calc(100%+12px)] z-30 flex flex-col items-stretch gap-1 rounded-xl border border-stone-200 bg-white p-3 shadow-[0_1px_0_rgb(17_24_39_/_0.04),0_12px_28px_rgb(17_24_39_/_0.06)] md:hidden"
                     >
                         {navItems}
                         <div className="mt-3 flex justify-center gap-2 border-t border-stone-200 pt-3">
