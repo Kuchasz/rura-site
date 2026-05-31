@@ -3,8 +3,8 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 const panelPadding = "p-[clamp(18px,3vw,30px)]";
 const cardBase = "rounded-xl border border-stone-200 bg-white shadow-[0_1px_0_rgb(17_24_39_/_0.04),0_12px_28px_rgb(17_24_39_/_0.06)]";
-const buttonBase = "inline-flex min-h-[46px] items-center justify-center gap-2 rounded-lg border px-[18px] py-3 pb-[13px] font-extrabold leading-none transition-all duration-[180ms] hover:-translate-y-px";
-const buttonSecondary = "border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] hover:border-orange-600 hover:bg-orange-50";
+const buttonBase = "inline-flex min-h-[46px] cursor-pointer items-center justify-center gap-2 rounded-lg border px-[18px] py-3 pb-[13px] font-extrabold leading-none transition-all duration-[180ms] hover:-translate-y-px";
+const buttonSecondary = "border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]";
 const buttonPrimary = "border-orange-600 bg-orange-600 text-white shadow-[0_10px_24px_rgb(234_88_12_/_0.20)] hover:border-orange-700 hover:bg-orange-700";
 
 export function Shell({ children, className = "" }: { children: ReactNode; className?: string }) {

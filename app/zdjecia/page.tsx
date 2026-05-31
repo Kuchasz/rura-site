@@ -61,7 +61,7 @@ export default async function ZdjeciaPage() {
                     {directories.map(directory => (
                         <Link
                             key={directory.dir}
-                            className="block rounded-xl border border-stone-200 bg-white p-4 text-gray-700"
+                            className="block rounded-xl border border-stone-200 bg-white p-4 text-gray-700 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                             href={`/zdjecia/${directory.dir}`}
                         >
                             <span className="mb-2 block text-xs text-gray-500">

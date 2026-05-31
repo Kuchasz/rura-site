@@ -48,7 +48,7 @@ export const Footer = () => {
                     <div className="flex gap-2">
                         <a
                             href="mailto:biuro@rura.cc"
-                            className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50"
+                            className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                             aria-label="Email"
                         >
                             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -59,7 +59,7 @@ export const Footer = () => {
                             href="https://www.facebook.com/ruranakocierz"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50"
+                            className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                             aria-label="Facebook"
                         >
                             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

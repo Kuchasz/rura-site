@@ -70,7 +70,7 @@ export const Header = () => {
                     <div className="ml-3 flex items-center gap-1">
                         <a
                             href="mailto:biuro@rura.cc"
-                            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 transition-colors hover:border-orange-600 hover:bg-orange-50"
+                            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                             aria-label="Email"
                         >
                             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -81,7 +81,7 @@ export const Header = () => {
                             href="https://www.facebook.com/ruranakocierz"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 transition-colors hover:border-orange-600 hover:bg-orange-50"
+                            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                             aria-label="Facebook"
                         >
                             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ export const Header = () => {
                         <div className="mt-3 flex justify-center gap-2 border-t border-stone-200 pt-3">
                             <a
                                 href="mailto:biuro@rura.cc"
-                                className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-colors hover:border-orange-600 hover:bg-orange-50"
+                                className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                                 aria-label="Email"
                                 onClick={() => setMenuOpen(false)}
                             >
@@ -113,7 +113,7 @@ export const Header = () => {
                                 href="https://www.facebook.com/ruranakocierz"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-colors hover:border-orange-600 hover:bg-orange-50"
+                                className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
                                 aria-label="Facebook"
                                 onClick={() => setMenuOpen(false)}
                             >

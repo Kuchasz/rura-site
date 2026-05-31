@@ -37,7 +37,7 @@ const Photos = ({ directory }: Props) => {
                 >
                     {directory.items.map(i => (
                         <a
-                            className="gallery-item block aspect-square cursor-pointer overflow-hidden rounded-xl border border-stone-200 bg-white transition-opacity hover:opacity-75"
+                            className="gallery-item block aspect-square cursor-pointer overflow-hidden rounded-xl border border-stone-200 bg-white shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:shadow-[0_10px_24px_rgb(17_24_39_/_0.10)]"
                             href={i.big}
                             key={i.big}
                             data-src={i.big}
