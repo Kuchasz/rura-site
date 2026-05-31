@@ -21,8 +21,8 @@ export const Footer = () => {
                         <Link href="/">
                             <img className="h-auto w-32" src="/assets/logo-sm.png" alt="Rura na Kocierz" />
                         </Link>
-                        <p className="m-0 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                            Rura na Kocierz © 2026
+                        <p className="m-0 text-xs text-gray-500">
+                            © 2026 Rura na Kocierz. Wszelkie prawa zastrzeżone.
                         </p>
                     </div>
                     <nav aria-label="Stopka" className="flex flex-wrap justify-center gap-2 max-[760px]:justify-start">
