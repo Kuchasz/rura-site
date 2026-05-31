@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Countdown } from "../components/countdown";
 import { Actions, ButtonLink, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, StatCard } from "../components/design";
 import { PostDetails } from "../components/post-details";
 import { getAllPosts } from "../lib/mdx";
@@ -112,6 +113,19 @@ export default function HomePage() {
                         </div>
                     </StatCard>
                 </div>
+            </Section>
+
+            <Section className="pb-0 pt-0">
+                <SectionHead>
+                    <>
+                        <Kicker>Start</Kicker>
+                        <h2>Odliczanie do startu</h2>
+                        <p className="mt-4 max-w-prose text-sm font-normal leading-normal text-gray-500">
+                            Rura potoczy się w kierunku Hotel Kocierz&Spa za:
+                        </p>
+                    </>
+                </SectionHead>
+                <Countdown targetDate="2026-09-13T11:00:00+02:00" />
             </Section>
         </>
     );
