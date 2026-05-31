@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Countdown } from "../components/countdown";
-import { Actions, ButtonLink, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, StatCard } from "../components/design";
+import { Actions, ButtonLink, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, Shell, StatCard } from "../components/design";
 import { PostDetails } from "../components/post-details";
 import { getAllPosts } from "../lib/mdx";
 
@@ -29,7 +29,7 @@ export default function HomePage() {
         action: "TEMPLATE",
         text: "Rura na Kocierz 2026",
         dates: "20260913/20260914",
-        details: "Jazda indywidualna na czas Rura na Kocierz. Start w parku w Gminie Łękawica, meta pod Hotelem Kocierz. Więcej informacji na: https://rura.cc",
+        details: "Jazda indywidualna na czas Rura na Kocierz. Start w parku w Gminie Łękawica, meta pod Kocierz Resort. Więcej informacji na: https://rura.cc",
         location: "Łękawica + Kocierz",
     });
     const calendarUrl = `https://calendar.google.com/calendar/render?${calendarParams.toString()}`;
@@ -94,10 +94,10 @@ export default function HomePage() {
                         </div>
                     </StatCard>
                     <StatCard label="Miejsce" value="Łękawica + Kocierz" negative className="min-h-[320px] p-[28px]">
-                        <p>Startujemy w parku i finiszujemy na 7% podjeździe pod hotel</p>
+                        <p>Startujemy w parku i finiszujemy na 7% podjeździe pod Kocierz Resort</p>
                         <div className="mt-auto grid gap-2.5 pt-7">
                             <ButtonLink className="w-full" primary href="https://kocierz.pl/" target="_blank" rel="noreferrer">
-                                Hotel Kocierz
+                                Kocierz Resort
                             </ButtonLink>
                             <ButtonLink className="w-full" href="https://lekawica.com.pl/" target="_blank" rel="noreferrer">
                                 Gmina Łękawica
@@ -115,18 +115,20 @@ export default function HomePage() {
                 </div>
             </Section>
 
-            <Section className="pb-0 pt-0">
-                <SectionHead>
-                    <>
-                        <Kicker>Start</Kicker>
-                        <h2>Odliczanie do startu</h2>
-                        <p className="mt-4 max-w-prose text-sm font-normal leading-normal text-gray-500">
-                            Rura potoczy się w kierunku Hotel Kocierz&Spa za:
-                        </p>
-                    </>
-                </SectionHead>
-                <Countdown targetDate="2026-09-13T11:00:00+02:00" />
-            </Section>
+            <section className="border-y border-stone-200 bg-white py-12">
+                <Shell>
+                    <SectionHead>
+                        <>
+                            <Kicker>Start</Kicker>
+                            <h2>Odliczanie do startu</h2>
+                            <p className="mt-4 max-w-prose text-sm font-normal leading-normal text-gray-500">
+                            Rura potoczy się w kierunku Kocierz Resort za:
+                            </p>
+                        </>
+                    </SectionHead>
+                    <Countdown targetDate="2026-09-13T11:00:00+02:00" />
+                </Shell>
+            </section>
         </>
     );
 }

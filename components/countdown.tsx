@@ -50,7 +50,7 @@ export function Countdown({ targetDate }: { targetDate: string }) {
     const visibleTimeLeft = timeLeft ?? emptyTimeLeft;
 
     return (
-        <div className="mx-auto grid max-w-2xl my-24 grid-cols-4 gap-4 max-[640px]:grid-cols-2">
+        <div className="mx-auto grid max-w-2xl mt-8 grid-cols-4 gap-4 max-[640px]:grid-cols-2">
             {units.map(unit => (
                 <div key={unit.key} className="grid justify-items-center text-center">
                     <strong className="block tabular-nums text-7xl font-semibold leading-none tracking-tight text-orange-600 max-[760px]:text-5xl">
