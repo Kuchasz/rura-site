@@ -3,7 +3,7 @@
 @theme {
   --spacing-128: 32rem;
 
-  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --font-size-2xs: 0.65rem;
   --font-size-2xs--line-height: 0.75rem;
@@ -33,7 +33,7 @@
     color: var(--color-gray-900);
     font-family: var(--font-sans);
     font-size: 16px;
-    line-height: 1.5;
+    line-height: var(--leading-normal);
   }
 
   a {
@@ -64,22 +64,23 @@
     margin: 0;
     overflow-wrap: anywhere;
     text-wrap: balance;
-    line-height: 1;
+    font-weight: var(--font-weight-semibold);
+    @apply leading-none;
   }
 
   h1 {
-    font-size: clamp(44px, 9vw, 106px);
-    letter-spacing: 0;
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-7xl));
+    letter-spacing: var(--tracking-tight);
   }
 
   h2 {
-    font-size: clamp(34px, 5vw, 60px);
-    letter-spacing: 0;
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+    letter-spacing: var(--tracking-tight);
   }
 
   h3 {
-    font-size: clamp(25px, 3vw, 36px);
-    letter-spacing: 0;
+    font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));
+    letter-spacing: var(--tracking-normal);
   }
 }
 

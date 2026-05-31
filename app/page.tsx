@@ -12,8 +12,8 @@ const ArticleCard = ({ article }: { article: ReturnType<typeof getAllPosts>[0] }
         <img className="aspect-[16/10] w-full object-cover" src={`/assets/posts/${article.photo}`} alt={article.title} />
         <div className="p-[18px]">
             <PostDetails date={new Date(article.date)} author={article.author} />
-            <h3 className="mb-2.5 text-[28px]">{article.title}</h3>
-            <p className="mb-3.5 text-gray-700">{article.excerpt}</p>
+            <h3 className="mb-2.5">{article.title}</h3>
+            <p className="mb-3.5 text-base leading-normal text-gray-500">{article.excerpt}</p>
             <ButtonRoute href={`/artykul/${article.alias}`}>
                 Czytaj
             </ButtonRoute>
@@ -78,6 +78,9 @@ export default function HomePage() {
                     <>
                         <Kicker>Rura na Kocierz 2026</Kicker>
                         <h2>Najważniejsze informacje</h2>
+                        <p className="mt-4 max-w-prose text-sm font-normal leading-normal text-gray-500">
+                            Data, miejsce i trasa tegorocznej edycji w szybkim skrócie.
+                        </p>
                     </>
                 </SectionHead>
                 <div className="grid grid-cols-3 gap-[18px] max-[760px]:grid-cols-1">

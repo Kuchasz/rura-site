@@ -21,7 +21,7 @@ export const Footer = () => {
                         <Link href="/">
                             <img className="h-auto w-32" src="/assets/logo-sm.png" alt="Rura na Kocierz" />
                         </Link>
-                        <p className="m-0 text-xs font-extrabold uppercase tracking-[.04em] text-gray-500">
+                        <p className="m-0 text-xs font-semibold uppercase tracking-wider text-gray-500">
                             Rura na Kocierz © 2026
                         </p>
                     </div>
@@ -31,7 +31,7 @@ export const Footer = () => {
                                 key={item.path}
                                 href={item.path}
                                 className={classNames(
-                                    "rounded-lg border border-transparent px-2.5 py-2 text-xs font-extrabold uppercase tracking-[.02em] transition-colors hover:border-stone-200 hover:bg-stone-100",
+                                    "rounded-lg border border-transparent px-2.5 py-2 text-xs font-semibold uppercase tracking-wider transition-colors hover:border-stone-200 hover:bg-stone-100",
                                     { "text-orange-600": isActivePath(pathname, item.path) }
                                 )}
                             >
@@ -40,7 +40,7 @@ export const Footer = () => {
                         ))}
                         <Link
                             href="/artykuly"
-                            className="rounded-lg border border-transparent px-2.5 py-2 text-xs font-extrabold uppercase tracking-[.02em] transition-colors hover:border-stone-200 hover:bg-stone-100"
+                            className="rounded-lg border border-transparent px-2.5 py-2 text-xs font-semibold uppercase tracking-wider transition-colors hover:border-stone-200 hover:bg-stone-100"
                         >
                             Artykuły
                         </Link>

@@ -60,28 +60,28 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     // Custom styling for headings
     h1: ({ children, ...props }) => (
-      <h1 className="text-4xl font-bold mb-6 mt-8" {...props}>
+      <h1 className="mb-6 mt-8 text-3xl font-black leading-none tracking-tight" {...props}>
         {children}
       </h1>
     ),
     h2: ({ children, ...props }) => (
-      <h2 className="text-3xl font-semibold mb-4 mt-6" {...props}>
+      <h2 className="mb-4 mt-8 text-xl font-black leading-none tracking-normal" {...props}>
         {children}
       </h2>
     ),
     h3: ({ children, ...props }) => (
-      <h3 className="text-2xl font-semibold mb-3 mt-5" {...props}>
+      <h3 className="mb-3 mt-6 text-base font-black leading-none tracking-normal" {...props}>
         {children}
       </h3>
     ),
     h4: ({ children, ...props }) => (
-      <h4 className="text-xl font-semibold mb-2 mt-4" {...props}>
+      <h4 className="mb-2 mt-4 text-sm font-semibold" {...props}>
         {children}
       </h4>
     ),
     // Custom styling for paragraphs
     p: ({ children, ...props }) => (
-      <p className="mb-4 leading-relaxed" {...props}>
+      <p className="mb-4 leading-normal" {...props}>
         {children}
       </p>
     ),

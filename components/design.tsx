@@ -54,15 +54,15 @@ export function HeroWithVisual({
 }
 
 export function Kicker({ children, className = "" }: { children: ReactNode; className?: string }) {
-    return <p className={`mb-3.5 text-xs font-extrabold uppercase tracking-[.12em] text-orange-600 ${className}`}>{children}</p>;
+    return <p className={`mb-3.5 text-xs font-semibold uppercase tracking-wider text-orange-600 ${className}`}>{children}</p>;
 }
 
 export function KickerLight({ children, className = "" }: { children: ReactNode; className?: string }) {
-    return <p className={`mb-3.5 text-xs font-extrabold uppercase tracking-[.12em] text-orange-400 ${className}`}>{children}</p>;
+    return <p className={`mb-3.5 text-xs font-semibold uppercase tracking-wider text-orange-400 ${className}`}>{children}</p>;
 }
 
 export function Lead({ children, className = "" }: { children: ReactNode; className?: string }) {
-    return <p className={`mt-[22px] max-w-[760px] text-[clamp(18px,2vw,24px)] font-semibold text-gray-700 ${className}`}>{children}</p>;
+    return <p className={`mt-4 max-w-prose text-lg font-normal leading-normal text-gray-500 ${className}`}>{children}</p>;
 }
 
 export function Actions({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -130,7 +130,7 @@ export function VisualCard({
             <img className="aspect-[4/3] w-full object-cover" src={image} alt={alt} />
             <div className="grid gap-1 p-[18px]">
                 <Pill hot={hot}>{pill}</Pill>
-                <strong className="text-[25px] leading-[1.05]">{children}</strong>
+                <strong className="text-2xl leading-none tracking-normal">{children}</strong>
             </div>
         </article>
     );
@@ -138,7 +138,7 @@ export function VisualCard({
 
 export function Pill({ children, hot = false, className = "" }: { children: ReactNode; hot?: boolean; className?: string }) {
     return (
-        <span className={`inline-flex w-fit items-center rounded-lg border px-2.5 py-1.5 text-xs font-extrabold ${hot ? "border-orange-600 bg-orange-600 text-white" : "border-stone-200 bg-stone-100 text-gray-700"} ${className}`}>
+        <span className={`inline-flex w-fit items-center rounded-lg border px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider ${hot ? "border-orange-600 bg-orange-600 text-white" : "border-stone-200 bg-stone-100 text-gray-500"} ${className}`}>
             {children}
         </span>
     );
@@ -168,10 +168,10 @@ export function StatCard({
 }) {
     return (
         <Card className={`flex min-h-[190px] flex-col p-[18px] ${negative ? "!border-gray-900 !bg-gray-900 text-white" : ""} ${className}`}>
-            <span className={`text-xs font-extrabold uppercase tracking-[.12em] ${negative ? "text-gray-400" : "text-gray-500"}`}>{label}</span>
-            <strong className="mt-3 block text-[clamp(28px,4vw,46px)] leading-none">{value}</strong>
+            <span className={`text-xs font-semibold uppercase tracking-wider ${negative ? "text-gray-400" : "text-gray-500"}`}>{label}</span>
+            <strong className="mt-3 block text-4xl leading-none tracking-tight">{value}</strong>
             {children ? (
-                <div className={`mt-5 flex flex-1 flex-col text-[15px] font-semibold leading-snug ${negative ? "text-gray-300" : "text-gray-600"}`}>
+                <div className={`mt-5 flex flex-1 flex-col text-sm font-normal leading-normal ${negative ? "text-gray-300" : "text-gray-500"}`}>
                     {children}
                 </div>
             ) : null}

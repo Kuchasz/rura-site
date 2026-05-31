@@ -41,7 +41,7 @@ export default async function ZdjeciaDirPage({ params }: ZdjeciaProps) {
     const directory = await getDirectory(dir);
     return (
         <div>
-            <Shell className="mt-8 rounded-lg border border-stone-200 bg-white p-4 text-xs font-extrabold uppercase text-gray-700">
+            <Shell className="mt-8 rounded-lg border border-stone-200 bg-white p-4 text-xs font-semibold uppercase tracking-wider text-gray-500">
                 <strong>INFO: </strong>Każde zdjęcie można pobrać w wysokiej rozdzielczości za pomocą odpowiedniego przycisku.
             </Shell>
             {directory && <Photos directory={directory} />}

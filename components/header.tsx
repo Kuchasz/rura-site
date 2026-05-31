@@ -22,7 +22,7 @@ export const Header = () => {
                     aria-current={isActivePath(pathname, item.path) ? "page" : undefined}
                     onClick={() => setMenuOpen(false)}
                     className={classNames(
-                        "rounded-lg border border-transparent px-3 py-2.5 text-xs font-extrabold uppercase tracking-[.02em] transition-colors hover:border-stone-200 hover:bg-stone-100",
+                        "rounded-lg border border-transparent px-3 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors hover:border-stone-200 hover:bg-stone-100",
                         {
                             "border-stone-200 bg-stone-100": isActivePath(pathname, item.path),
                         }
@@ -34,7 +34,7 @@ export const Header = () => {
             <Link
                 href="/artykul/rura-na-kocierz-2026-zapowiedz"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg border border-orange-600 bg-orange-600 px-3 py-2.5 text-xs font-extrabold uppercase tracking-[.02em] text-white transition-colors hover:border-orange-700 hover:bg-orange-700 md:ml-3"
+                className="rounded-lg border border-orange-600 bg-orange-600 px-3 py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:border-orange-700 hover:bg-orange-700 md:ml-3"
             >
                 Zapisy wkrótce
             </Link>

@@ -55,8 +55,8 @@ export default function ArchivePage() {
                             <img className="aspect-[16/10] w-full object-cover" src={edition.image} alt={edition.title} />
                             <div className="p-[18px]">
                                 <Kicker>{edition.year}</Kicker>
-                                <h3 className="mb-3 text-[28px]">{edition.title}</h3>
-                                <p className="mb-4 text-gray-700">{edition.description}</p>
+                                <h3 className="mb-3">{edition.title}</h3>
+                                <p className="mb-4 text-base leading-normal text-gray-500">{edition.description}</p>
                                 <ButtonRoute href={edition.href}>Otwórz edycję</ButtonRoute>
                             </div>
                         </article>

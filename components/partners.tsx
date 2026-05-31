@@ -28,7 +28,10 @@ export function Partners() {
             <SectionHead>
                 <>
                     <Kicker>Partnerzy wydarzenia</Kicker>
-                    <h2>Organizacje i firmy, które pomagają w organizacji Rury na Kocierz</h2>
+                    <h2>Wspierają nas</h2>
+                    <p className="mt-4 max-w-prose text-sm font-normal leading-normal text-gray-500">
+                        Organizacje i firmy, które pomagają w organizacji Rury na Kocierz.
+                    </p>
                 </>
             </SectionHead>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
