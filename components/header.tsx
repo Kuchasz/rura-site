@@ -44,9 +44,9 @@ export const Header = () => {
     return (
         <header className="sticky top-0 z-20 border-b border-stone-200 bg-white/95 backdrop-blur-md">
             <Shell className="relative flex min-h-[78px] items-center justify-between gap-4 md:min-h-[78px] max-md:min-h-[68px]">
-                <Link className="relative z-10 inline-flex shrink-0 items-center" href="/" onClick={() => setMenuOpen(false)}>
+                <Link className="relative z-10 inline-flex shrink-0 items-center focus:outline-none" href="/" onClick={() => setMenuOpen(false)}>
                     <img
-                        className="relative h-auto w-[clamp(142px,17vw,187px)] translate-y-3 object-contain"
+                        className="relative scale-125 h-auto w-[clamp(142px,17vw,187px)] translate-y-3 object-contain"
                         src="/assets/logo-sm.png"
                         alt="Rura na Kocierz"
                     />

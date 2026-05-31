@@ -12,7 +12,7 @@ export default function TrasaPage() {
     return (
         <>
             <HeroWithVisual
-                image="/assets/mapka-trasa-2022.jpg"
+                image="/assets/hero_trasa.jpg"
                 alt="Trasa wyścigu"
                 pill="11 km"
                 description="Start w Łękawicy, przez Widokową, meta na Kocierzu — wymagająca górska trasa z 350 m przewyższenia."

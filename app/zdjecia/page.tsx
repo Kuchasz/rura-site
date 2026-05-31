@@ -44,7 +44,7 @@ export default async function ZdjeciaPage() {
     return (
         <>
             <HeroWithVisual
-                image="/assets/posts/fotografowie-rura-2021.jpg"
+                image="/assets/hero_photos.jpg"
                 alt="Zdjęcia w wysokiej jakości do pobrania"
                 pill="Bezpłatne"
                 description="Wysokiej rozdzielczości zdjęcia z trasy, startu, mety i dekoracji do swobodnego pobrania."
