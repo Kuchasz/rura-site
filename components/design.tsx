@@ -60,7 +60,7 @@ export function Kicker({ children, className = "" }: { children: ReactNode; clas
 }
 
 export function KickerLight({ children, className = "" }: { children: ReactNode; className?: string }) {
-    return <p className={`mb-3.5 text-xs font-semibold uppercase tracking-wider text-orange-400 ${className}`}>{children}</p>;
+    return <p className={`mb-3.5 text-xs font-semibold uppercase tracking-wider text-orange-600 brightness-125 ${className}`}>{children}</p>;
 }
 
 export function Lead({ children, className = "" }: { children: ReactNode; className?: string }) {

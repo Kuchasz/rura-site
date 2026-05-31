@@ -29,8 +29,8 @@ export default function AllPostsPage() {
                 description={mainPost.title}
             >
                 <KickerLight>Wszystkie artykuły</KickerLight>
-                <h1>Komunikaty, zapisy, wyniki i archiwum.</h1>
-                <Lead className="text-white/90">Indeks artykułów z rura.cc w układzie szybszym do skanowania przed startem i po zawodach.</Lead>
+                <h1>Wszystko o Rurze w jednym miejscu.</h1>
+                <Lead className="text-white/90">Komunikaty organizacyjne, zapisy, wyniki i materiały z poprzednich edycji.</Lead>
             </HeroWithVisual>
 
             <Section>
