@@ -10,7 +10,7 @@ const editions = [
         title: "Powrót na Widokową",
         description: "Jednodniowy uphill, 11 km trasy i oficjalne wyniki edycji 2025.",
         href: "/edycja25",
-        image: "/assets/posts/podsumowanie_rnk_2025.jpg",
+        image: "/assets/hero_edycja25.jpg",
     },
     {
         year: "2023",
@@ -24,7 +24,7 @@ const editions = [
         title: "Dwa dni ścigania",
         description: "Start wspólny PRO, FUN oraz Time Trial z wynikami i trasami GPX.",
         href: "/edycja22",
-        image: "/assets/posts/rusza-edycja-2022.jpg",
+        image: "/assets/hero_edycja22.jpg",
     },
 ];
 

@@ -10,7 +10,7 @@ export default function Edycja25() {
     return (
         <>
             <HeroWithVisual
-                image="/assets/posts/podsumowanie_rnk_2025.jpg"
+                image="/assets/hero_edycja25.jpg"
                 alt="Edycja 2025"
                 pill="Archiwum"
                 description="5 października 2025 — jazda na czas z Łękawicy przez legendarną Widokową na Kocierz."

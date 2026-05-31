@@ -30,7 +30,7 @@ export default function Edycja22() {
     return (
         <>
             <HeroWithVisual
-                image="/assets/posts/rusza-edycja-2022.jpg"
+                image="/assets/hero_edycja22.jpg"
                 alt="Edycja 2022"
                 pill="Archiwum"
                 description="Start wspólny PRO i FUN oraz Time Trial — trzy formaty wyścigu w jeden weekend."

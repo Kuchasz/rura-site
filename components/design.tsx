@@ -32,17 +32,19 @@ export function HeroWithVisual({
     alt, 
     pill, 
     description,
+    imageClassName = "motion-safe:animate-[hero-drift_11s_ease-in-out_infinite_alternate]",
     children 
 }: { 
     image: string; 
     alt: string; 
     pill: string; 
     description: string;
+    imageClassName?: string;
     children: ReactNode;
 }) {
     return (
         <section className="relative min-h-[clamp(480px,60vh,680px)] overflow-hidden py-[clamp(44px,8vw,96px)] pb-12">
-            <img className="absolute inset-0 h-full w-full object-cover" src={image} alt={alt} />
+            <img className={`absolute inset-0 h-full w-full object-cover ${imageClassName}`} src={image} alt={alt} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
             <div className="relative mx-auto flex h-full min-h-[clamp(480px,60vh,680px)] w-[min(1180px,calc(100%_-_32px))] flex-col justify-end pb-8 text-white max-[760px]:w-[min(100%_-_24px,680px)]">
                 <div className="max-w-[840px]">
