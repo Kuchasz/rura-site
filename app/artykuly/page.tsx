@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { HeroWithVisual, Kicker, KickerLight, Lead, Section } from "../../components/design";
+import { AuthorName } from "../../components/post-details";
 import { YearFilter } from "../../components/year-filter";
 import { getAllPosts } from "../../lib/mdx";
 
@@ -43,7 +44,7 @@ export default function AllPostsPage() {
                             <Link className="grid grid-cols-[118px_1fr_auto] items-center gap-3.5 rounded-lg border border-stone-200 bg-white p-3.5 text-gray-700 hover:border-orange-600 max-[760px]:grid-cols-1" href={`/artykul/${post.alias}`}>
                                 <time className="font-black text-orange-600">{formatDate(post.date)}</time>
                                 <strong className="text-gray-900 leading-[1.15]">{post.title}</strong>
-                                <span>{post.author}</span>
+                                <AuthorName author={post.author} />
                             </Link>
                         ),
                     }))}
