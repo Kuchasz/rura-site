@@ -1,69 +1,71 @@
 "use client";
 
-import classNames from "classnames";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Shell } from "./design";
-import { menuItems } from "./menu-items";
 import { Partners } from "./partners";
 
-const isActivePath = (activePath: string, to: string) => (to === "/" ? activePath === to : activePath.startsWith(to));
+const footerGroups = [
+    {
+        title: "Wydarzenie",
+        links: [
+            { href: "/", label: "Aktualności" },
+            { href: "/trasa", label: "Trasa" },
+            { href: "/artykul/rura-na-kocierz-2026-zapowiedz", label: "Zapisy wkrótce" },
+        ],
+    },
+    {
+        title: "Archiwum",
+        links: [
+            { href: "/archiwum", label: "Wszystkie edycje" },
+            { href: "/edycja25", label: "Edycja 2025" },
+            { href: "/edycja23", label: "Edycja 2023" },
+            { href: "/edycja22", label: "Edycja 2022" },
+        ],
+    },
+    {
+        title: "Materiały",
+        links: [
+            { href: "/artykuly", label: "Artykuły" },
+            { href: "/zdjecia", label: "Zdjęcia" },
+            { href: "mailto:biuro@rura.cc", label: "Email" },
+            { href: "https://www.facebook.com/ruranakocierz", label: "Facebook", external: true },
+        ],
+    },
+];
 
 export const Footer = () => {
-    const pathname = usePathname() || "/";
-
     return (
         <footer>
             <Partners />
             <div className="border-t border-stone-200 py-8">
-                <Shell className="grid grid-cols-[minmax(170px,.7fr)_minmax(0,1.5fr)_auto] items-center gap-6 pb-8 max-[760px]:grid-cols-1 max-[760px]:items-start">
-                    <div className="grid gap-2.5">
+                <Shell className="grid grid-cols-[minmax(220px,1.2fr)_repeat(3,minmax(120px,.8fr))] items-start gap-6 pb-8 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
+                    <div className="grid max-w-sm gap-4">
                         <Link href="/">
                             <img className="h-auto w-32" src="/assets/logo-sm.png" alt="Rura na Kocierz" />
                         </Link>
+                        <p className="m-0 text-sm leading-normal text-gray-500">
+                            Jazda indywidualna na czas z Łękawicy na Kocierz.
+                        </p>
                     </div>
-                    <nav aria-label="Stopka" className="flex flex-wrap justify-center gap-2 max-[760px]:justify-start">
-                        {menuItems.map(item => (
-                            <Link
-                                key={item.path}
-                                href={item.path}
-                                className={classNames(
-                                    "rounded-lg border border-transparent px-2.5 py-2 text-xs font-semibold uppercase tracking-wider transition-colors hover:border-stone-200 hover:bg-stone-100",
-                                    { "text-orange-600": isActivePath(pathname, item.path) }
-                                )}
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-                        <Link
-                            href="/artykuly"
-                            className="rounded-lg border border-transparent px-2.5 py-2 text-xs font-semibold uppercase tracking-wider transition-colors hover:border-stone-200 hover:bg-stone-100"
-                        >
-                            Artykuły
-                        </Link>
-                    </nav>
-                    <div className="flex gap-2">
-                        <a
-                            href="mailto:biuro@rura.cc"
-                            className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
-                            aria-label="Email"
-                        >
-                            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </a>
-                        <a
-                            href="https://www.facebook.com/ruranakocierz"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
-                            aria-label="Facebook"
-                        >
-                            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                    </div>
+                    {footerGroups.map(group => (
+                        <nav key={group.title} aria-label={group.title} className="grid gap-2.5">
+                            <h3 className="text-sm font-semibold leading-normal tracking-normal">{group.title}</h3>
+                            <ul className="grid gap-2">
+                                {group.links.map(link => (
+                                    <li key={link.href}>
+                                        <Link
+                                            href={link.href}
+                                            target={link.external ? "_blank" : undefined}
+                                            rel={link.external ? "noopener noreferrer" : undefined}
+                                            className="text-sm leading-normal text-gray-500 transition-colors hover:text-orange-600"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    ))}
                 </Shell>
                 <Shell className="border-t border-stone-200 pt-6">
                     <p className="m-0 text-xs text-gray-500">

@@ -46,7 +46,7 @@ export const Header = () => {
             <Shell className="relative flex h-[64px] items-center justify-between gap-4 md:h-[68px]">
                 <Link className="relative z-10 block h-full w-[225px] max-w-[48vw] shrink-0 focus:outline-none" href="/" onClick={() => setMenuOpen(false)}>
                     <img
-                        className="absolute left-0 top-1/2 h-auto w-[225px] max-w-[48vw] -translate-y-1/3 object-contain"
+                        className="absolute left-0 top-1/2 h-auto w-[225px] max-w-[48vw] -translate-y-1/4 object-contain"
                         src="/assets/logo-md.png"
                         alt="Rura na Kocierz"
                     />
