@@ -41,9 +41,9 @@ export default function AllPostsPage() {
                         key: post.alias,
                         year: new Date(post.date).getFullYear().toString(),
                         content: (
-                            <Link className="grid grid-cols-[118px_1fr_auto] items-center gap-3.5 rounded-lg border border-stone-200 bg-white p-3.5 text-gray-700 hover:border-orange-600 max-[760px]:grid-cols-1" href={`/artykul/${post.alias}`}>
-                                <time className="font-black text-orange-600">{formatDate(post.date)}</time>
-                                <strong className="text-gray-900 leading-[1.15]">{post.title}</strong>
+                            <Link className="grid grid-cols-[128px_1fr_auto] items-center gap-4 rounded-xl border border-transparent bg-white p-4 shadow-sm transition-all duration-200 hover:border-orange-600 hover:shadow-md max-[760px]:grid-cols-1 max-[760px]:gap-3" href={`/artykul/${post.alias}`}>
+                                <time className="font-mono text-sm font-semibold tracking-tight text-orange-600">{formatDate(post.date)}</time>
+                                <strong className="text-base font-semibold leading-snug text-zinc-900">{post.title}</strong>
                                 <AuthorName author={post.author} />
                             </Link>
                         ),
