@@ -153,12 +153,28 @@ export function SectionHead({ children, action }: { children: ReactNode; action?
     );
 }
 
-export function StatCard({ label, value, children, negative = false }: { label: string; value: string; children?: ReactNode; negative?: boolean }) {
+export function StatCard({
+    label,
+    value,
+    children,
+    negative = false,
+    className = "",
+}: {
+    label: string;
+    value: string;
+    children?: ReactNode;
+    negative?: boolean;
+    className?: string;
+}) {
     return (
-        <Card className={`p-[18px] ${negative ? "!border-gray-900 !bg-gray-900 text-white" : ""}`}>
-            <span className={`text-xs uppercase ${negative ? "text-gray-400" : "text-gray-500"}`}>{label}</span>
-            <strong className="mt-2 block text-[clamp(28px,4vw,46px)] leading-none">{value}</strong>
-            {children}
+        <Card className={`flex min-h-[190px] flex-col p-[18px] ${negative ? "!border-gray-900 !bg-gray-900 text-white" : ""} ${className}`}>
+            <span className={`text-xs font-extrabold uppercase tracking-[.12em] ${negative ? "text-gray-400" : "text-gray-500"}`}>{label}</span>
+            <strong className="mt-3 block text-[clamp(28px,4vw,46px)] leading-none">{value}</strong>
+            {children ? (
+                <div className={`mt-5 flex flex-1 flex-col text-[15px] font-semibold leading-snug ${negative ? "text-gray-300" : "text-gray-600"}`}>
+                    {children}
+                </div>
+            ) : null}
         </Card>
     );
 }

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Actions, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, StatCard } from "../components/design";
+import { Actions, ButtonLink, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, StatCard } from "../components/design";
 import { PostDetails } from "../components/post-details";
 import { getAllPosts } from "../lib/mdx";
 
@@ -24,6 +24,14 @@ const ArticleCard = ({ article }: { article: ReturnType<typeof getAllPosts>[0] }
 export default function HomePage() {
     const sortedPosts = getAllPosts();
     const [mainPost, ...posts] = sortedPosts;
+    const calendarParams = new URLSearchParams({
+        action: "TEMPLATE",
+        text: "Rura na Kocierz 2026",
+        dates: "20260913/20260914",
+        details: "Jazda indywidualna na czas Rura na Kocierz. Start w parku w Gminie Łękawica, meta pod Hotelem Kocierz. Więcej informacji na: https://rura.cc",
+        location: "Łękawica + Kocierz",
+    });
+    const calendarUrl = `https://calendar.google.com/calendar/render?${calendarParams.toString()}`;
 
     return (
         <>
@@ -69,13 +77,37 @@ export default function HomePage() {
                 <SectionHead>
                     <>
                         <Kicker>Rura na Kocierz 2026</Kicker>
-                        <h2>Najważniejsze dane</h2>
+                        <h2>Najważniejsze informacje</h2>
                     </>
                 </SectionHead>
-                <div className="grid grid-cols-3 gap-3.5 max-[760px]:grid-cols-1">
-                    <StatCard label="Data" value="13.09.2026" />
-                    <StatCard label="Miejsce" value="Łękawica + Kocierz" negative />
-                    <StatCard label="Trasa" value="11 km" />
+                <div className="grid grid-cols-3 gap-[18px] max-[760px]:grid-cols-1">
+                    <StatCard label="Data" value="13.09.2026" className="min-h-[320px] p-[28px]">
+                        <p>Piękna jesienna aura Beskidów gwarantowana</p>
+                        <div className="mt-auto pt-7">
+                            <ButtonLink className="w-full" href={calendarUrl} target="_blank" rel="noreferrer">
+                                Dodaj do kalendarza
+                            </ButtonLink>
+                        </div>
+                    </StatCard>
+                    <StatCard label="Miejsce" value="Łękawica + Kocierz" negative className="min-h-[320px] p-[28px]">
+                        <p>Startujemy w parku i finiszujemy na 7% podjeździe pod hotel</p>
+                        <div className="mt-auto grid gap-2.5 pt-7">
+                            <ButtonLink className="w-full" primary href="https://kocierz.pl/" target="_blank" rel="noreferrer">
+                                Hotel Kocierz
+                            </ButtonLink>
+                            <ButtonLink className="w-full" href="https://lekawica.com.pl/" target="_blank" rel="noreferrer">
+                                Gmina Łękawica
+                            </ButtonLink>
+                        </div>
+                    </StatCard>
+                    <StatCard label="Trasa" value="11 km" className="min-h-[320px] p-[28px]">
+                        <p>Uzupełnione o 350m wzniosu i ulicę Widokową</p>
+                        <div className="mt-auto pt-7">
+                            <ButtonRoute className="w-full" href="/trasa">
+                                Zobacz trasę
+                            </ButtonRoute>
+                        </div>
+                    </StatCard>
                 </div>
             </Section>
         </>
