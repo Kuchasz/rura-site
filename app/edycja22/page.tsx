@@ -2,6 +2,10 @@ import { Actions, ButtonLink, ButtonRoute, HeroWithVisual, Kicker, KickerLight, 
 
 export const dynamic = "force-static";
 
+export const metadata = {
+    title: "Edycja 2022",
+};
+
 const routes = [
     {
         name: "Start wspólny - PRO",

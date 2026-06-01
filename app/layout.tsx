@@ -12,7 +12,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-    title: "Aktualności",
+    title: {
+        default: "Rura na Kocierz",
+        template: "%s | Rura na Kocierz",
+    },
     description: "Rura.cc - etapowy wyścig kolarski",
     icons: {
         icon: [

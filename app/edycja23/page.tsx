@@ -2,6 +2,10 @@ import { Actions, ButtonLink, ButtonRoute, HeroWithVisual, Kicker, KickerLight, 
 
 export const dynamic = "force-static";
 
+export const metadata = {
+    title: "Edycja 2023",
+};
+
 export default function Edycja23() {
     return (
         <>

@@ -2,6 +2,10 @@ import { HeroWithVisual, Kicker, KickerLight, Lead, Panel, Section } from "../..
 
 export const dynamic = "force-static";
 
+export const metadata = {
+    title: "Program",
+};
+
 const days = [
     {
         date: "8.04.2022, piątek",

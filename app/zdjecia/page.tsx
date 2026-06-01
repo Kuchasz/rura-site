@@ -3,6 +3,10 @@ import { HeroWithVisual, KickerLight, Lead, Section } from "../../components/des
 
 export const dynamic = "force-static";
 
+export const metadata = {
+    title: "Zdjęcia",
+};
+
 const rura = (url: string) => `https://eu2.contabostorage.com/b198b89caced412197f2059257d331be:wed-gal-eu-001/rura/${url}`;
 
 type Item = {

@@ -36,6 +36,16 @@ interface ZdjeciaProps {
     params: Promise<{ dir: string }>;
 }
 
+export async function generateMetadata({ params }: ZdjeciaProps) {
+    const { dir } = await params;
+    const directory = await getDirectory(dir);
+
+    return {
+        title: directory?.title ? `${directory.title} - zdjęcia` : "Galeria zdjęć",
+        description: directory?.description,
+    };
+}
+
 export default async function ZdjeciaDirPage({ params }: ZdjeciaProps) {
     const { dir } = await params;
     const directory = await getDirectory(dir);
