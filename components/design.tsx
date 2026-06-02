@@ -150,7 +150,7 @@ export function SectionHead({ children, action }: { children: ReactNode; action?
     return (
         <div className="mb-[26px] flex items-end justify-between gap-[22px] max-[760px]:block">
             <div>{children}</div>
-            {action}
+            {action ? <div className="shrink-0 max-[760px]:mt-5">{action}</div> : null}
         </div>
     );
 }

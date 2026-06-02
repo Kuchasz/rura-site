@@ -35,7 +35,7 @@ async function getDirectories(): Promise<Directory[]> {
                 items: x.map((i: string) => ({
                     thumb: rura(`${d.dir}/thumb/${i}`),
                     big: rura(`${d.dir}/big/${i}`),
-                    full: rura(`${d.dir}/full/${i}`),
+                    full: rura(`${d.dir}/big/${i}`),
                 })),
             };
         })

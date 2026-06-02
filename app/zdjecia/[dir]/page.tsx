@@ -27,7 +27,7 @@ async function getDirectory(dir: string): Promise<Directory> {
     const items = photosUrls.map((i: string) => ({
         thumb: rura(`${directory.dir}/thumb/${i}`),
         big: rura(`${directory.dir}/big/${i}`),
-        full: rura(`${directory.dir}/full/${i}`),
+        full: rura(`${directory.dir}/big/${i}`),
     }));
     return { ...directory, items };
 }
