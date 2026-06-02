@@ -68,7 +68,7 @@ export function Countdown({ targetDate }: { targetDate: string }) {
                 <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">Nie czekaj na ostatnią prostą</p>
                 <Link
                     href="/rejestracja"
-                    className="mt-3 inline-flex min-h-[58px] w-full items-center justify-center rounded-lg border border-orange-600 bg-orange-600 px-6 py-4 text-center text-lg font-bold leading-none text-white shadow-[0_16px_34px_rgb(234_88_12_/_0.24)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-700 hover:bg-orange-700"
+                    className="mt-3 inline-flex min-h-[58px] w-full items-center justify-center rounded-lg border border-orange-600 bg-orange-600 px-6 py-4 text-center text-lg font-medium leading-none text-white shadow-[0_16px_34px_rgb(234_88_12_/_0.24)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-700 hover:bg-orange-700"
                 >
                     Zapisz się na start
                 </Link>
