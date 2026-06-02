@@ -6,7 +6,7 @@ export const menuItems = [
     // { path: "/program", label: "program" },
     // { path: "/zapisy", label: "zapisy" },
     // { path: "/zegar", label: "zegar" },
-    // { path: "/regulamin", label: "regulamin" },
+    { path: "/regulamin", label: "regulamin" },
     // { path: "/live", label: "na żywo" },
     // { path: "/wyniki", label: "wyniki" },
     { path: "/archiwum", label: "archiwum" },
