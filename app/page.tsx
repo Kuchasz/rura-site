@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 };
 
 const ArticleCard = ({ article }: { article: ReturnType<typeof getAllPosts>[0] }) => (
-    <Card className="overflow-hidden">
+    <Card className="flex h-full flex-col overflow-hidden">
         <img className="aspect-[16/10] w-full object-cover" src={`/assets/posts/${article.photo}`} alt={article.title} />
-        <div className="p-[18px]">
+        <div className="flex flex-1 flex-col p-[18px]">
             <PostDetails date={new Date(article.date)} author={article.author} />
             <h3 className="mb-2.5">{article.title}</h3>
             <p className="mb-3.5 text-base leading-normal text-gray-500">{article.excerpt}</p>
-            <ButtonRoute href={`/artykul/${article.alias}`}>
+            <ButtonRoute className="mt-auto w-full text-sm" href={`/artykul/${article.alias}`}>
                 Czytaj
             </ButtonRoute>
         </div>
