@@ -132,7 +132,9 @@ export const Header = () => {
                     aria-hidden={!menuOpen}
                     className={classNames(
                         "absolute inset-x-0 z-30 flex max-h-[calc(100dvh-84px)] origin-top flex-col items-stretch gap-0.5 overflow-y-auto overscroll-contain rounded-xl border border-stone-200 bg-white p-2 shadow-[0_1px_0_rgb(17_24_39_/_0.04),0_12px_28px_rgb(17_24_39_/_0.06)] transition-[top,opacity] duration-200 ease-out motion-reduce:transition-none lg:hidden",
-                        menuOpen ? "top-[calc(100%+8px)] opacity-100" : "pointer-events-none top-[calc(100%+2px)] opacity-0"
+                        menuOpen
+                            ? "top-[calc(100%+16px)] opacity-100 max-[760px]:top-[calc(100%+12px)]"
+                            : "pointer-events-none top-[calc(100%+10px)] opacity-0 max-[760px]:top-[calc(100%+6px)]"
                     )}
                     style={{ transitionDelay: menuOpen ? "0ms" : `${mobileContentDelay}ms` }}
                 >
