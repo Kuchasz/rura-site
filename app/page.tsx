@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { Countdown } from "../components/countdown";
 import { Actions, ButtonLink, ButtonRoute, Card, HeroWithVisual, Kicker, KickerLight, Lead, Section, SectionHead, Shell, StatCard } from "../components/design";
+import { EditionVideo2025 } from "../components/edition-video-2025";
+import { Partners } from "../components/partners";
 import { PostDetails } from "../components/post-details";
 import { getAllPosts } from "../lib/mdx";
 
@@ -129,6 +131,9 @@ export default function HomePage() {
                     <Countdown targetDate="2026-09-13T11:00:00+02:00" />
                 </Shell>
             </section>
+
+            <EditionVideo2025 />
+            <Partners />
         </>
     );
 }

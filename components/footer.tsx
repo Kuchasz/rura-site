@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Shell } from "./design";
-import { Partners } from "./partners";
 
 const footerGroups = [
     {
@@ -38,7 +37,6 @@ const footerGroups = [
 export const Footer = () => {
     return (
         <footer>
-            <Partners />
             <div className="border-t border-stone-200 py-8">
                 <Shell className="grid grid-cols-[minmax(220px,1.2fr)_repeat(3,minmax(120px,.8fr))] items-start gap-6 pb-8 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
                     <div className="grid max-w-sm gap-4">
