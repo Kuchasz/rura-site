@@ -12,6 +12,7 @@ const footerGroups = [
             { href: "/trasa", label: "Trasa" },
             { href: "/regulamin", label: "Regulamin" },
             { href: "/rejestracja", label: "Zapisz się!" },
+            { href: "/zapisani", label: "Zapisani zawodnicy" },
         ],
     },
     {

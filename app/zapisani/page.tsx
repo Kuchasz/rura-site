@@ -1,37 +1,37 @@
 import { HeroWithVisual, Kicker, KickerLight, Lead, Panel, Section, SectionHead } from "../../components/design";
-import { RegistrationEmbed } from "../../components/race-result";
+import { ParticipantsEmbed } from "../../components/race-result";
 
 export const dynamic = "force-static";
 
 export const metadata = {
-    title: "Rejestracja",
+    title: "Zapisani zawodnicy",
 };
 
-export default function RegistrationPage() {
+export default function ZapisaniPage() {
     return (
         <>
             <HeroWithVisual
                 image="/assets/hero_zapisy.jpg"
                 alt="Zawodnicy na trasie Rura na Kocierz"
-                pill="Zapisy"
-                description="Rejestracja zawodników na Rurę na Kocierz."
+                pill="Lista zgłoszeń"
+                description="Aktualna lista zawodników zapisanych na Rurę na Kocierz."
             >
-                <KickerLight>Rejestracja</KickerLight>
-                <h1>Zapisz się na Rurę na Kocierz.</h1>
+                <KickerLight>Zapisani</KickerLight>
+                <h1>Zapisani zawodnicy.</h1>
                 <Lead className="text-white/90">
-                    Formularz zapisów obsługuje S:Time. Wypełnij dane zawodnika, a opłatę startową zrealizujesz na końcu procesu rejestracji.
+                    Sprawdź aktualną listę zgłoszeń obsługiwaną przez S:Time.
                 </Lead>
             </HeroWithVisual>
 
             <Section>
                 <SectionHead>
                     <>
-                        <Kicker>Formularz zgłoszeniowy</Kicker>
-                        <h2>Rejestracja zawodnika</h2>
+                        <Kicker>Lista zgłoszeń</Kicker>
+                        <h2>Zapisani zawodnicy</h2>
                     </>
                 </SectionHead>
                 <Panel>
-                    <RegistrationEmbed />
+                    <ParticipantsEmbed />
                 </Panel>
             </Section>
         </>
