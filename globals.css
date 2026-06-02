@@ -34,9 +34,37 @@
 
 .rura-video-band-pattern {
   background:
-    linear-gradient(90deg, rgb(0 0 0 / 0.2), rgb(0 0 0 / 0.82)),
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.08) 0 2px, transparent 2px 13px),
-    repeating-linear-gradient(0deg, transparent 0 86px, rgb(255 255 255 / 0.045) 86px 88px);
+    linear-gradient(90deg, rgb(3 7 18 / 0.12), rgb(3 7 18 / 0.82)),
+    linear-gradient(135deg, transparent 18.75%, rgb(255 255 255 / 0.045) 0 31.25%, transparent 0),
+    linear-gradient(45deg, transparent 18.75%, rgb(255 255 255 / 0.045) 0 31.25%, transparent 0),
+    linear-gradient(135deg, transparent 18.75%, rgb(255 255 255 / 0.045) 0 31.25%, transparent 0),
+    linear-gradient(45deg, transparent 18.75%, rgb(255 255 255 / 0.045) 0 31.25%, transparent 0);
+  background-color: var(--color-gray-950);
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    30px 30px,
+    30px 30px;
+  background-size: auto, 60px 60px, 60px 60px, 60px 60px, 60px 60px;
+  animation: rura-video-pattern-slide 9s linear infinite;
+}
+
+@keyframes rura-video-pattern-slide {
+  to {
+    background-position:
+      0 0,
+      60px 0,
+      60px 0,
+      90px 30px,
+      90px 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rura-video-band-pattern {
+    animation: none;
+  }
 }
 
 @layer base {
