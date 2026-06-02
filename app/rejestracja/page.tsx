@@ -19,7 +19,7 @@ export default function RegistrationPage() {
                 <KickerLight>Rejestracja</KickerLight>
                 <h1>Zapisz się na Rurę na Kocierz.</h1>
                 <Lead className="text-white/90">
-                    Formularz zapisów obsługuje S:Time. Wypełnij dane zawodnika i potwierdź start bezpośrednio na stronie.
+                    Formularz zapisów obsługuje S:Time. Wypełnij dane zawodnika, a opłatę startową zrealizujesz na końcu procesu rejestracji.
                 </Lead>
             </HeroWithVisual>
 

@@ -45,11 +45,11 @@ export default function HomePage() {
                 <KickerLight>Aktualności</KickerLight>
                 <h1>{mainPost.title}</h1>
                 <Actions>
-                    <ButtonRoute primary href={`/artykul/${mainPost.alias}`}>
-                        Czytaj więcej
+                    <ButtonRoute primary href="/rejestracja">
+                        Zapisz się!
                     </ButtonRoute>
-                    <ButtonRoute href="/trasa">
-                        Zobacz trasę
+                    <ButtonRoute href={`/artykul/${mainPost.alias}`}>
+                        Czytaj więcej
                     </ButtonRoute>
                 </Actions>
             </HeroWithVisual>
