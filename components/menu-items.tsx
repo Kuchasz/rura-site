@@ -1,5 +1,5 @@
 export const menuItems = [
-    { path: "/", label: "aktualności" },
+    { path: "/", label: "news" },
     { path: "/trasa", label: "trasa" },
     // { path: "/rejestracja", label: "zapisy" },
     { path: "/zapisani", label: "zapisani" },
