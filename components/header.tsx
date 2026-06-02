@@ -32,11 +32,11 @@ export const Header = () => {
                 </Link>
             ))}
             <Link
-                href="/artykul/rura-na-kocierz-2026-zapowiedz"
+                href="/rejestracja"
                 onClick={() => setMenuOpen(false)}
                 className="rounded-lg border border-orange-600 bg-orange-600 px-3 py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:border-orange-700 hover:bg-orange-700 md:ml-3"
             >
-                Zapisy wkrótce
+                Zapisz się!
             </Link>
         </>
     );

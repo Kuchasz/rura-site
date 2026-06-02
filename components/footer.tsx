@@ -11,7 +11,7 @@ const footerGroups = [
             { href: "/", label: "Aktualności" },
             { href: "/trasa", label: "Trasa" },
             { href: "/regulamin", label: "Regulamin" },
-            { href: "/artykul/rura-na-kocierz-2026-zapowiedz", label: "Zapisy wkrótce" },
+            { href: "/rejestracja", label: "Zapisz się!" },
         ],
     },
     {

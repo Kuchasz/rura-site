@@ -1,6 +1,7 @@
 export const menuItems = [
     { path: "/", label: "aktualności" },
     { path: "/trasa", label: "trasa" },
+    // { path: "/rejestracja", label: "zapisy" },
     // { path: "/lista", label: "zapisani" },
     // { path: "/start-list", label: "lista startowa" },
     // { path: "/program", label: "program" },
