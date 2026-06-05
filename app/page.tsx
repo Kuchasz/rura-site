@@ -30,7 +30,7 @@ export default function HomePage() {
     const calendarParams = new URLSearchParams({
         action: "TEMPLATE",
         text: "Rura na Kocierz 2026",
-        dates: "20260913/20260914",
+        dates: "20260920/20260921",
         details: "Jazda indywidualna na czas Rura na Kocierz. Start w parku w Gminie Łękawica, meta pod Kocierz Resort. Więcej informacji na: https://rura.cc",
         location: "Łękawica + Kocierz",
     });
@@ -87,7 +87,7 @@ export default function HomePage() {
                     </>
                 </SectionHead>
                 <div className="grid grid-cols-3 gap-[18px] max-[760px]:grid-cols-1">
-                    <StatCard label="Data" value="13.09.2026" className="min-h-[320px] p-[28px]">
+                    <StatCard label="Data" value="20.09.2026" className="min-h-[320px] p-[28px]">
                         <p>Piękna jesienna aura Beskidów gwarantowana</p>
                         <div className="mt-auto pt-7">
                             <ButtonLink className="w-full" href={calendarUrl} target="_blank" rel="noreferrer">
@@ -128,7 +128,7 @@ export default function HomePage() {
                             </p>
                         </>
                     </SectionHead>
-                    <Countdown targetDate="2026-09-13T11:00:00+02:00" />
+                    <Countdown targetDate="2026-09-20T11:00:00+02:00" />
                 </Shell>
             </section>
 
