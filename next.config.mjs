@@ -1,4 +1,5 @@
 import createMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm'
 
 /**
  * Don't be scared of the generics here.
@@ -27,7 +28,7 @@ const nextConfig = defineNextConfig({
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
   },
 });

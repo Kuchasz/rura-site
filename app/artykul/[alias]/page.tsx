@@ -3,6 +3,7 @@ import { getPostByAlias } from "../../../lib/mdx";
 import { Slogan } from "../../../components/slogan";
 import { notFound } from "next/navigation";
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { useMDXComponents } from '../../../components/mdx-components'
 import { Section } from "../../../components/design";
 
@@ -32,7 +33,15 @@ export default async function ArticlePage({ params }: Props) {
                 <h2>{post.title}</h2>
                 <PostDetails date={new Date(post.date)} author={post.author} />
                 <div className="mt-8 max-w-prose text-base font-normal leading-normal text-gray-900 [&_a]:font-semibold [&_a]:text-orange-600 [&_a]:underline-offset-2 [&_a:hover]:underline [&_iframe]:rounded-xl [&_img]:rounded-xl [&_li+li]:mt-2 [&_ol]:my-4 [&_ol]:pl-5 [&_p]:mb-4 [&_p]:mt-0 [&_ul]:my-4 [&_ul]:pl-5">
-                    <MDXRemote source={post.content} components={components} />
+                    <MDXRemote
+                        source={post.content}
+                        components={components}
+                        options={{
+                            mdxOptions: {
+                                remarkPlugins: [remarkGfm],
+                            },
+                        }}
+                    />
                 </div>
             </Section>
         </>

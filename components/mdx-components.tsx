@@ -91,6 +91,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </blockquote>
     ),
+    // Custom styling for tables
+    table: ({ children, ...props }) => (
+      <div className="my-5 overflow-x-auto rounded-lg border border-stone-200">
+        <table className="w-full border-collapse text-left text-sm" {...props}>
+          {children}
+        </table>
+      </div>
+    ),
+    thead: ({ children, ...props }) => (
+      <thead className="bg-stone-100 text-gray-900" {...props}>
+        {children}
+      </thead>
+    ),
+    th: ({ children, ...props }) => (
+      <th className="border-b border-stone-200 px-4 py-3 font-semibold" {...props}>
+        {children}
+      </th>
+    ),
+    td: ({ children, ...props }) => (
+      <td className="border-b border-stone-100 px-4 py-3 align-top last:border-b-0" {...props}>
+        {children}
+      </td>
+    ),
     // Custom styling for code blocks
     code: ({ children, ...props }) => (
       <code className="rounded bg-stone-100 px-2 py-1 text-sm" {...props}>
