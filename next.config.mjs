@@ -1,6 +1,3 @@
-import createMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
-
 /**
  * Don't be scared of the generics here.
  * All they do is to give us autocompletion when using this.
@@ -15,7 +12,6 @@ function defineNextConfig(config) {
 
 const nextConfig = defineNextConfig({
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [
       { hostname: "localhost" },
@@ -26,11 +22,4 @@ const nextConfig = defineNextConfig({
   }
 });
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
-  },
-});
-
-export default withMDX(nextConfig);
+export default nextConfig;

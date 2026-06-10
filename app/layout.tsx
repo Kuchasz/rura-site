@@ -2,14 +2,6 @@ import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import "../globals.css";
 import { ReactNode } from "react";
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-    subsets: ["latin", "latin-ext"],
-    weight: ["400", "500", "600", "700", "800", "900"],
-    variable: "--font-inter",
-    display: "swap",
-});
 
 export const metadata = {
     title: {
@@ -53,7 +45,7 @@ export default function RootLayout({
     children: ReactNode;
 }) {
     return (
-        <html className={`${inter.variable} w-full h-full`} lang="pl">
+        <html className="w-full h-full" lang="pl">
             <body className="w-full min-h-full flex flex-col bg-olive-100 text-gray-900">
                 <Header />
                 <main className="grow text-gray-900">{children}</main>
