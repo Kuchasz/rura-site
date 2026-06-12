@@ -8,13 +8,14 @@ import { ButtonClasses, Shell } from "./design";
 import { menuItems } from "./menu-items";
 
 const isActivePath = (activePath: string, to: string) => (to === "/" ? activePath === to : activePath.startsWith(to));
+const sentenceCase = (label: string) => label.charAt(0).toLocaleUpperCase("pl-PL") + label.slice(1);
 const mobileContentDelay = 100;
 
 export const Header = () => {
     const pathname = usePathname() || "/";
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const navItems = (variant: "desktop" | "mobile") => (
+    const regularNavItems = (variant: "desktop" | "mobile") => (
         <>
             {menuItems.map(item => (
                 <Link
@@ -24,32 +25,35 @@ export const Header = () => {
                     onClick={() => setMenuOpen(false)}
                     tabIndex={variant === "mobile" && !menuOpen ? -1 : undefined}
                     className={classNames(
-                        "rounded-lg border border-transparent text-xs font-semibold uppercase tracking-wider hover:border-stone-200 hover:bg-stone-100",
+                        "rounded-lg text-sm font-semibold text-gray-900 hover:text-orange-600",
                         variant === "mobile"
-                            ? "flex min-h-[38px] items-center px-3 py-2 leading-none transition-colors"
+                            ? "flex min-h-[38px] items-center px-3 py-2 text-left leading-none transition-colors"
                             : "px-2.5 py-2.5 transition-colors xl:px-3",
                         {
-                            "border-stone-200 bg-stone-100": isActivePath(pathname, item.path),
+                            "text-orange-600": isActivePath(pathname, item.path),
                         }
                     )}
                 >
-                    {item.label}
+                    {sentenceCase(item.label)}
                 </Link>
             ))}
-            <Link
-                href="/rejestracja"
-                onClick={() => setMenuOpen(false)}
-                tabIndex={variant === "mobile" && !menuOpen ? -1 : undefined}
-                className={classNames(
-                    "rounded-lg border border-orange-600 bg-orange-600 text-xs font-semibold uppercase tracking-wider text-white hover:border-orange-700 hover:bg-orange-700",
-                    variant === "mobile"
-                        ? "mt-1 flex min-h-[40px] items-center justify-center px-3 py-2 leading-none transition-colors"
-                        : "px-2.5 py-2.5 transition-colors lg:ml-2 xl:px-3",
-                )}
-            >
-                Zapisz się!
-            </Link>
         </>
+    );
+
+    const registrationCta = (variant: "desktop" | "mobile") => (
+        <Link
+            href="/rejestracja"
+            onClick={() => setMenuOpen(false)}
+            tabIndex={variant === "mobile" && !menuOpen ? -1 : undefined}
+            className={classNames(
+                "rounded-lg border border-orange-600 bg-orange-600 text-xs font-semibold uppercase tracking-wider text-white hover:border-orange-700 hover:bg-orange-700",
+                variant === "mobile"
+                    ? "mt-1 flex min-h-[40px] items-center justify-center px-3 py-2 leading-none transition-colors"
+                    : "px-2.5 py-2.5 transition-colors lg:ml-2 xl:px-3",
+            )}
+        >
+            Zapisz się!
+        </Link>
     );
 
     return (
@@ -100,31 +104,33 @@ export const Header = () => {
                     Menu
                 </button>
 
-                <nav aria-label="Główna nawigacja" className="hidden min-w-0 items-center gap-0.5 lg:flex xl:gap-1">
-                    {navItems("desktop")}
-                    <div className="ml-3 flex items-center gap-1">
-                        <a
-                            href="mailto:biuro@rura.cc"
-                            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
-                            aria-label="Email"
-                        >
-                            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </a>
-                        <a
-                            href="https://www.facebook.com/ruranakocierz"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
-                            aria-label="Facebook"
-                        >
-                            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                    </div>
+                <nav aria-label="Główna nawigacja" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 lg:flex xl:gap-1">
+                    {regularNavItems("desktop")}
                 </nav>
+
+                <div className="ml-auto hidden shrink-0 items-center gap-1 lg:flex">
+                    {registrationCta("desktop")}
+                    <a
+                        href="mailto:biuro@rura.cc"
+                        className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
+                        aria-label="Email"
+                    >
+                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/ruranakocierz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
+                        aria-label="Facebook"
+                    >
+                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
 
                 <nav
                     id="mobile-navigation"
@@ -145,7 +151,8 @@ export const Header = () => {
                         )}
                         style={{ transitionDelay: menuOpen ? `${mobileContentDelay}ms` : "0ms" }}
                     >
-                        {navItems("mobile")}
+                        {regularNavItems("mobile")}
+                        {registrationCta("mobile")}
                         <div
                             className={classNames(
                                 "mt-2 flex justify-center gap-2 border-t border-stone-200 pt-2.5 transition-opacity duration-150",
