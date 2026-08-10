@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 declare global {
     interface Window {
@@ -49,6 +49,11 @@ const raceResultPublishScripts = [
     "/event/viewelements/InlineBlockElement.js",
     "/event/viewelements/FavoriteElement.js",
     "/event/viewelements/PictureElement.js",
+];
+const requiredRaceResultPublishScripts = [
+    "lang",
+    "/RRPublish/RRPublish.js",
+    "/event/RRLib.js",
 ];
 
 export function RegistrationEmbed() {
@@ -120,38 +125,46 @@ export function RegistrationEmbed() {
 export function ParticipantsEmbed() {
     const containerRef = useRef<HTMLDivElement>(null);
     const initializedRef = useRef(false);
+    const participantsRef = useRef<InstanceType<NonNullable<typeof window.RRPublish2>> | null>(null);
     const loadedScriptsRef = useRef(new Set<string>());
-    const [scriptReady, setScriptReady] = useState(false);
+    const [scriptsLoaded, setScriptsLoaded] = useState(false);
 
-    const requiredScripts = ["lang", ...raceResultPublishScripts];
-
-    const initializeParticipants = useCallback(() => {
+    useEffect(() => {
         if (
+            !scriptsLoaded ||
             !containerRef.current ||
             !window.RRPublish2 ||
-            initializedRef.current ||
-            requiredScripts.some(script => !loadedScriptsRef.current.has(script))
+            initializedRef.current
         ) {
             return;
         }
 
-        const participants = new window.RRPublish2(
-            containerRef.current,
-            raceResultEventId,
-            raceResultBaseUrl,
-            raceResultLang,
-            "participants"
-        );
-        participants.ShowTimerLogo = true;
-        participants.ShowInfoText = false;
-        initializedRef.current = true;
-        setScriptReady(true);
-    }, [requiredScripts]);
+        const timeout = window.setTimeout(() => {
+            if (!containerRef.current || !window.RRPublish2 || initializedRef.current) {
+                return;
+            }
+
+            participantsRef.current = new window.RRPublish2(
+                containerRef.current,
+                raceResultEventId,
+                raceResultBaseUrl,
+                raceResultLang,
+                "participants"
+            );
+            participantsRef.current.ShowTimerLogo = true;
+            participantsRef.current.ShowInfoText = false;
+            initializedRef.current = true;
+        }, 100);
+
+        return () => window.clearTimeout(timeout);
+    }, [scriptsLoaded]);
 
     const markScriptReady = useCallback((script: string) => {
         loadedScriptsRef.current.add(script);
-        initializeParticipants();
-    }, [initializeParticipants]);
+        if (requiredRaceResultPublishScripts.every(required => loadedScriptsRef.current.has(required))) {
+            setScriptsLoaded(true);
+        }
+    }, []);
 
     return (
         <>
@@ -174,12 +187,12 @@ export function ParticipantsEmbed() {
                 />
             ))}
             <div className="min-h-[280px]">
-                {!scriptReady ? (
-                    <div className="flex min-h-[180px] items-center justify-center rounded-lg border border-dashed border-stone-300 bg-stone-50 px-6 text-center text-sm font-semibold uppercase tracking-wider text-gray-500">
+                {!scriptsLoaded ? (
+                    <div key="participants-loader" className="flex min-h-[180px] items-center justify-center rounded-lg border border-dashed border-stone-300 bg-stone-50 px-6 text-center text-sm font-semibold uppercase tracking-wider text-gray-500">
                         Ładowanie listy zapisanych
                     </div>
                 ) : null}
-                <div ref={containerRef} id="divRRPublish" className="RRPublish" />
+                <div key="participants-embed" ref={containerRef} id="divRRPublish" className="RRPublish" />
             </div>
         </>
     );
