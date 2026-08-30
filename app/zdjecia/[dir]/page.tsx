@@ -3,7 +3,7 @@ import { Shell } from "../../../components/design";
 
 export const dynamic = "force-dynamic";
 
-const rura = (url: string) => `https://eu2.contabostorage.com/b198b89caced412197f2059257d331be:wed-gal-eu-001/rura/${url}`;
+const rura = (url: string) => `https://wed-gal-waw-001.s3.waw.io.cloud.ovh.net/rura/${url}`;
 
 type Item = {
     thumb: string;
