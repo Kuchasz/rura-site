@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ButtonLink } from "./design";
 
 declare global {
     interface Window {
@@ -22,101 +23,168 @@ declare global {
             ShowTimerLogo: boolean;
             ShowInfoText: boolean;
         };
-        RRRSlangItems?: unknown;
     }
 }
 
 const raceResultEventId = 403640;
 const raceResultBaseUrl = "https://my.raceresult.com";
 const raceResultLang = "pl";
-const raceResultPublishScripts = [
-    "/RRPublish/RRPublish.js",
-    "/event/RRLib.js",
-    "/event/participantview/ParticipantView.js",
-    "/event/viewelements/CertificatesElement.js",
-    "/event/viewelements/CommentsElement.js",
-    "/event/viewelements/LegsElement.js",
-    "/event/viewelements/LinksElement.js",
-    "/event/viewelements/ListElement.js",
-    "/event/viewelements/PhotosElement.js",
-    "/event/viewelements/SplitsElement.js",
-    "/event/viewelements/BoxElement.js",
-    "/event/viewelements/HTMLElement.js",
-    "/event/viewelements/TextElement.js",
-    "/event/viewelements/FieldElement.js",
-    "/event/viewelements/ColumnsElement.js",
-    "/event/viewelements/FlexBoxElement.js",
-    "/event/viewelements/InlineBlockElement.js",
-    "/event/viewelements/FavoriteElement.js",
-    "/event/viewelements/PictureElement.js",
-];
-const requiredRaceResultPublishScripts = [
-    "lang",
-    "/RRPublish/RRPublish.js",
-    "/event/RRLib.js",
-];
+const raceResultLoadTimeout = 15_000;
+const raceResultUrls = {
+    registration: `${raceResultBaseUrl}/${raceResultEventId}/registration?lang=${raceResultLang}`,
+    participants: `${raceResultBaseUrl}/${raceResultEventId}/participants?lang=${raceResultLang}`,
+};
+const raceResultAssets = {
+    registrationScript: `${raceResultBaseUrl}/RRRegStart/RRRegStart.js?lang=${raceResultLang}`,
+    registrationStyle: `${raceResultBaseUrl}/RRRegStart/style.css`,
+    publishScript: `${raceResultBaseUrl}/RRPublish/RRPublish.js?lang=${raceResultLang}`,
+    publishStyle: `${raceResultBaseUrl}/RRPublish/style.css`,
+    componentsScript: `${raceResultBaseUrl}/RRComponents/RRLib.js?lang=${raceResultLang}`,
+    componentsStyle: `${raceResultBaseUrl}/RRComponents/style.css`,
+};
+
+type EmbedStatus = "loading" | "ready" | "error";
+
+function hasRaceResultError(container: HTMLElement) {
+    return /loading config failed|failed to fetch|load failed|networkerror|timeout|error:/i.test(
+        container.textContent ?? ""
+    );
+}
+
+function isRaceResultLoading(container: HTMLElement) {
+    const registrationLoader = container.querySelector<HTMLElement>("#divLoading");
+
+    return (
+        container.classList.contains("Loading") ||
+        (registrationLoader !== null && registrationLoader.style.display !== "none")
+    );
+}
+
+function useEmbedHealth(containerRef: React.RefObject<HTMLDivElement | null>) {
+    const [status, setStatus] = useState<EmbedStatus>("loading");
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) {
+            return;
+        }
+
+        const checkEmbed = () => {
+            if (hasRaceResultError(container)) {
+                setStatus("error");
+            } else if (container.childElementCount > 0 && !isRaceResultLoading(container)) {
+                setStatus("ready");
+            }
+        };
+        const observer = new MutationObserver(checkEmbed);
+        observer.observe(container, {
+            attributes: true,
+            attributeFilter: ["class", "style"],
+            childList: true,
+            subtree: true,
+        });
+
+        const timeout = window.setTimeout(() => {
+            setStatus(current => current === "ready" ? current : "error");
+        }, raceResultLoadTimeout);
+
+        checkEmbed();
+
+        return () => {
+            observer.disconnect();
+            window.clearTimeout(timeout);
+        };
+    }, [containerRef]);
+
+    return { status, setStatus };
+}
+
+function EmbedPlaceholder({
+    status,
+    label,
+    fallbackUrl,
+    fallbackLabel,
+}: {
+    status: EmbedStatus;
+    label: string;
+    fallbackUrl: string;
+    fallbackLabel: string;
+}) {
+    if (status === "ready") {
+        return null;
+    }
+
+    if (status === "error") {
+        return (
+            <div className="flex min-h-[220px] flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-orange-300 bg-orange-50 px-6 py-8 text-center">
+                <div>
+                    <p className="font-semibold text-gray-900">Nie udało się załadować treści z Race Result.</p>
+                    <p className="mt-1 text-sm text-gray-600">Otwórz ją bezpośrednio w serwisie Race Result.</p>
+                </div>
+                <ButtonLink primary href={fallbackUrl} target="_blank" rel="noopener noreferrer">
+                    {fallbackLabel}
+                </ButtonLink>
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex min-h-[220px] items-center justify-center rounded-lg border border-dashed border-stone-300 bg-stone-50 px-6 text-center text-sm font-semibold uppercase tracking-wider text-gray-500">
+            {label}
+        </div>
+    );
+}
 
 export function RegistrationEmbed() {
     const containerRef = useRef<HTMLDivElement>(null);
     const initializedRef = useRef(false);
-    const scriptReadyRef = useRef({
-        main: false,
-        lang: false,
-    });
-    const [scriptReady, setScriptReady] = useState(false);
+    const { status, setStatus } = useEmbedHealth(containerRef);
 
     const initializeRegistration = useCallback(() => {
         if (
             !containerRef.current ||
             !window.RRRegStart2 ||
-            !window.RRRSlangItems ||
-            !scriptReadyRef.current.main ||
-            !scriptReadyRef.current.lang ||
             initializedRef.current
         ) {
             return;
         }
 
-        const registration = new window.RRRegStart2(
-            containerRef.current,
-            raceResultEventId,
-            raceResultBaseUrl,
-            raceResultLang,
-            "registration"
-        );
-        registration.ShowTimerLogo = true;
-        registration.ShowInfoText = false;
-        initializedRef.current = true;
-        setScriptReady(true);
-    }, []);
-
-    const markScriptReady = useCallback((script: "main" | "lang") => {
-        scriptReadyRef.current[script] = true;
-        initializeRegistration();
-    }, [initializeRegistration]);
+        try {
+            const registration = new window.RRRegStart2(
+                containerRef.current,
+                raceResultEventId,
+                raceResultBaseUrl,
+                raceResultLang,
+                "registration"
+            );
+            registration.ShowTimerLogo = true;
+            registration.ShowInfoText = false;
+            initializedRef.current = true;
+        } catch {
+            setStatus("error");
+        }
+    }, [setStatus]);
 
     return (
         <>
-            <link rel="stylesheet" href={`${raceResultBaseUrl}/RRRegStart/style.css`} />
+            <link rel="stylesheet" href={raceResultAssets.registrationStyle} onError={() => setStatus("error")} />
             <Script
-                src={`${raceResultBaseUrl}/RRRegStart/lang.js?lang=${raceResultLang}`}
+                src={raceResultAssets.registrationScript}
                 strategy="afterInteractive"
-                onLoad={() => markScriptReady("lang")}
-                onReady={() => markScriptReady("lang")}
-            />
-            <Script
-                src={`${raceResultBaseUrl}/RRRegStart/RRRegStart.js`}
-                strategy="afterInteractive"
-                onLoad={() => markScriptReady("main")}
-                onReady={() => markScriptReady("main")}
+                onLoad={initializeRegistration}
+                onReady={initializeRegistration}
+                onError={() => setStatus("error")}
             />
             <div className="min-h-[360px]">
-                {!scriptReady ? (
-                    <div className="flex min-h-[220px] items-center justify-center rounded-lg border border-dashed border-stone-300 bg-stone-50 px-6 text-center text-sm font-semibold uppercase tracking-wider text-gray-500">
-                        Ładowanie formularza zapisów
-                    </div>
-                ) : null}
-                <div ref={containerRef} id="divRRRegStart" className="RRRegStart" />
+                <EmbedPlaceholder
+                    status={status}
+                    label="Ładowanie formularza zapisów"
+                    fallbackUrl={raceResultUrls.registration}
+                    fallbackLabel="Przejdź do rejestracji"
+                />
+                <div className={status === "error" ? "hidden" : undefined}>
+                    <div ref={containerRef} id="divRRRegStart" className="RRRegStart" />
+                </div>
             </div>
         </>
     );
@@ -125,74 +193,71 @@ export function RegistrationEmbed() {
 export function ParticipantsEmbed() {
     const containerRef = useRef<HTMLDivElement>(null);
     const initializedRef = useRef(false);
-    const participantsRef = useRef<InstanceType<NonNullable<typeof window.RRPublish2>> | null>(null);
     const loadedScriptsRef = useRef(new Set<string>());
-    const [scriptsLoaded, setScriptsLoaded] = useState(false);
+    const { status, setStatus } = useEmbedHealth(containerRef);
 
-    useEffect(() => {
+    const initializeParticipants = useCallback(() => {
         if (
-            !scriptsLoaded ||
             !containerRef.current ||
             !window.RRPublish2 ||
+            loadedScriptsRef.current.size < 2 ||
             initializedRef.current
         ) {
             return;
         }
 
-        const timeout = window.setTimeout(() => {
-            if (!containerRef.current || !window.RRPublish2 || initializedRef.current) {
-                return;
-            }
-
-            participantsRef.current = new window.RRPublish2(
+        try {
+            const participants = new window.RRPublish2(
                 containerRef.current,
                 raceResultEventId,
                 raceResultBaseUrl,
                 raceResultLang,
-                "participants"
+                "participants",
+                undefined,
+                undefined,
+                true
             );
-            participantsRef.current.ShowTimerLogo = true;
-            participantsRef.current.ShowInfoText = false;
+            participants.ShowTimerLogo = true;
+            participants.ShowInfoText = false;
             initializedRef.current = true;
-        }, 100);
-
-        return () => window.clearTimeout(timeout);
-    }, [scriptsLoaded]);
+        } catch {
+            setStatus("error");
+        }
+    }, [setStatus]);
 
     const markScriptReady = useCallback((script: string) => {
         loadedScriptsRef.current.add(script);
-        if (requiredRaceResultPublishScripts.every(required => loadedScriptsRef.current.has(required))) {
-            setScriptsLoaded(true);
-        }
-    }, []);
+        initializeParticipants();
+    }, [initializeParticipants]);
 
     return (
         <>
-            <link rel="stylesheet" href={`${raceResultBaseUrl}/RRPublish/style.css`} />
-            <link rel="stylesheet" href={`${raceResultBaseUrl}/event/participantview/style.css`} />
-            <link rel="stylesheet" href={`${raceResultBaseUrl}/event/viewelements/style.css`} />
+            <link rel="stylesheet" href={raceResultAssets.componentsStyle} onError={() => setStatus("error")} />
+            <link rel="stylesheet" href={raceResultAssets.publishStyle} onError={() => setStatus("error")} />
             <Script
-                src={`${raceResultBaseUrl}/RRPublish/lang.js?lang=${raceResultLang}`}
+                src={raceResultAssets.componentsScript}
                 strategy="afterInteractive"
-                onLoad={() => markScriptReady("lang")}
-                onReady={() => markScriptReady("lang")}
+                onLoad={() => markScriptReady("components")}
+                onReady={() => markScriptReady("components")}
+                onError={() => setStatus("error")}
             />
-            {raceResultPublishScripts.map(script => (
-                <Script
-                    key={script}
-                    src={`${raceResultBaseUrl}${script}`}
-                    strategy="afterInteractive"
-                    onLoad={() => markScriptReady(script)}
-                    onReady={() => markScriptReady(script)}
-                />
-            ))}
+            <Script
+                src={raceResultAssets.publishScript}
+                strategy="afterInteractive"
+                onLoad={() => markScriptReady("publish")}
+                onReady={() => markScriptReady("publish")}
+                onError={() => setStatus("error")}
+            />
             <div className="min-h-[280px]">
-                {!scriptsLoaded ? (
-                    <div key="participants-loader" className="flex min-h-[180px] items-center justify-center rounded-lg border border-dashed border-stone-300 bg-stone-50 px-6 text-center text-sm font-semibold uppercase tracking-wider text-gray-500">
-                        Ładowanie listy zapisanych
-                    </div>
-                ) : null}
-                <div key="participants-embed" ref={containerRef} id="divRRPublish" className="RRPublish" />
+                <EmbedPlaceholder
+                    status={status}
+                    label="Ładowanie listy zapisanych"
+                    fallbackUrl={raceResultUrls.participants}
+                    fallbackLabel="Zobacz listę w Race Result"
+                />
+                <div className={status === "error" ? "hidden" : undefined}>
+                    <div key="participants-embed" ref={containerRef} id="divRRPublish" className="RRPublish" />
+                </div>
             </div>
         </>
     );
