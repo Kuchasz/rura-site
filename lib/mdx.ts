@@ -11,6 +11,7 @@ export interface PostMetadata {
   photo: string
   alias: string
   excerpt: string
+  layout?: 'racebook'
 }
 
 export interface Post extends PostMetadata {

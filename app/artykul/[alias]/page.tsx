@@ -6,6 +6,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { useMDXComponents } from '../../../components/mdx-components'
 import { Section } from "../../../components/design";
+import racebookStyles from "../../../components/racebook.module.css";
 
 // Force dynamic rendering to avoid React 19 SSR issues with embedded content
 export const dynamic = 'force-dynamic';
@@ -25,6 +26,18 @@ export default async function ArticlePage({ params }: Props) {
     }
 
     const components = useMDXComponents({});
+
+    if (post.layout === 'racebook') {
+        return (
+            <article className={racebookStyles.racebook}>
+                <MDXRemote
+                    source={post.content}
+                    components={components}
+                    options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+                />
+            </article>
+        );
+    }
 
     return (
         <>
