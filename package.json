@@ -28,7 +28,6 @@
         "classnames": "^2.5.1",
         "fuzzysort": "^3.1.0",
         "gray-matter": "^4.0.3",
-        "lightgallery": "^2.9.0",
         "next": "16.2.9",
         "next-mdx-remote": "^6.0.0",
         "nodemailer": "^9.1.0",

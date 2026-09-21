@@ -34,6 +34,7 @@ excerpt: "Short description for previews"
 - `photo`: Image filename (stored in `/public/assets/posts/`)
 - `alias`: URL slug for the article
 - `excerpt`: Short description used in article previews
+- `cta` (optional): `{ label, href }` for the primary button when the post is featured in the homepage hero. Defaults to "Zapisz się!" linking to `/rejestracja`
 
 ## Writing Content
 

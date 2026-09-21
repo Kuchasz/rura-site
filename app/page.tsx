@@ -27,6 +27,7 @@ const ArticleCard = ({ article }: { article: ReturnType<typeof getAllPosts>[0] }
 export default function HomePage() {
     const sortedPosts = getAllPosts();
     const [mainPost, ...posts] = sortedPosts;
+    const heroCta = mainPost.cta ?? { label: "Zapisz się!", href: "/rejestracja" };
     const calendarParams = new URLSearchParams({
         action: "TEMPLATE",
         text: "Rura na Kocierz 2026",
@@ -47,8 +48,8 @@ export default function HomePage() {
                 <KickerLight>Aktualności</KickerLight>
                 <h1>{mainPost.title}</h1>
                 <Actions>
-                    <ButtonRoute primary href="/rejestracja">
-                        Zapisz się!
+                    <ButtonRoute primary href={heroCta.href}>
+                        {heroCta.label}
                     </ButtonRoute>
                     <ButtonRoute href={`/artykul/${mainPost.alias}`}>
                         Czytaj więcej

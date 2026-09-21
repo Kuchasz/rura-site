@@ -12,6 +12,7 @@ export interface PostMetadata {
   alias: string
   excerpt: string
   layout?: 'racebook'
+  cta?: { label: string; href: string }
 }
 
 export interface Post extends PostMetadata {

@@ -10,6 +10,7 @@ import { menuItems } from "./menu-items";
 const isActivePath = (activePath: string, to: string) => (to === "/" ? activePath === to : activePath.startsWith(to));
 const sentenceCase = (label: string) => label.charAt(0).toLocaleUpperCase("pl-PL") + label.slice(1);
 const mobileContentDelay = 100;
+const showRegistrationCta = false;
 
 export const Header = () => {
     const pathname = usePathname() || "/";
@@ -21,7 +22,9 @@ export const Header = () => {
                 <Link
                     key={item.path}
                     href={item.path}
-                    aria-current={isActivePath(pathname, item.path) ? "page" : undefined}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    aria-current={!item.external && isActivePath(pathname, item.path) ? "page" : undefined}
                     onClick={() => setMenuOpen(false)}
                     tabIndex={variant === "mobile" && !menuOpen ? -1 : undefined}
                     className={classNames(
@@ -30,7 +33,7 @@ export const Header = () => {
                             ? "flex min-h-[38px] items-center px-3 py-2 text-left leading-none transition-colors"
                             : "px-2.5 py-2.5 transition-colors xl:px-3",
                         {
-                            "text-orange-600": isActivePath(pathname, item.path),
+                            "text-orange-600": !item.external && isActivePath(pathname, item.path),
                         }
                     )}
                 >
@@ -109,7 +112,7 @@ export const Header = () => {
                 </nav>
 
                 <div className="ml-auto hidden shrink-0 items-center gap-1 lg:flex">
-                    {registrationCta("desktop")}
+                    {showRegistrationCta && registrationCta("desktop")}
                     <a
                         href="mailto:biuro@rura.cc"
                         className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-lg border border-stone-200 bg-white text-gray-900 shadow-[0_1px_0_rgb(17_24_39_/_0.04)] transition-all duration-[180ms] hover:-translate-y-px hover:border-orange-600 hover:bg-orange-50 hover:shadow-[0_10px_24px_rgb(234_88_12_/_0.16)]"
@@ -152,7 +155,7 @@ export const Header = () => {
                         style={{ transitionDelay: menuOpen ? `${mobileContentDelay}ms` : "0ms" }}
                     >
                         {regularNavItems("mobile")}
-                        {registrationCta("mobile")}
+                        {showRegistrationCta && registrationCta("mobile")}
                         <div
                             className={classNames(
                                 "mt-2 flex justify-center gap-2 border-t border-stone-200 pt-2.5 transition-opacity duration-150",
